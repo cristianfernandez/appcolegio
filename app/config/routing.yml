@@ -1,0 +1,4 @@
+colegio_admin:
+    resource: "@ColegioAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
