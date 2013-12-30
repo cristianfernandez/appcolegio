@@ -1,3 +1,7 @@
+temas_temas:
+    resource: "@TemasTemasBundle/Resources/config/routing.yml"
+    prefix:   /temas
+
 colegio_admin:
     resource: "@ColegioAdminBundle/Resources/config/routing.yml"
     prefix:   /admin
