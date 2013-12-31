@@ -1,0 +1,7 @@
+parameters:
+#    temas_temas.example.class: Temas\TemasBundle\Example
+
+services:
+#    temas_temas.example:
+#        class: %temas_temas.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

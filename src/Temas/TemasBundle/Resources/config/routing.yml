@@ -1,0 +1,3 @@
+temas_temas_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: TemasTemasBundle:Default:index }

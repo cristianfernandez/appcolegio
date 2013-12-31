@@ -1,0 +1,163 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+
+{% stylesheets output='css/adminstyle.css' filter='cssrewrite,yui_css' debug=false 
+'bundles/temastemas/css/bootstrap.min.css'
+'bundles/temastemas/css/bootstrap-responsive.min.css'
+'bundles/temastemas/css/font-awesome.css'
+'bundles/temastemas/css/style.css'
+'bundles/temastemas/css/pages/dashboard.css'
+ -%}
+    <link href="{{ asset_url }}" rel="stylesheet" type="text/css" media="screen" />
+{% endstylesheets %}
+
+{% endblock %}
+
+{% block body -%}
+    
+    <div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
+                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="index.html">AppColegio </a>
+      <div class="nav-collapse">
+        <ul class="nav pull-right">
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                            class="icon-cog"></i> Cuenta <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:;">Opciones</a></li>
+              <li><a href="javascript:;">Ayuda</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                            class="icon-user"></i> Nombre de Usuario <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:;">Perfil</a></li>
+              <li><a href="javascript:;">Cerrar Sesión</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-search pull-right">
+          <input type="text" class="search-query" placeholder="Search">
+        </form>
+      </div>
+      <!--/.nav-collapse --> 
+    </div>
+    <!-- /container --> 
+  </div>
+  <!-- /navbar-inner --> 
+</div>
+   
+<!-- /navbar -->
+<div class="subnavbar">
+  <div class="subnavbar-inner">
+    <div class="container">
+      <ul class="mainnav">
+        <li class="active"><a href="#"><i class="icon-dashboard"></i><span>Panel</span> </a> </li>
+        <li><a href="#"><i class="icon-list-alt"></i><span>Reportes</span> </a> </li>
+        <li><a href="#"><i class="icon-facetime-video"></i><span>Sedes</span> </a></li>
+        <li><a href="#"><i class="icon-bar-chart"></i><span>Informes</span> </a> </li>
+        <li><a href="#"><i class="icon-code"></i><span>Otros</span> </a> </li>
+        <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-long-arrow-down"></i><span>Drops</span> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Estudiantes</a></li>
+            <li><a href="#">Profesores</a></li>
+            <li><a href="#">Materias</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /container --> 
+  </div>
+  <!-- /subnavbar-inner --> 
+</div>
+<!-- /subnavbar -->    
+    
+     {% block article %}
+
+   
+                    
+     {% endblock %}
+
+<div class="extra">
+  <div class="extra-inner">
+    <div class="container">
+      <div class="row">
+                    <div class="span3">
+                        <h4>
+                            Acerca de Tu compu al día</h4>
+                        <ul>
+                            <li><a href="javascript:;">EGrappler.com</a></li>
+                            <li><a href="javascript:;">Web Development Resources</a></li>
+                            <li><a href="javascript:;">Responsive HTML5 Portfolio Templates</a></li>
+                            <li><a href="javascript:;">Free Resources and Scripts</a></li>
+                        </ul>
+                    </div>
+                    <!-- /span3 -->
+                    <div class="span3">
+                        <h4>
+                            Support</h4>
+                        <ul>
+                            <li><a href="javascript:;">Frequently Asked Questions</a></li>
+                            <li><a href="javascript:;">Ask a Question</a></li>
+                            <li><a href="javascript:;">Video Tutorial</a></li>
+                            <li><a href="javascript:;">Feedback</a></li>
+                        </ul>
+                    </div>
+                    <!-- /span3 -->
+                    <div class="span3">
+                        <h4>
+                            Something Legal</h4>
+                        <ul>
+                            <li><a href="javascript:;">Read License</a></li>
+                            <li><a href="javascript:;">Terms of Use</a></li>
+                            <li><a href="javascript:;">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <!-- /span3 -->
+                    <div class="span3">
+                        <h4>
+                            Open Source jQuery Plugins</h4>
+                        <ul>
+                            <li><a href="#">Open Source jQuery Plugins</a></li>
+                            <li><a href="#">HTML5 Responsive Tempaltes</a></li>
+                            <li><a href="#">Free Contact Form Plugin</a></li>
+                            <li><a href="#">Flat UI PSD</a></li>
+                        </ul>
+                    </div>
+                    <!-- /span3 -->
+                </div>
+      <!-- /row --> 
+    </div>
+    <!-- /container --> 
+  </div>
+  <!-- /extra-inner --> 
+</div>
+<!-- /extra -->
+<div class="footer">
+  <div class="footer-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span12"> &copy; 2013 <a href="#">Bootstrap Responsive Admin Template</a>. </div>
+        <!-- /span12 --> 
+      </div>
+      <!-- /row --> 
+    </div>
+    <!-- /container --> 
+  </div>
+  <!-- /footer-inner --> 
+</div>
+<!-- /footer --> 
+
+{% endblock %}
+
+{% block javascripts %}
+{% javascripts output='js/adminscript.js' filter='yui_js' 
+debug=false
+'bundles/temastemas/js/jquery-1.7.2.min.js'
+'bundles/temastemas/js/excanvas.min.js'
+'bundles/temastemas/js/chart.min.js'
+'bundles/temastemas/js/bootstrap.js'
+-%}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}
