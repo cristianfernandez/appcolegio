@@ -1,0 +1,7 @@
+parameters:
+#    colegio_boletin.example.class: Colegio\BoletinBundle\Example
+
+services:
+#    colegio_boletin.example:
+#        class: %colegio_boletin.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
