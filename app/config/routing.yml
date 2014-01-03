@@ -1,6 +1,6 @@
 colegio_docente:
     resource: "@ColegioDocenteBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /docente
 
 colegio_grupo:
     resource: "@ColegioGrupoBundle/Resources/config/routing.yml"
