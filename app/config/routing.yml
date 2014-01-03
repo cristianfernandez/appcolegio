@@ -1,3 +1,7 @@
+colegio_boletin:
+    resource: "@ColegioBoletinBundle/Resources/config/routing.yml"
+    prefix:   /
+
 colegio_docente:
     resource: "@ColegioDocenteBundle/Resources/config/routing.yml"
     prefix:   /docente
