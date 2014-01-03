@@ -38,14 +38,14 @@ class detalleColegio
     /**
      * @var string
      *
-     * @ORM\Column(name="id_jornada", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\Jornada")
      */
     private $idJornada;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="id_Rector", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\Rector")
      */
     private $idRector;
 
@@ -140,7 +140,7 @@ class detalleColegio
      * @param string $idJornada
      * @return detalleColegio
      */
-    public function setIdJornada($idJornada)
+    public function setIdJornada(\Colegio\AdminBundle\Entity\Jornada $idJornada)
     {
         $this->idJornada = $idJornada;
     
@@ -163,7 +163,7 @@ class detalleColegio
      * @param string $idRector
      * @return detalleColegio
      */
-    public function setIdRector($idRector)
+    public function setIdRector(\Colegio\AdminBundle\Entity\Rector $idRector)
     {
         $this->idRector = $idRector;
     
@@ -270,5 +270,10 @@ class detalleColegio
     public function getModeloEducativo()
     {
         return $this->modeloEducativo;
+    }
+    
+    public function __toString() 
+    {
+        return $this->getIdColegio()." ".$this->getIdRector();
     }
 }
