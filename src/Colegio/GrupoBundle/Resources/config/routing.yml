@@ -1,0 +1,3 @@
+colegio_grupo_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: ColegioGrupoBundle:Default:index }

@@ -24,7 +24,7 @@ class Sede
     /**
      * @var string
      *
-     * @ORM\Column(name="id_DetalleColegio", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\detalleColegio")
      */
     private $idDetalleColegio;
 
@@ -59,7 +59,7 @@ class Sede
      * @param string $idDetalleColegio
      * @return Sede
      */
-    public function setIdDetalleColegio($idDetalleColegio)
+    public function setIdDetalleColegio(\Colegio\AdminBundle\Entity\detalleColegio $idDetalleColegio)
     {
         $this->idDetalleColegio = $idDetalleColegio;
     
@@ -120,5 +120,10 @@ class Sede
     public function getEstado()
     {
         return $this->estado;
+    }
+    
+    public function __toString()
+    {
+        return $this->getNombreSede();
     }
 }

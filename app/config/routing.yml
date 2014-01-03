@@ -1,3 +1,15 @@
+colegio_docente:
+    resource: "@ColegioDocenteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+colegio_grupo:
+    resource: "@ColegioGrupoBundle/Resources/config/routing.yml"
+    prefix:   /
+
+colegio_estudiante:
+    resource: "@ColegioEstudianteBundle/Resources/config/routing.yml"
+    prefix:   /
+
 temas_temas:
     resource: "@TemasTemasBundle/Resources/config/routing.yml"
     prefix:   /temas
