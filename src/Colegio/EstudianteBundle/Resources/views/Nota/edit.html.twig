@@ -2,10 +2,11 @@
 
 {% block article %}
 
-    <h1>Editar Estudiante</h1>
+    <h1>Editar Nota</h1>
 
     {{ form(edit_form) }}
     {{ form(delete_form) }}
-
-    <a href="{{ path('estudiante') }}"><i class="icon-arrow-left"> Volver a la lista</i></a>
+    
+    <a href="{{ path('nota') }}"><i class="icon-arrow-left"> Volver a la lista</i></a>
 {% endblock %}
+    

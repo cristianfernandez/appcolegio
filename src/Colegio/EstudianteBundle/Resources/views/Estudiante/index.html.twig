@@ -8,17 +8,17 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Idtipoidentificacion</th>
-                <th>Primernombre</th>
-                <th>Segundonombre</th>
-                <th>Primerapellido</th>
-                <th>Segundoapellido</th>
+                <th>Tipo Identificación</th>
+                <th>Primer Nombre</th>
+                <th>Segundo Nombre</th>
+                <th>Primer Apellido</th>
+                <th>Segundo Apellido</th>
                 <th>Telefono</th>
                 <th>Email</th>
                 <th>Nui</th>
                 <th>Nuip</th>
-                <th>Numerodocumento</th>
-                <th>Actions</th>
+                <th>N° Documento</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -38,10 +38,10 @@
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('estudiante_show', { 'id': entity.id }) }}">COnsultar</a>
+                        <a href="{{ path('estudiante_show', { 'id': entity.id }) }}" ><i class="icon-list"> </i></a>
                     </li>
                     <li>
-                        <a href="{{ path('estudiante_edit', { 'id': entity.id }) }}">Editar</a>
+                        <a href="{{ path('estudiante_edit', { 'id': entity.id }) }}"><i class="icon-edit"> </i></a>
                     </li>
                 </ul>
                 </td>
@@ -53,7 +53,8 @@
         <ul>
         <li>
             <a href="{{ path('estudiante_new') }}">
-                Create a new entry
+                <i class="icon-plus-sign"></i>
+                Crear un nuevo estudiante
             </a>
         </li>
     </ul>

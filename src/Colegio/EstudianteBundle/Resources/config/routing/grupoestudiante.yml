@@ -1,0 +1,30 @@
+grupoestudiante:
+    pattern:  /
+    defaults: { _controller: "ColegioEstudianteBundle:GrupoEstudiante:index" }
+
+grupoestudiante_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ColegioEstudianteBundle:GrupoEstudiante:show" }
+
+grupoestudiante_new:
+    pattern:  /new
+    defaults: { _controller: "ColegioEstudianteBundle:GrupoEstudiante:new" }
+
+grupoestudiante_create:
+    pattern:  /create
+    defaults: { _controller: "ColegioEstudianteBundle:GrupoEstudiante:create" }
+    requirements: { _method: post }
+
+grupoestudiante_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ColegioEstudianteBundle:GrupoEstudiante:edit" }
+
+grupoestudiante_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ColegioEstudianteBundle:GrupoEstudiante:update" }
+    requirements: { _method: post|put }
+
+grupoestudiante_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ColegioEstudianteBundle:GrupoEstudiante:delete" }
+    requirements: { _method: post|delete }

@@ -1,3 +1,12 @@
 colegio_grupo_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: ColegioGrupoBundle:Default:index }
+
+ColegioGrupoBundle_asignatura:
+    resource: "@ColegioGrupoBundle/Resources/config/routing/asignatura.yml"
+    prefix:   /asignatura
+
+ColegioGrupoBundle_grupo:
+    resource: "@ColegioGrupoBundle/Resources/config/routing/grupo.yml"
+    prefix:   /grupo
+
