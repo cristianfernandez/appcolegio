@@ -1,0 +1,31 @@
+{% extends 'TemasTemasBundle::admin.html.twig' %}
+
+{% block article %}
+    <h1>Grupo Estudiante</h1>
+
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Idestudiante</th>
+                <th>Idgrupo</th>
+            </tr>
+            <tr>
+                
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.idEstudiante }}</td>
+                <td>{{ entity.idGrupo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('grupoestudiante_edit', { 'id': entity.id }) }}" class="btn btn-small btn-success"><i class="icon-edit"> </i></a>
+        {{ form(delete_form) }}
+    </li>
+    <li>
+        <a href="{{ path('grupoestudiante') }}"><i class="icon-arrow-left"> Volver a la lista</i></a>
+    </li>
+</ul>
+{% endblock %}
