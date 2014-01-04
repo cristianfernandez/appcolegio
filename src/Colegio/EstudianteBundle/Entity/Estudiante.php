@@ -363,7 +363,8 @@ class Estudiante
     }
     
     //Método para Cargar un valor por defecto
-    public function __toString() {
+    public function __toString() 
+    {
         return $this->getPrimerNombre()." ".$this->getSegundoNombre()." ".
                 $this->getPrimerApellido()." ".$this->getSegundoApellido();
     }

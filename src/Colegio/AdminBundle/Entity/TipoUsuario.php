@@ -91,4 +91,9 @@ class TipoUsuario
     {
         return $this->nombreTipoUsuario;
     }
+    
+    public function __toString()
+    {
+        return $this->getNombreTipoUsuario();
+    }
 }

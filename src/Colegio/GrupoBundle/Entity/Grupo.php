@@ -181,4 +181,9 @@ class Grupo
     {
         return $this->activo;
     }
+    
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
 }

@@ -61,4 +61,9 @@ class TipoIdentificacion
     {
         return $this->tipoIdentificacion;
     }
+    
+    public function __toString()
+    {
+        return $this->getTipoIdentificacion();
+    }
 }

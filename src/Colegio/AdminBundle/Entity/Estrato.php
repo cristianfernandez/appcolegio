@@ -1,16 +1,16 @@
 <?php
 
-namespace Colegio\GrupoBundle\Entity;
+namespace Colegio\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Nivel
+ * Estrato
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class Nivel
+class Estrato
 {
     /**
      * @var integer
@@ -24,9 +24,9 @@ class Nivel
     /**
      * @var string
      *
-     * @ORM\Column(name="detalleNivel", type="string", length=255)
+     * @ORM\Column(name="estrato", type="string", length=255)
      */
-    private $detalleNivel;
+    private $estrato;
 
 
     /**
@@ -40,30 +40,30 @@ class Nivel
     }
 
     /**
-     * Set detalleNivel
+     * Set estrato
      *
-     * @param string $detalleNivel
-     * @return Nivel
+     * @param string $estrato
+     * @return Estrato
      */
-    public function setDetalleNivel($detalleNivel)
+    public function setEstrato($estrato)
     {
-        $this->detalleNivel = $detalleNivel;
+        $this->estrato = $estrato;
     
         return $this;
     }
 
     /**
-     * Get detalleNivel
+     * Get estrato
      *
      * @return string 
      */
-    public function getDetalleNivel()
+    public function getEstrato()
     {
-        return $this->detalleNivel;
+        return $this->estrato;
     }
     
     public function __toString()
     {
-        return $this->getDetalleNivel();
+        return $this->getEstrato();
     }
 }

@@ -24,7 +24,7 @@ class Colegio
     /**
      * @var string
      *
-     * @ORM\Column(name="id_Direccion", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\Direccion")
      */
     private $idDireccion;
 
@@ -210,5 +210,10 @@ class Colegio
     public function getTelefono()
     {
         return $this->telefono;
+    }
+    
+    public function __toString()
+    {
+        return $this->getNombre();
     }
 }

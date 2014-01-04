@@ -61,4 +61,9 @@ class TipoColegio
     {
         return $this->tipoColegio;
     }
+    
+    public function __toString()
+    {
+        return $this->getTipoColegio();
+    }
 }

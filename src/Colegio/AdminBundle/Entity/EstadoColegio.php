@@ -61,4 +61,9 @@ class EstadoColegio
     {
         return $this->estadoColegio;
     }
+    
+    public function __toString()
+    {
+        return $this->getEstadoColegio();
+    }
 }

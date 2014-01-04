@@ -91,4 +91,9 @@ class Jornada
     {
         return $this->horario;
     }
+    
+    public function __toString()
+    {
+        return $this->getJornada();
+    }
 }

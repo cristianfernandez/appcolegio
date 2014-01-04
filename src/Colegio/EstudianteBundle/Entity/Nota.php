@@ -183,7 +183,8 @@ class Nota
     }
     
     //Método para Cargar un valor por defecto
-    public function __toString() {
+    public function __toString() 
+    {
         return $this->getCalificacion();
     }
 }
