@@ -1,3 +1,7 @@
 colegio_docente_homepage:
     pattern:  /
     defaults: { _controller: ColegioDocenteBundle:Default:index }
+
+ColegioDocenteBundle_docente:
+    resource: "@ColegioDocenteBundle/Resources/config/routing/docente.yml"
+    prefix:   /docente
