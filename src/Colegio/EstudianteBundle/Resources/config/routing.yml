@@ -1,3 +1,10 @@
 colegio_estudiante_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: ColegioEstudianteBundle:Default:index }
+
+ColegioEstudianteBundle_estudiante:
+    resource: "@ColegioEstudianteBundle/Resources/config/routing/estudiante.yml"
+    prefix:   /estudiante
+
+
+
