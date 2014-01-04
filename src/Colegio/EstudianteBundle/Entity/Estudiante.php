@@ -31,7 +31,7 @@ class Estudiante
     /**
      * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Colegio\AdminBudle\Entity\TipoIdentificacion")
+     * @ORM\ManyToOne(targetEntity="Colegio\EstudianteBundle\Entity\TipoIdentificacion")
      */
     private $idTipoIdentificacion;
 
@@ -138,7 +138,7 @@ class Estudiante
      * @param string $idTipoIdentificacion
      * @return Estudiante
      */
-    public function setIdTipoIdentificacion(\Colegio\AdminBudle\Entity\TipoIdentificacion $idTipoIdentificacion)
+    public function setIdTipoIdentificacion(\Colegio\EstudianteBundle\Entity\TipoIdentificacion $idTipoIdentificacion)
     {
         $this->idTipoIdentificacion = $idTipoIdentificacion;
     
