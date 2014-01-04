@@ -1,0 +1,30 @@
+nota:
+    pattern:  /
+    defaults: { _controller: "ColegioEstudianteBundle:Nota:index" }
+
+nota_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ColegioEstudianteBundle:Nota:show" }
+
+nota_new:
+    pattern:  /new
+    defaults: { _controller: "ColegioEstudianteBundle:Nota:new" }
+
+nota_create:
+    pattern:  /create
+    defaults: { _controller: "ColegioEstudianteBundle:Nota:create" }
+    requirements: { _method: post }
+
+nota_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ColegioEstudianteBundle:Nota:edit" }
+
+nota_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ColegioEstudianteBundle:Nota:update" }
+    requirements: { _method: post|put }
+
+nota_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ColegioEstudianteBundle:Nota:delete" }
+    requirements: { _method: post|delete }

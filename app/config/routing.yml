@@ -17,7 +17,11 @@ colegio_estudiante:
 ColegioEstudianteBundle_grupoestudiante:
     resource: "@ColegioEstudianteBundle/Resources/config/routing.yml"
     prefix:   /grupoestudiante
+    
 
+ColegioEstudianteBundle_nota:
+    resource: "@ColegioEstudianteBundle/Resources/config/routing.yml"
+    prefix:   /nota    
 
 temas_temas:
     resource: "@TemasTemasBundle/Resources/config/routing.yml"
@@ -26,4 +30,3 @@ temas_temas:
 colegio_admin:
     resource: "@ColegioAdminBundle/Resources/config/routing.yml"
     prefix:   /admin
-
