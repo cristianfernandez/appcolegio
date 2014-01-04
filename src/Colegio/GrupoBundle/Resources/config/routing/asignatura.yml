@@ -1,0 +1,30 @@
+asignatura:
+    pattern:  /
+    defaults: { _controller: "ColegioGrupoBundle:Asignatura:index" }
+
+asignatura_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ColegioGrupoBundle:Asignatura:show" }
+
+asignatura_new:
+    pattern:  /new
+    defaults: { _controller: "ColegioGrupoBundle:Asignatura:new" }
+
+asignatura_create:
+    pattern:  /create
+    defaults: { _controller: "ColegioGrupoBundle:Asignatura:create" }
+    requirements: { _method: post }
+
+asignatura_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ColegioGrupoBundle:Asignatura:edit" }
+
+asignatura_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ColegioGrupoBundle:Asignatura:update" }
+    requirements: { _method: post|put }
+
+asignatura_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ColegioGrupoBundle:Asignatura:delete" }
+    requirements: { _method: post|delete }
