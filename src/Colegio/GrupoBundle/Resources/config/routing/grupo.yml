@@ -1,0 +1,30 @@
+grupo:
+    pattern:  /
+    defaults: { _controller: "ColegioGrupoBundle:Grupo:index" }
+
+grupo_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ColegioGrupoBundle:Grupo:show" }
+
+grupo_new:
+    pattern:  /new
+    defaults: { _controller: "ColegioGrupoBundle:Grupo:new" }
+
+grupo_create:
+    pattern:  /create
+    defaults: { _controller: "ColegioGrupoBundle:Grupo:create" }
+    requirements: { _method: post }
+
+grupo_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ColegioGrupoBundle:Grupo:edit" }
+
+grupo_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ColegioGrupoBundle:Grupo:update" }
+    requirements: { _method: post|put }
+
+grupo_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ColegioGrupoBundle:Grupo:delete" }
+    requirements: { _method: post|delete }

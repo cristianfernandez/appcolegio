@@ -34,3 +34,8 @@ colegio_admin:
 ColegioGrupoBundle_asignatura:
     resource: "@ColegioGrupoBundle/Resources/config/routing.yml"
     prefix:   /asignatura
+    
+ColegioGrupoBundle_grupo:
+    resource: "@ColegioGrupoBundle/Resources/config/routing.yml"
+    prefix:   /grupo
+    
