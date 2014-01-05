@@ -1,3 +1,20 @@
 colegio_boletin_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: ColegioBoletinBundle:Default:index }
+
+ColegioBoletinBundle_boletin:
+    resource: "@ColegioBoletinBundle/Resources/config/routing/boletin.yml"
+    prefix:   /boletin
+
+ColegioBoletinBundle_estudianteboletin:
+    resource: "@ColegioBoletinBundle/Resources/config/routing/estudianteboletin.yml"
+    prefix:   /estudianteboletin
+
+ColegioBoletinBundle_logro:
+    resource: "@ColegioBoletinBundle/Resources/config/routing/logro.yml"
+    prefix:   /logro
+
+ColegioBoletinBundle_periodo:
+    resource: "@ColegioBoletinBundle/Resources/config/routing/periodo.yml"
+    prefix:   /periodo
+

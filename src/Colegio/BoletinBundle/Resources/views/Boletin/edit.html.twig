@@ -1,0 +1,11 @@
+{% extends 'TemasTemasBundle::admin.html.twig' %}
+
+{% block article %}
+
+    <h1>Editar Boletin</h1>
+    {{ form(edit_form) }}
+    {{ form(delete_form) }}
+
+    <a href="{{ path('boletin') }}"><i class="icon-arrow-left"> Volver a la lista</i></a>
+
+{% endblock %}

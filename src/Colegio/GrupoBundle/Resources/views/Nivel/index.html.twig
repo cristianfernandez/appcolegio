@@ -1,0 +1,43 @@
+{% extends 'TemasTemasBundle::admin.html.twig' %}
+
+{% block article %}
+
+    <h1>Lista de Niveles</h1>
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Detallenivel</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('nivel_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.detalleNivel }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('nivel_show', { 'id': entity.id }) }}" ><i class="icon-list"> </i></a>
+                    </li>
+                    <li>
+                        <a href="{{ path('nivel_edit', { 'id': entity.id }) }}"><i class="icon-edit"> </i></a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('nivel_new') }}">
+                <i class="icon-plus-sign"></i>
+                Crear nuevo Nivel
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

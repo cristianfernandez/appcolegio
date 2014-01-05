@@ -121,4 +121,9 @@ class GrupoAsignatura
     {
         return $this->idDocente;
     }
+    
+    public function __toString() 
+    {
+        return $this->getIdGrupo();
+    }
 }

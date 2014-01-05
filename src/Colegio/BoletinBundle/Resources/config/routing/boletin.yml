@@ -1,0 +1,30 @@
+boletin:
+    pattern:  /
+    defaults: { _controller: "ColegioBoletinBundle:Boletin:index" }
+
+boletin_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ColegioBoletinBundle:Boletin:show" }
+
+boletin_new:
+    pattern:  /new
+    defaults: { _controller: "ColegioBoletinBundle:Boletin:new" }
+
+boletin_create:
+    pattern:  /create
+    defaults: { _controller: "ColegioBoletinBundle:Boletin:create" }
+    requirements: { _method: post }
+
+boletin_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ColegioBoletinBundle:Boletin:edit" }
+
+boletin_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ColegioBoletinBundle:Boletin:update" }
+    requirements: { _method: post|put }
+
+boletin_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ColegioBoletinBundle:Boletin:delete" }
+    requirements: { _method: post|delete }

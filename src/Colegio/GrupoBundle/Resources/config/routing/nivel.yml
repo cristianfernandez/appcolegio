@@ -1,0 +1,30 @@
+nivel:
+    pattern:  /
+    defaults: { _controller: "ColegioGrupoBundle:Nivel:index" }
+
+nivel_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ColegioGrupoBundle:Nivel:show" }
+
+nivel_new:
+    pattern:  /new
+    defaults: { _controller: "ColegioGrupoBundle:Nivel:new" }
+
+nivel_create:
+    pattern:  /create
+    defaults: { _controller: "ColegioGrupoBundle:Nivel:create" }
+    requirements: { _method: post }
+
+nivel_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ColegioGrupoBundle:Nivel:edit" }
+
+nivel_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ColegioGrupoBundle:Nivel:update" }
+    requirements: { _method: post|put }
+
+nivel_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ColegioGrupoBundle:Nivel:delete" }
+    requirements: { _method: post|delete }
