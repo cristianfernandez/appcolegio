@@ -180,8 +180,23 @@ class UsuariosController extends Controller
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
-
+        $passwordOriginal = $editForm->getData()->getPassword();
+        
         if ($editForm->isValid()) {
+            
+            if (null == $entity->getPassword()) {
+                $entity->setPassword($passwordOriginal);
+                }
+                else{
+                    $encoder = $this->get('security.encoder_factory')
+                                    ->getEncoder($entity);
+                    $passwordCodificado = $encoder->encodePassword(
+                        $entity->getPassword(),
+                        $entity->getSalt()
+                    );
+                    $entity->setPassword($passwordCodificado);
+                    }
+            
             $em->flush();
 
             return $this->redirect($this->generateUrl('usuarios_edit', array('id' => $id)));

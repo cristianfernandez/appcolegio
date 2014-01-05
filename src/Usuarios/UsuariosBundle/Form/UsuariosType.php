@@ -17,10 +17,13 @@ class UsuariosType extends AbstractType
         $builder
             ->add('username')
             ->add('password','repeated',array(
-               'type' => 'password',
-               'invalid_message' => 'Las contraseñas deben coincidir',
-               'options' => array('label' => 'Contraseña'),
-                 ))
+                'type' => 'password',
+                'invalid_message' => 'Hey, las constraseñas deben coincidir',
+                'options' => array('attr' => array('class' => 'password-field')),
+                'required' => false,
+                'first_options'  => array('label' => 'Password'),
+                'second_options' => array('label' => 'Repite el Password'),
+                ))
             ->add('estado')
             ->add('fechaAlta')
             ->add('role')

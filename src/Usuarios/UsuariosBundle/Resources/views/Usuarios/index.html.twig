@@ -1,17 +1,15 @@
 {% extends 'TemasTemasBundle::admin.html.twig' %}
 
 {% block article %}
-    <h1>Usuarios list</h1>
+    <h1>Listado de Usuarios</h1>
 
-    <table class="records_list">
+    <table class="table table-striped table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Username</th>
-                <th>Password</th>
-                <th>Salt</th>
                 <th>Estado</th>
-                <th>Fechaalta</th>
+                <th>Fecha alta</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,17 +18,15 @@
             <tr>
                 <td><a href="{{ path('usuarios_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.username }}</td>
-                <td>{{ entity.password }}</td>
-                <td>{{ entity.salt }}</td>
                 <td>{{ entity.estado }}</td>
-                <td>{% if entity.fechaAlta %}{{ entity.fechaAlta|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.fechaAlta %}{{ entity.fechaAlta|date('M, d -Y H:i:s') }}{% endif %}</td>
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('usuarios_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('usuarios_show', { 'id': entity.id }) }}">Ver</a>
                     </li>
                     <li>
-                        <a href="{{ path('usuarios_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('usuarios_edit', { 'id': entity.id }) }}">editar</a>
                     </li>
                 </ul>
                 </td>
@@ -42,7 +38,7 @@
         <ul>
         <li>
             <a href="{{ path('usuarios_new') }}">
-                Create a new entry
+                Crear Nuevo
             </a>
         </li>
     </ul>
