@@ -24,21 +24,21 @@ class Grupo
     /**
      * @var string
      *
-     * @ORM\Column(name="id_Nivel", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Colegio\GrupoBundle\Entity\Nivel")
      */
     private $idNivel;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="id_DocenteResponsable", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Colegio\DocenteBundle\Entity\Docente")
      */
     private $idDocenteResponsable;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="id_Sede", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\Sede")
      */
     private $idSede;
 
@@ -73,7 +73,7 @@ class Grupo
      * @param string $idNivel
      * @return Grupo
      */
-    public function setIdNivel($idNivel)
+    public function setIdNivel(\Colegio\GrupoBundle\Entity\Nivel $idNivel)
     {
         $this->idNivel = $idNivel;
     
@@ -96,7 +96,7 @@ class Grupo
      * @param string $idDocenteResponsable
      * @return Grupo
      */
-    public function setIdDocenteResponsable($idDocenteResponsable)
+    public function setIdDocenteResponsable(\Colegio\DocenteBundle\Entity\Docente $idDocenteResponsable)
     {
         $this->idDocenteResponsable = $idDocenteResponsable;
     
@@ -119,7 +119,7 @@ class Grupo
      * @param string $idSede
      * @return Grupo
      */
-    public function setIdSede($idSede)
+    public function setIdSede(\Colegio\AdminBundle\Entity\Sede $idSede)
     {
         $this->idSede = $idSede;
     

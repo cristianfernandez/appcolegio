@@ -24,14 +24,14 @@ class Docente
     /**
      * @var string
      *
-     * @ORM\Column(name="id_Sede", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\Sede")
      */
     private $idSede;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="id_Materia", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Colegio\GrupoBundle\Entity\Asignatura")
      */
     private $idMateria;
 
@@ -66,7 +66,7 @@ class Docente
     /**
      * @var string
      *
-     * @ORM\Column(name="id_TipoIdentificacion", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Colegio\EstudianteBundle\Entity\TipoIdentificacion")
      */
     private $idTipoIdentificacion;
 
@@ -101,7 +101,7 @@ class Docente
      * @param string $idSede
      * @return Docente
      */
-    public function setIdSede($idSede)
+    public function setIdSede(\Colegio\AdminBundle\Entity\Sede $idSede)
     {
         $this->idSede = $idSede;
     
@@ -124,7 +124,7 @@ class Docente
      * @param string $idMateria
      * @return Docente
      */
-    public function setIdMateria($idMateria)
+    public function setIdMateria(\Colegio\GrupoBundle\Entity\Asignatura $idMateria)
     {
         $this->idMateria = $idMateria;
     
@@ -239,7 +239,7 @@ class Docente
      * @param string $idTipoIdentificacion
      * @return Docente
      */
-    public function setIdTipoIdentificacion($idTipoIdentificacion)
+    public function setIdTipoIdentificacion(\Colegio\EstudianteBundle\Entity\TipoIdentificacion $idTipoIdentificacion)
     {
         $this->idTipoIdentificacion = $idTipoIdentificacion;
     

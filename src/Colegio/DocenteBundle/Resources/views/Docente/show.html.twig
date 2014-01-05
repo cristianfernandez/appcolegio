@@ -7,58 +7,38 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
                 <th>Idsede</th>
-                <td>{{ entity.idSede }}</td>
-            </tr>
-            <tr>
                 <th>Idmateria</th>
-                <td>{{ entity.idMateria }}</td>
-            </tr>
-            <tr>
                 <th>Nombres</th>
-                <td>{{ entity.nombres }}</td>
-            </tr>
-            <tr>
                 <th>Apellidos</th>
-                <td>{{ entity.apellidos }}</td>
-            </tr>
-            <tr>
                 <th>Telefono</th>
-                <td>{{ entity.telefono }}</td>
-            </tr>
-            <tr>
                 <th>Email</th>
-                <td>{{ entity.email }}</td>
-            </tr>
-            <tr>
                 <th>Idtipoidentificacion</th>
-                <td>{{ entity.idTipoIdentificacion }}</td>
-            </tr>
-            <tr>
                 <th>Numeroidentificacion</th>
-                <td>{{ entity.numeroIdentificacion }}</td>
+                <th>Estado</th>
             </tr>
             <tr>
-                <th>Estado</th>
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.idSede }}</td>
+                <td>{{ entity.idMateria }}</td>
+                <td>{{ entity.nombres }}</td>
+                <td>{{ entity.apellidos }}</td>
+                <td>{{ entity.telefono }}</td>
+                <td>{{ entity.email }}</td>
+                <td>{{ entity.idTipoIdentificacion }}</td>
+                <td>{{ entity.numeroIdentificacion }}</td>
                 <td>{{ entity.estado }}</td>
             </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
+<ul class="record_actions">
     <li>
-        <a href="{{ path('docente') }}">
-            Volver a la lista
-        </a>
+        <a href="{{ path('docente_edit', { 'id': entity.id }) }}" class="btn btn-small btn-success"><i class="icon-edit"> </i></a>
+        {{ form(delete_form) }}
     </li>
     <li>
-        <a href="{{ path('docente_edit', { 'id': entity.id }) }}">
-            Editar
-        </a>
+        <a href="{{ path('docente') }}"><i class="icon-arrow-left"> Volver a la lista</i></a>
     </li>
-    <li>{{ form(delete_form) }}</li>
 </ul>
 {% endblock %}
