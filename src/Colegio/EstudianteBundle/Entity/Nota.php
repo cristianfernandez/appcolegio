@@ -31,7 +31,7 @@ class Nota
     /**
      * @var string
      *
-     * @ORM\Column(name="id_Asignatura", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Colegio\GrupoBundle\Entity\Asignatura")
      */
     private $idAsignatura;
 
@@ -96,7 +96,7 @@ class Nota
      * @param string $idAsignatura
      * @return Nota
      */
-    public function setIdAsignatura($idAsignatura)
+    public function setIdAsignatura(\Colegio\GrupoBundle\Entity\Asignatura $idAsignatura)
     {
         $this->idAsignatura = $idAsignatura;
     

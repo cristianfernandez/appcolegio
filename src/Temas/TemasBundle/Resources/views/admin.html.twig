@@ -53,9 +53,17 @@
     <div class="container">
       <ul class="mainnav">
         <li class="active"><a href="#"><i class="icon-dashboard"></i><span>Panel</span> </a> </li>
-        <li><a href="#"><i class="icon-list-alt"></i><span>Reportes</span> </a> </li>
+        <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-long-arrow-down"></i><span>Reportes</span> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ path('grupo')}}">Grupos</a></li>
+          </ul>
         <li><a href="#"><i class="icon-facetime-video"></i><span>Sedes</span> </a></li>
-        <li><a href="#"><i class="icon-bar-chart"></i><span>Informes</span> </a> </li>
+        <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-long-arrow-down"></i><span>Informes</span> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ path('boletin')}}">Boletines</a></li>
+            <li><a href="{{ path('nota')}}">Notas</a></li>
+          </ul>
+        </li>
         <li><a href="#"><i class="icon-code"></i><span>Otros</span> </a> </li>
         <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-long-arrow-down"></i><span>Drops</span> <b class="caret"></b></a>
           <ul class="dropdown-menu">
