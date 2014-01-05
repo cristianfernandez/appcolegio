@@ -10,3 +10,7 @@ ColegioGrupoBundle_grupo:
     resource: "@ColegioGrupoBundle/Resources/config/routing/grupo.yml"
     prefix:   /grupo
 
+ColegioGrupoBundle_grupoasignatura:
+    resource: "@ColegioGrupoBundle/Resources/config/routing/grupoasignatura.yml"
+    prefix:   /grupoasignatura
+
