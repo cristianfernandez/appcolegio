@@ -1,0 +1,32 @@
+{% extends 'TemasTemasBundle::admin.html.twig' %}
+
+{% block article %}
+    <h1>Periodo Academico</h1>
+
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Periodo</th>
+                <th>Fechainicio</th>
+                <th>Fechafin</th>
+            </tr>
+            <tr>
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.periodo }}</td>
+                <td>{{ entity.fechaInicio|date('Y-m-d H:i:s') }}</td>
+                <td>{{ entity.fechaFin|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('periodo_edit', { 'id': entity.id }) }}" class="btn btn-small btn-success"><i class="icon-edit"> </i></a>
+        {{ form(delete_form) }}
+    </li>
+    <li>
+        <a href="{{ path('periodo') }}"><i class="icon-arrow-left"> Volver a la lista</i></a>
+    </li>
+</ul>
+{% endblock %}

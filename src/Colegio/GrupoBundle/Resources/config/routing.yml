@@ -13,4 +13,9 @@ ColegioGrupoBundle_grupo:
 ColegioGrupoBundle_grupoasignatura:
     resource: "@ColegioGrupoBundle/Resources/config/routing/grupoasignatura.yml"
     prefix:   /grupoasignatura
+    
+ColegioGrupoBundle_nivel:
+    resource: "@ColegioGrupoBundle/Resources/config/routing/nivel.yml"
+    prefix:   /nivel
+    
 

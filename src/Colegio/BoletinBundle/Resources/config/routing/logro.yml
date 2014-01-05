@@ -1,0 +1,30 @@
+logro:
+    pattern:  /
+    defaults: { _controller: "ColegioBoletinBundle:Logro:index" }
+
+logro_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ColegioBoletinBundle:Logro:show" }
+
+logro_new:
+    pattern:  /new
+    defaults: { _controller: "ColegioBoletinBundle:Logro:new" }
+
+logro_create:
+    pattern:  /create
+    defaults: { _controller: "ColegioBoletinBundle:Logro:create" }
+    requirements: { _method: post }
+
+logro_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ColegioBoletinBundle:Logro:edit" }
+
+logro_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ColegioBoletinBundle:Logro:update" }
+    requirements: { _method: post|put }
+
+logro_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ColegioBoletinBundle:Logro:delete" }
+    requirements: { _method: post|delete }
