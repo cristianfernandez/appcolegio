@@ -1,0 +1,30 @@
+tipocolegio:
+    pattern:  /
+    defaults: { _controller: "ColegioAdminBundle:TipoColegio:index" }
+
+tipocolegio_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ColegioAdminBundle:TipoColegio:show" }
+
+tipocolegio_new:
+    pattern:  /new
+    defaults: { _controller: "ColegioAdminBundle:TipoColegio:new" }
+
+tipocolegio_create:
+    pattern:  /create
+    defaults: { _controller: "ColegioAdminBundle:TipoColegio:create" }
+    requirements: { _method: post }
+
+tipocolegio_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ColegioAdminBundle:TipoColegio:edit" }
+
+tipocolegio_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ColegioAdminBundle:TipoColegio:update" }
+    requirements: { _method: post|put }
+
+tipocolegio_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ColegioAdminBundle:TipoColegio:delete" }
+    requirements: { _method: post|delete }

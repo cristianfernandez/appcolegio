@@ -1,0 +1,30 @@
+direccion:
+    pattern:  /
+    defaults: { _controller: "ColegioAdminBundle:Direccion:index" }
+
+direccion_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ColegioAdminBundle:Direccion:show" }
+
+direccion_new:
+    pattern:  /new
+    defaults: { _controller: "ColegioAdminBundle:Direccion:new" }
+
+direccion_create:
+    pattern:  /create
+    defaults: { _controller: "ColegioAdminBundle:Direccion:create" }
+    requirements: { _method: post }
+
+direccion_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ColegioAdminBundle:Direccion:edit" }
+
+direccion_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ColegioAdminBundle:Direccion:update" }
+    requirements: { _method: post|put }
+
+direccion_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ColegioAdminBundle:Direccion:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,30 @@
+sede:
+    pattern:  /
+    defaults: { _controller: "ColegioAdminBundle:Sede:index" }
+
+sede_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ColegioAdminBundle:Sede:show" }
+
+sede_new:
+    pattern:  /new
+    defaults: { _controller: "ColegioAdminBundle:Sede:new" }
+
+sede_create:
+    pattern:  /create
+    defaults: { _controller: "ColegioAdminBundle:Sede:create" }
+    requirements: { _method: post }
+
+sede_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ColegioAdminBundle:Sede:edit" }
+
+sede_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ColegioAdminBundle:Sede:update" }
+    requirements: { _method: post|put }
+
+sede_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ColegioAdminBundle:Sede:delete" }
+    requirements: { _method: post|delete }

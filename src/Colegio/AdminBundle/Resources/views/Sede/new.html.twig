@@ -1,0 +1,15 @@
+{% extends 'TemasTemasBundle::admin.html.twig' %}
+
+{% block article %}
+    <h1>Sede creation</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('sede') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

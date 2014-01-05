@@ -1,0 +1,41 @@
+{% extends 'TemasTemasBundle::admin.html.twig' %}
+
+{% block article %}
+    <h1>Direccion list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Direccioncompleta</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('direccion_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.direccionCompleta }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('direccion_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('direccion_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('direccion_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

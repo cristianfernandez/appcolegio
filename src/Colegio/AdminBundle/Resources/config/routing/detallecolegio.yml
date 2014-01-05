@@ -1,0 +1,30 @@
+detallecolegio:
+    pattern:  /
+    defaults: { _controller: "ColegioAdminBundle:detalleColegio:index" }
+
+detallecolegio_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ColegioAdminBundle:detalleColegio:show" }
+
+detallecolegio_new:
+    pattern:  /new
+    defaults: { _controller: "ColegioAdminBundle:detalleColegio:new" }
+
+detallecolegio_create:
+    pattern:  /create
+    defaults: { _controller: "ColegioAdminBundle:detalleColegio:create" }
+    requirements: { _method: post }
+
+detallecolegio_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ColegioAdminBundle:detalleColegio:edit" }
+
+detallecolegio_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ColegioAdminBundle:detalleColegio:update" }
+    requirements: { _method: post|put }
+
+detallecolegio_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ColegioAdminBundle:detalleColegio:delete" }
+    requirements: { _method: post|delete }

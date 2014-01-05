@@ -1,0 +1,30 @@
+localidad:
+    pattern:  /
+    defaults: { _controller: "ColegioAdminBundle:Localidad:index" }
+
+localidad_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ColegioAdminBundle:Localidad:show" }
+
+localidad_new:
+    pattern:  /new
+    defaults: { _controller: "ColegioAdminBundle:Localidad:new" }
+
+localidad_create:
+    pattern:  /create
+    defaults: { _controller: "ColegioAdminBundle:Localidad:create" }
+    requirements: { _method: post }
+
+localidad_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ColegioAdminBundle:Localidad:edit" }
+
+localidad_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ColegioAdminBundle:Localidad:update" }
+    requirements: { _method: post|put }
+
+localidad_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ColegioAdminBundle:Localidad:delete" }
+    requirements: { _method: post|delete }

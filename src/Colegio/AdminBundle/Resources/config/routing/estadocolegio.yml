@@ -1,0 +1,30 @@
+estadocolegio:
+    pattern:  /
+    defaults: { _controller: "ColegioAdminBundle:EstadoColegio:index" }
+
+estadocolegio_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ColegioAdminBundle:EstadoColegio:show" }
+
+estadocolegio_new:
+    pattern:  /new
+    defaults: { _controller: "ColegioAdminBundle:EstadoColegio:new" }
+
+estadocolegio_create:
+    pattern:  /create
+    defaults: { _controller: "ColegioAdminBundle:EstadoColegio:create" }
+    requirements: { _method: post }
+
+estadocolegio_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ColegioAdminBundle:EstadoColegio:edit" }
+
+estadocolegio_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ColegioAdminBundle:EstadoColegio:update" }
+    requirements: { _method: post|put }
+
+estadocolegio_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ColegioAdminBundle:EstadoColegio:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,30 @@
+jornada:
+    pattern:  /
+    defaults: { _controller: "ColegioAdminBundle:Jornada:index" }
+
+jornada_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ColegioAdminBundle:Jornada:show" }
+
+jornada_new:
+    pattern:  /new
+    defaults: { _controller: "ColegioAdminBundle:Jornada:new" }
+
+jornada_create:
+    pattern:  /create
+    defaults: { _controller: "ColegioAdminBundle:Jornada:create" }
+    requirements: { _method: post }
+
+jornada_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ColegioAdminBundle:Jornada:edit" }
+
+jornada_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ColegioAdminBundle:Jornada:update" }
+    requirements: { _method: post|put }
+
+jornada_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ColegioAdminBundle:Jornada:delete" }
+    requirements: { _method: post|delete }

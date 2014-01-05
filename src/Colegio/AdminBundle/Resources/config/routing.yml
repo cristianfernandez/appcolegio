@@ -1,3 +1,59 @@
 colegio_admin_homepage:
     pattern:  /
     defaults: { _controller: ColegioAdminBundle:Default:index }
+
+ColegioAdminBundle_colegio:
+    resource: "@ColegioAdminBundle/Resources/config/routing/colegio.yml"
+    prefix:   /colegio
+
+ColegioAdminBundle_direccion:
+    resource: "@ColegioAdminBundle/Resources/config/routing/direccion.yml"
+    prefix:   /direccion
+
+ColegioAdminBundle_estadocolegio:
+    resource: "@ColegioAdminBundle/Resources/config/routing/estadocolegio.yml"
+    prefix:   /estadocolegio
+
+ColegioAdminBundle_rector:
+    resource: "@ColegioAdminBundle/Resources/config/routing/rector.yml"
+    prefix:   /rector
+    
+ColegioAdminBundle_sede:
+    resource: "@ColegioAdminBundle/Resources/config/routing/sede.yml"
+    prefix:   /sede
+
+ColegioAdminBundle_tipocolegio:
+    resource: "@ColegioAdminBundle/Resources/config/routing/tipocolegio.yml"
+    prefix:   /tipocolegio
+    
+ColegioAdminBundle_tipousuario:
+    resource: "@ColegioAdminBundle/Resources/config/routing/tipousuario.yml"
+    prefix:   /tipousuario
+
+ColegioAdminBundle_usuarios:
+    resource: "@ColegioAdminBundle/Resources/config/routing/usuarios.yml"
+    prefix:   /usuarios
+
+ColegioAdminBundle_detallecolegio:
+    resource: "@ColegioAdminBundle/Resources/config/routing/detallecolegio.yml"
+    prefix:   /detallecolegio
+
+ColegioAdminBundle_departamento:
+    resource: "@ColegioAdminBundle/Resources/config/routing/departamento.yml"
+    prefix:   /departamento
+
+ColegioAdminBundle_estrato:
+    resource: "@ColegioAdminBundle/Resources/config/routing/estrato.yml"
+    prefix:   /estrato
+
+ColegioAdminBundle_jornada:
+    resource: "@ColegioAdminBundle/Resources/config/routing/jornada.yml"
+    prefix:   /jornada
+
+ColegioAdminBundle_localidad:
+    resource: "@ColegioAdminBundle/Resources/config/routing/localidad.yml"
+    prefix:   /localidad
+
+ColegioAdminBundle_municipio:
+    resource: "@ColegioAdminBundle/Resources/config/routing/municipio.yml"
+    prefix:   /municipio

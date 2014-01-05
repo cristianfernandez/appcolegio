@@ -1,0 +1,30 @@
+rector:
+    pattern:  /
+    defaults: { _controller: "ColegioAdminBundle:Rector:index" }
+
+rector_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ColegioAdminBundle:Rector:show" }
+
+rector_new:
+    pattern:  /new
+    defaults: { _controller: "ColegioAdminBundle:Rector:new" }
+
+rector_create:
+    pattern:  /create
+    defaults: { _controller: "ColegioAdminBundle:Rector:create" }
+    requirements: { _method: post }
+
+rector_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ColegioAdminBundle:Rector:edit" }
+
+rector_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ColegioAdminBundle:Rector:update" }
+    requirements: { _method: post|put }
+
+rector_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ColegioAdminBundle:Rector:delete" }
+    requirements: { _method: post|delete }

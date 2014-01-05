@@ -1,0 +1,52 @@
+{% extends 'TemasTemasBundle::admin.html.twig' %}
+
+{% block article %}
+    <h1>detalleColegio</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Idcolegio</th>
+                <td>{{ entity.idColegio }}</td>
+            </tr>
+            <tr>
+                <th>Idsede</th>
+                <td>{{ entity.idSede }}</td>
+            </tr>
+            <tr>
+                <th>Actualyear</th>
+                <td>{{ entity.actualYear }}</td>
+            </tr>
+            <tr>
+                <th>Capacidades</th>
+                <td>{{ entity.capacidades }}</td>
+            </tr>
+            <tr>
+                <th>Discapacidades</th>
+                <td>{{ entity.discapacidades }}</td>
+            </tr>
+            <tr>
+                <th>Modeloeducativo</th>
+                <td>{{ entity.modeloEducativo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('detallecolegio') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('detallecolegio_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

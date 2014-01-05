@@ -1,0 +1,30 @@
+departamento:
+    pattern:  /
+    defaults: { _controller: "ColegioAdminBundle:Departamento:index" }
+
+departamento_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ColegioAdminBundle:Departamento:show" }
+
+departamento_new:
+    pattern:  /new
+    defaults: { _controller: "ColegioAdminBundle:Departamento:new" }
+
+departamento_create:
+    pattern:  /create
+    defaults: { _controller: "ColegioAdminBundle:Departamento:create" }
+    requirements: { _method: post }
+
+departamento_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ColegioAdminBundle:Departamento:edit" }
+
+departamento_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ColegioAdminBundle:Departamento:update" }
+    requirements: { _method: post|put }
+
+departamento_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ColegioAdminBundle:Departamento:delete" }
+    requirements: { _method: post|delete }
