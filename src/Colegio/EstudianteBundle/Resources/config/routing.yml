@@ -7,12 +7,12 @@ ColegioEstudianteBundle_estudiante:
     prefix:   /estudiante
 
 ColegioEstudianteBundle_grupoestudiante:
-        resource: "@ColegioEstudianteBundle/Resources/config/routing/grupoestudiante.yml"
-        prefix:   /grupoestudiante
+    resource: "@ColegioEstudianteBundle/Resources/config/routing/grupoestudiante.yml"
+    prefix:   /grupo
         
 ColegioEstudianteBundle_nota:
-        resource: "@ColegioEstudianteBundle/Resources/config/routing/nota.yml"
-        prefix:   /nota
+    resource: "@ColegioEstudianteBundle/Resources/config/routing/nota.yml"
+    prefix:   /nota
         
 
 
