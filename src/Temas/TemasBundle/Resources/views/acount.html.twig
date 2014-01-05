@@ -1,0 +1,77 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+
+{% stylesheets output='css/acountstyle.css' filter='cssrewrite,yui_css' debug=false 
+'bundles/temastemas/css/bootstrap.min.css'
+'bundles/temastemas/css/bootstrap-responsive.min.css'
+'bundles/temastemas/css/font-awesome.css'
+'bundles/temastemas/css/style.css'
+'bundles/temastemas/css/pages/signin.css'
+ -%}
+    <link href="{{ asset_url }}" rel="stylesheet" type="text/css" media="screen" />
+{% endstylesheets %}
+
+{% endblock %}
+
+{% block body -%}
+    
+	<div class="navbar navbar-fixed-top">
+	
+	<div class="navbar-inner">
+		
+		<div class="container">
+			
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			
+			<a class="brand" href="#">
+				AppColegio				
+			</a>		
+			
+			<div class="nav-collapse">
+				<ul class="nav pull-right">
+					
+					<li class="">						
+						<a href="#" class="">
+							No tienes una cuenta?
+						</a>
+						
+					</li>
+					
+					<li class="">						
+						<a href="#" class="">
+							<i class="icon-chevron-left"></i>
+							Volver al Inicio 
+						</a>
+						
+					</li>
+				</ul>
+				
+			</div><!--/.nav-collapse -->	
+	
+		</div> <!-- /container -->
+		
+	</div> <!-- /navbar-inner -->
+	
+</div> <!-- /navbar -->
+
+
+{% block article %}
+
+{% endblock %}
+   
+{% endblock %}
+
+{% block javascripts %}
+{% javascripts output='js/acountscript.js' filter='yui_js' 
+debug=false
+'bundles/temastemas/js/jquery-1.7.2.min.js'
+'bundles/temastemas/js/bootstrap.js'
+'bundles/temastemas/js/signin.js'
+-%}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}
