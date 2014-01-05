@@ -1,6 +1,6 @@
 <?php
 
-namespace Colegio\AdminBundle\Form;
+namespace Usuarios\UsuariosBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -31,7 +31,7 @@ class UsuariosType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Colegio\AdminBundle\Entity\Usuarios'
+            'data_class' => 'Usuarios\UsuariosBundle\Entity\Usuarios'
         ));
     }
 
@@ -40,6 +40,6 @@ class UsuariosType extends AbstractType
      */
     public function getName()
     {
-        return 'colegio_adminbundle_usuarios';
+        return 'usuarios_usuariosbundle_usuarios';
     }
 }

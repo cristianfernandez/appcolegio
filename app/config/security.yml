@@ -24,6 +24,6 @@ security:
 
     providers:
         Usuarios:
-         entity: { class: Colegio\AdminBundle\Entity\Usuarios, property:username }
+         entity: { class: Usuarios\UsuariosBundle\Entity\Usuarios, property:username }
     encoders:
-         Colegio\AdminBundle\Entity\Usuarios: { algorithm: sha512, iterations: 10 }
+         Usuarios\UsuariosBundle\Entity\Usuarios: { algorithm: sha512, iterations: 10 }

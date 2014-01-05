@@ -1,6 +1,6 @@
 usuarios_usuarios:
     resource: "@UsuariosUsuariosBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /usuarios
 
 colegio_boletin:
     resource: "@ColegioBoletinBundle/Resources/config/routing.yml"
