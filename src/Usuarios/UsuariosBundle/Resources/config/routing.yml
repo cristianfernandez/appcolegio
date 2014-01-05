@@ -1,0 +1,7 @@
+usuarios_usuarios_homepage:
+    pattern:  /
+    defaults: { _controller: UsuariosUsuariosBundle:Default:index }
+
+usuarios_usuarios:
+    resource: "@ColegioAdminBundle/Resources/config/routing/usuarios.yml"
+    prefix:   /usuarios

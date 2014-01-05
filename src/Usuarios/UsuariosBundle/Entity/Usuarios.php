@@ -1,6 +1,6 @@
 <?php
 
-namespace Colegio\AdminBundle\Entity;
+namespace Usuarios\UsuariosBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Usuarios
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Colegio\AdminBundle\Entity\UsuariosRepository")
+ * @ORM\Entity(repositoryClass="Usuarios\UsuariosBundle\Entity\UsuariosRepository")
  */
 class Usuarios implements UserInterface, \Serializable
 {    

@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Colegio\GrupoBundle\ColegioGrupoBundle(),
             new Colegio\DocenteBundle\ColegioDocenteBundle(),
             new Colegio\BoletinBundle\ColegioBoletinBundle(),
+            new Usuarios\UsuariosBundle\UsuariosUsuariosBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
