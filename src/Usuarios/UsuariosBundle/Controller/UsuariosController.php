@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Usuarios\UsuariosBundle\Entity\Usuarios;
 use Usuarios\UsuariosBundle\Form\UsuariosType;
 
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+
 /**
  * Usuarios controller.
  *
@@ -40,6 +42,17 @@ class UsuariosController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            //guardar en la base de datos
+                $encoder = $this->get('security.encoder_factory')
+                                ->getEncoder($entity);
+                $entity->setSalt(md5(time()));
+               $passwordCodificado = $encoder->encodePassword(
+                       $entity->getPassword(),
+                       $entity->getSalt()
+               );
+               $entity->setPassword($passwordCodificado);
+            
+            
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();

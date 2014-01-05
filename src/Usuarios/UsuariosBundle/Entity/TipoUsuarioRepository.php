@@ -1,6 +1,6 @@
 <?php
 
-namespace Colegio\AdminBundle\Entity;
+namespace Usuarios\UsuariosBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 

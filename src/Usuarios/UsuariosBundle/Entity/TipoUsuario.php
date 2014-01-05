@@ -1,6 +1,6 @@
 <?php
 
-namespace Colegio\AdminBundle\Entity;
+namespace Usuarios\UsuariosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TipoUsuario
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Colegio\AdminBundle\Entity\TipoUsuarioRepository")
+ * @ORM\Entity(repositoryClass="Usuarios\UsuariosBundle\Entity\TipoUsuarioRepository")
  */
 class TipoUsuario
 {

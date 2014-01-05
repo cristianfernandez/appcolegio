@@ -25,7 +25,7 @@ class Usuarios implements UserInterface, \Serializable
     /**
      * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\TipoUsuario")
+     * @ORM\ManyToOne(targetEntity="Usuarios\UsuariosBundle\Entity\TipoUsuario")
      */
     private $role;
 
@@ -116,7 +116,7 @@ class Usuarios implements UserInterface, \Serializable
      * @param string $role
      * @return Usuarios
      */
-    public function setrole(\Colegio\AdminBundle\Entity\TipoUsuario $role)
+    public function setrole(\Usuarios\UsuariosBundle\Entity\TipoUsuario $role)
     {
         $this->role = $role;
     

@@ -1,0 +1,30 @@
+tipousuario:
+    pattern:  /
+    defaults: { _controller: "UsuariosUsuariosBundle:TipoUsuario:index" }
+
+tipousuario_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "UsuariosUsuariosBundle:TipoUsuario:show" }
+
+tipousuario_new:
+    pattern:  /new
+    defaults: { _controller: "UsuariosUsuariosBundle:TipoUsuario:new" }
+
+tipousuario_create:
+    pattern:  /create
+    defaults: { _controller: "UsuariosUsuariosBundle:TipoUsuario:create" }
+    requirements: { _method: post }
+
+tipousuario_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "UsuariosUsuariosBundle:TipoUsuario:edit" }
+
+tipousuario_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "UsuariosUsuariosBundle:TipoUsuario:update" }
+    requirements: { _method: post|put }
+
+tipousuario_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "UsuariosUsuariosBundle:TipoUsuario:delete" }
+    requirements: { _method: post|delete }

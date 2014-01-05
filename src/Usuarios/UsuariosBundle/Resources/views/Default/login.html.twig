@@ -5,22 +5,24 @@
 	
 	<div class="content clearfix">
 		
-		<form action="#" method="post">
+		<form action="{{ path('usuarios_registro') }}" method="post">
 		
 			<h1>Acceso Administradores</h1>		
 			
 			<div class="login-fields">
 				
 				<p>Por favor digita tus credenciales</p>
-				
+				{% if error %}
+                                    <div>{{ error.message }}</div>
+                                {% endif %}
 				<div class="field">
 					<label for="username">Usuario</label>
-					<input type="text" id="username" name="username" value="" placeholder="Username" class="login username-field" />
+					<input type="text" id="username" name="_username" value="" placeholder="Username" class="login username-field" />
 				</div> <!-- /field -->
 				
 				<div class="field">
 					<label for="password">Password:</label>
-					<input type="password" id="password" name="password" value="" placeholder="Password" class="login password-field"/>
+					<input type="password" id="password" name="_password" value="" placeholder="Password" class="login password-field"/>
 				</div> <!-- /password -->
 				
 			</div> <!-- /login-fields -->
@@ -28,11 +30,11 @@
 			<div class="login-actions">
 				
 				<span class="login-checkbox">
-					<input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
+					<input id="no-cerrar" name="_remember_me" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
 					<label class="choice" for="Field">No cerrar sesión</label>
 				</span>
 									
-				<button class="button btn btn-success btn-large">Entrar</button>
+				<input type="submit" name="login" class="button btn btn-success btn-large" value="Entrar" />
 				
 			</div> <!-- .actions -->
 			

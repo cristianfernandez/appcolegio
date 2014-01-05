@@ -36,10 +36,6 @@ ColegioAdminBundle_tipocolegio:
     resource: "@ColegioAdminBundle/Resources/config/routing/tipocolegio.yml"
     prefix:   /tipocolegio
     
-ColegioAdminBundle_tipousuario:
-    resource: "@ColegioAdminBundle/Resources/config/routing/tipousuario.yml"
-    prefix:   /tipousuario
-
 ColegioAdminBundle_detallecolegio:
     resource: "@ColegioAdminBundle/Resources/config/routing/detallecolegio.yml"
     prefix:   /detallecolegio

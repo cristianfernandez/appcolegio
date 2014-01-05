@@ -1,12 +1,12 @@
 <?php
 
-namespace Colegio\AdminBundle\Controller;
+namespace Usuarios\UsuariosBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Colegio\AdminBundle\Entity\TipoUsuario;
-use Colegio\AdminBundle\Form\TipoUsuarioType;
+use Usuarios\UsuariosBundle\Entity\TipoUsuario;
+use Usuarios\UsuariosBundle\Form\TipoUsuarioType;
 
 /**
  * TipoUsuario controller.
@@ -23,9 +23,9 @@ class TipoUsuarioController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('ColegioAdminBundle:TipoUsuario')->findAll();
+        $entities = $em->getRepository('UsuariosUsuariosBundle:TipoUsuario')->findAll();
 
-        return $this->render('ColegioAdminBundle:TipoUsuario:index.html.twig', array(
+        return $this->render('UsuariosUsuariosBundle:TipoUsuario:index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -47,7 +47,7 @@ class TipoUsuarioController extends Controller
             return $this->redirect($this->generateUrl('tipousuario_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('ColegioAdminBundle:TipoUsuario:new.html.twig', array(
+        return $this->render('UsuariosUsuariosBundle:TipoUsuario:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -81,7 +81,7 @@ class TipoUsuarioController extends Controller
         $entity = new TipoUsuario();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('ColegioAdminBundle:TipoUsuario:new.html.twig', array(
+        return $this->render('UsuariosUsuariosBundle:TipoUsuario:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -95,7 +95,7 @@ class TipoUsuarioController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ColegioAdminBundle:TipoUsuario')->find($id);
+        $entity = $em->getRepository('UsuariosUsuariosBundle:TipoUsuario')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find TipoUsuario entity.');
@@ -103,7 +103,7 @@ class TipoUsuarioController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('ColegioAdminBundle:TipoUsuario:show.html.twig', array(
+        return $this->render('UsuariosUsuariosBundle:TipoUsuario:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),        ));
     }
@@ -116,7 +116,7 @@ class TipoUsuarioController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ColegioAdminBundle:TipoUsuario')->find($id);
+        $entity = $em->getRepository('UsuariosUsuariosBundle:TipoUsuario')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find TipoUsuario entity.');
@@ -125,7 +125,7 @@ class TipoUsuarioController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('ColegioAdminBundle:TipoUsuario:edit.html.twig', array(
+        return $this->render('UsuariosUsuariosBundle:TipoUsuario:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -158,7 +158,7 @@ class TipoUsuarioController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ColegioAdminBundle:TipoUsuario')->find($id);
+        $entity = $em->getRepository('UsuariosUsuariosBundle:TipoUsuario')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find TipoUsuario entity.');
@@ -174,7 +174,7 @@ class TipoUsuarioController extends Controller
             return $this->redirect($this->generateUrl('tipousuario_edit', array('id' => $id)));
         }
 
-        return $this->render('ColegioAdminBundle:TipoUsuario:edit.html.twig', array(
+        return $this->render('UsuariosUsuariosBundle:TipoUsuario:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -191,7 +191,7 @@ class TipoUsuarioController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('ColegioAdminBundle:TipoUsuario')->find($id);
+            $entity = $em->getRepository('UsuariosUsuariosBundle:TipoUsuario')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find TipoUsuario entity.');
