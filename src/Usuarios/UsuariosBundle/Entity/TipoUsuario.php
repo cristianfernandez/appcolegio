@@ -2,6 +2,8 @@
 
 namespace Usuarios\UsuariosBundle\Entity;
 
+use Symfony\Component\Security\Core\Role\RoleInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Usuarios\UsuariosBundle\Entity\TipoUsuarioRepository")
  */
-class TipoUsuario
+class TipoUsuario implements RoleInterface
 {
     /**
      * @var integer
@@ -24,7 +26,7 @@ class TipoUsuario
     /**
      * @var string
      *
-     * @ORM\Column(name="id_Usuario", type="string", length=255)
+     * @ORM\ManyToMany(targetEntity="Usuarios\UsuariosBundle\Entity\TipoUsuario", mappedBy="roles")
      */
     private $idUsuario;
 
@@ -35,7 +37,38 @@ class TipoUsuario
      */
     private $nombreTipoUsuario;
 
+    /**
+     * 
+     * @ORM\Column(name="role", type="string", length=20, unique=true)
+     */
+    private $role;
 
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
+    
+     /**
+     * @see RoleInterface
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+    
+     /**
+     * Set role
+     *
+     * @param string $role
+     * @return TipoUsuario
+     */
+    public function setrole($role)
+    {
+        $this->role = $role;
+    
+        return $this;
+    }
+    
     /**
      * Get id
      *

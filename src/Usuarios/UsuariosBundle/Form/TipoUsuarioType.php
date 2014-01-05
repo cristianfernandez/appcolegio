@@ -15,8 +15,8 @@ class TipoUsuarioType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('idUsuario')
             ->add('nombreTipoUsuario')
+            ->add('role')    
         ;
     }
     

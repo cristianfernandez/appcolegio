@@ -5,7 +5,7 @@ usuarios_usuarios_homepage:
 UsuariosUsuariosBundle_usuarios:
     resource: "@UsuariosUsuariosBundle/Resources/config/routing/usuarios.yml"
     prefix:   /usuarios
-    
+
 UsuariosUsuariosBundle_tipousuario:
     resource: "@UsuariosUsuariosBundle/Resources/config/routing/tipousuario.yml"
     prefix:   /tipousuario

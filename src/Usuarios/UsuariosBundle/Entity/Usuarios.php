@@ -2,7 +2,8 @@
 
 namespace Usuarios\UsuariosBundle\Entity;
 
-use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Usuarios\UsuariosBundle\Entity\UsuariosRepository")
  */
-class Usuarios implements UserInterface, \Serializable
+class Usuarios implements AdvancedUserInterface, \Serializable
 {    
     /**
      * @var integer
@@ -25,9 +26,9 @@ class Usuarios implements UserInterface, \Serializable
     /**
      * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Usuarios\UsuariosBundle\Entity\TipoUsuario")
+     * @ORM\ManyToMany(targetEntity="Usuarios\UsuariosBundle\Entity\TipoUsuario", inversedBy="idUsuario")
      */
-    private $role;
+    private $roles;
 
     /**
      * @var string
@@ -71,20 +72,43 @@ class Usuarios implements UserInterface, \Serializable
      */
     private $fechaAlta;
 
+     public function __construct()
+    {
+        $this->roles = new ArrayCollection();
+    }
     
+    public function isAccountNonExpired()
+    {
+        return true;
+    }
+
+    public function isAccountNonLocked()
+    {
+        return true;
+    }
+
+    public function isCredentialsNonExpired()
+    {
+        return true;
+    }
+
+    public function isEnabled()
+    {
+        return $this->estado;
+    }
     
-     function equals(UserInterface $usuario)
+    public function equals(UserInterface $usuario)
     {
         return $this->getLogin() == $usuario->getLogin();
     }
     
-    function eraseCredentials()
+    public function eraseCredentials()
     {
     }
     
-    function getRoles()
+    public function getRoles()
     {
-        return array('ROLE_ADMINSEDE');
+        return $this->roles->toArray();
     }
     
     public function serialize()
@@ -97,7 +121,7 @@ class Usuarios implements UserInterface, \Serializable
         $this->id = unserialize($data);
     } 
     
-    
+   
     
 
     /**
@@ -111,26 +135,16 @@ class Usuarios implements UserInterface, \Serializable
     }
 
     /**
-     * Set role
+     * Set roles
      *
-     * @param string $role
+     * @param string $roles
      * @return Usuarios
      */
-    public function setrole(\Usuarios\UsuariosBundle\Entity\TipoUsuario $role)
+    public function setroles($roles)
     {
-        $this->role = $role;
+        $this->roles = $roles;
     
         return $this;
-    }
-
-    /**
-     * Get role
-     *
-     * @return string 
-     */
-    public function getrole()
-    {
-        return $this->role;
     }
 
     /**

@@ -26,7 +26,7 @@ class UsuariosType extends AbstractType
                 ))
             ->add('estado')
             ->add('fechaAlta')
-            ->add('role')
+            ->add('roles')
             ->add('idColegio')
         ;
     }
