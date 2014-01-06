@@ -24,14 +24,14 @@ class detalleColegio
     /**
      * @var string
      *
-     * @ORM\Column(name="id_colegio", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\Colegio")
      */
     private $idColegio;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="id_sede", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\Sede")
      */
     private $idSede;
 
@@ -94,7 +94,7 @@ class detalleColegio
      * @param string $idColegio
      * @return detalleColegio
      */
-    public function setIdColegio($idColegio)
+    public function setIdColegio(\Colegio\AdminBundle\Entity\Colegio $idColegio)
     {
         $this->idColegio = $idColegio;
     
@@ -117,7 +117,7 @@ class detalleColegio
      * @param string $idSede
      * @return detalleColegio
      */
-    public function setIdSede($idSede)
+    public function setIdSede(\Colegio\AdminBundle\Entity\Sede $idSede)
     {
         $this->idSede = $idSede;
     
