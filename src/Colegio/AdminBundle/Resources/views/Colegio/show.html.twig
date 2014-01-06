@@ -36,5 +36,10 @@
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
+    <li>
+        <a href="{{ path('detallecolegio_new', { 'id': entity.id }) }}">
+            Crear Detalle Colegio
+        </a>
+    </li>
 </ul>
 {% endblock %}

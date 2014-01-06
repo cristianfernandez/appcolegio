@@ -3,9 +3,19 @@
 {% block article %}
     <h1>detalleColegio creation</h1>
 
-    {{ form(form) }}
-
-        <ul class="record_actions">
+    {{ form_start(form,{'action':path('detallecolegio_new')}) }}
+        
+    {# <div class="success">{{ form.errors(form) }}</div> #}
+    <div class="container-fluid">
+    <div class="alert-success"><h4>Usuario Creado</h4></div>
+    <fieldset class="span3">
+        {{ form_label(form.idColegio,'Mi nuevo label') }}
+        {{ form_widget(form.idColegio) }}
+     </fieldset>   
+        
+    {{ form_end(form) }}
+    </div>
+<ul class="record_actions">
     <li>
         <a href="{{ path('detallecolegio') }}">
             Back to the list
