@@ -11,6 +11,10 @@ usuarios_logout:
 colegio_admin_homepage:
     pattern:  /
     defaults: { _controller: ColegioAdminBundle:Default:index }
+    
+colegio_admin_perfil:
+    pattern:  /perfil
+    defaults: { _controller: ColegioAdminBundle:Default:perfil }
 
 ColegioAdminBundle_colegio:
     resource: "@ColegioAdminBundle/Resources/config/routing/colegio.yml"

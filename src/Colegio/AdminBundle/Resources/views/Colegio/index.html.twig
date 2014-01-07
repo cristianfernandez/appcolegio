@@ -36,10 +36,16 @@
     </table>
 
         <ul>
-        <li>
-            <a href="{{ path('colegio_new') }}">
-                Crea un nuevo registro
-            </a>
-        </li>
+        {% for rol in app.user.roles %}
+            {# Solo habilita el botón de crear para el Super Man  #}
+            {% if rol.role == 'ROLE_SUPER_ADMIN' %}
+            <li>
+                <a href="{{ path('colegio_new') }}">
+                    Crea un nuevo registro
+                </a>
+            </li>
+            {% else %}
+            {% endif %}
+        {% endfor %}
     </ul>
     {% endblock %}

@@ -5,12 +5,23 @@
 
     {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('colegio') }}">
-            Regresar
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
+<ul class="record_actions">
+    
+    {% for rol in app.user.roles %}
+            {#  Sólo puede eliminar registros el super Man #}
+            {% if rol.role == 'ROLE_SUPER_ADMIN' %}
+                <li>
+                    <a href="{{ path('colegio') }}">
+                        Regresar
+                    </a>
+                </li>
+                <li>{{ form(delete_form) }}</li>
+            {% elseif rol.role == 'ROLE_ADMIN' %}
+                <a href="{{ path('colegio_admin_perfil') }}">
+                        Volver
+                    </a>
+            {% endif %}
+        {% endfor %}
+
 </ul>
 {% endblock %}
