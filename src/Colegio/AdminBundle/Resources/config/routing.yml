@@ -9,6 +9,26 @@ colegio_admin_perfil:
 ColegioAdminBundle_colegio:
     resource: "@ColegioAdminBundle/Resources/config/routing/colegio.yml"
     prefix:   /colegio
+    
+ColegioDocenteBundle_docente:
+    resource: "@ColegioDocenteBundle/Resources/config/routing/docente.yml"
+    prefix:   /docente
+
+ColegioEstudianteBundle_estudiante:
+    resource: "@ColegioEstudianteBundle/Resources/config/routing/estudiante.yml"
+    prefix:   /estudiante
+
+ColegioEstudianteBundle_grupoestudiante:
+    resource: "@ColegioEstudianteBundle/Resources/config/routing/grupoestudiante.yml"
+    prefix:   /grupoestudiante
+        
+ColegioEstudianteBundle_nota:
+    resource: "@ColegioEstudianteBundle/Resources/config/routing/nota.yml"
+    prefix:   /nota
+
+ColegioGrupoBundle_grupo:
+    resource: "@ColegioGrupoBundle/Resources/config/routing.yml"
+    prefix:   /grupos
 
 ColegioAdminBundle_direccion:
     resource: "@ColegioAdminBundle/Resources/config/routing/direccion.yml"
@@ -53,7 +73,3 @@ ColegioAdminBundle_localidad:
 ColegioAdminBundle_municipio:
     resource: "@ColegioAdminBundle/Resources/config/routing/municipio.yml"
     prefix:   /municipio
-    
-ColegioGrupoBundle_grupo:
-    resource: "@ColegioGrupoBundle/Resources/config/routing.yml"
-    prefix:   /grupo

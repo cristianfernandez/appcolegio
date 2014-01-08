@@ -20,6 +20,10 @@ colegio_docente:
     resource: "@ColegioDocenteBundle/Resources/config/routing.yml"
     prefix:   /docente
 
+ColegioGrupoBundle_grupo:
+    resource: "@ColegioGrupoBundle/Resources/config/routing.yml"
+    prefix:   /grupo
+
 colegio_estudiante:
     resource: "@ColegioEstudianteBundle/Resources/config/routing.yml"
     prefix:   /estudiante
@@ -32,6 +36,4 @@ colegio_admin:
     resource: "@ColegioAdminBundle/Resources/config/routing.yml"
     prefix:   /admin
 
-ColegioGrupoBundle_grupo:
-    resource: "@ColegioGrupoBundle/Resources/config/routing.yml"
-    prefix:   /grupo
+

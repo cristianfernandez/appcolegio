@@ -94,9 +94,7 @@
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
                                         <h3>
-                                            {% for rol in app.user.roles %}
-                                                {{ rol.nombreTipoUsuario }}
-                                            {% endfor %}
+                                           {{ app.user }}
                                         </h3>
 	  				</div> <!-- /widget-header -->
 					

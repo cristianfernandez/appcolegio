@@ -46,7 +46,12 @@ security:
       
 
     providers:
-        Usuarios:
+      main_provider:
+         memory:
+                users:
+                    duros:  { password: 12345, roles: 'ROLE_SUPER_ADMIN' }
+      Usuarios:
          entity: { class: Usuarios\UsuariosBundle\Entity\Usuarios, property:username }
     encoders:
          Usuarios\UsuariosBundle\Entity\Usuarios: { algorithm: sha512, iterations: 10 }
+         Symfony\Component\Security\Core\User\User: plaintext

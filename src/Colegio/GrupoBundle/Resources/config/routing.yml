@@ -1,5 +1,5 @@
 colegio_grupo_homepage:
-    pattern:  /hello/{name}
+    pattern:  /
     defaults: { _controller: ColegioGrupoBundle:Default:index }
 
 ColegioGrupoBundle_asignatura:

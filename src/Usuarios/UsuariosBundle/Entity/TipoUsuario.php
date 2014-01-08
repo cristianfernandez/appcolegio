@@ -62,7 +62,7 @@ class TipoUsuario implements RoleInterface
      * @param string $role
      * @return TipoUsuario
      */
-    public function setrole($role)
+    public function setRole($role)
     {
         $this->role = $role;
     
