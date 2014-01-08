@@ -83,12 +83,12 @@ class detalleColegioController extends Controller
         $entity = new detalleColegio();
         $entity->setActualYear('2014');
         $entity->setIdColegio($idColegio);
-        
+
         $form = $this->createForm(new detalleColegioType($idColegio), $entity);
 
         return $this->render('ColegioAdminBundle:detalleColegio:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
+        'entity' => $entity,
+        'form'   => $form->createView(),
         ));
     }
 
@@ -146,7 +146,10 @@ class detalleColegioController extends Controller
     */
     private function createEditForm(detalleColegio $entity)
     {
-        $form = $this->createForm(new detalleColegioType(), $entity, array(
+        $usuarioActivo = $this->get('security.context')->getToken()->getUser();
+        $idColegio = $usuarioActivo->getIdColegio();
+        
+        $form = $this->createForm(new detalleColegioType($idColegio), $entity, array(
             'action' => $this->generateUrl('detallecolegio_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));

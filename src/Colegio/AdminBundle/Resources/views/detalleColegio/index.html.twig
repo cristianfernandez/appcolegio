@@ -1,9 +1,9 @@
 {% extends 'TemasTemasBundle::admin.html.twig' %}
 
 {% block article %}
-    <h1>detalleColegio list</h1>
+    <h1>Detalle Colegio</h1>
 
-    <table class="records_list">
+    <table class="table table-striped table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
@@ -29,10 +29,10 @@
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('detallecolegio_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('detallecolegio_show', { 'id': entity.id }) }}"><i class="icon-list"></i></a>
                     </li>
                     <li>
-                        <a href="{{ path('detallecolegio_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('detallecolegio_edit', { 'id': entity.id }) }}"><i class="icon-edit"></i></a>
                     </li>
                 </ul>
                 </td>
@@ -41,11 +41,19 @@
         </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('detallecolegio_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+<br>
+{% for rol in app.user.roles %}
+    {# Solo puede crear el super Man #}
+    {% if rol.role == 'ROLE_SUPER_ADMIN' %}
+        <a href="{{ path('detallecolegio_new') }}">
+            <i class="icon-plus-sign"></i>
+            Crear un nuevo Detalle
+        </a>
+    {% else %}
+        <a href="{{ path('direccion') }}"> Consultar Dirección</a>
+        <br>
+        <a href="{{ path('colegio_admin_perfil') }}"><i class="icon-arrow-left"> Volver</i></a>
+    {% endif %}
+{% endfor %}
+
+{% endblock %}
