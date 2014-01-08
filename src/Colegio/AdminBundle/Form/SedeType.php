@@ -16,8 +16,8 @@ class SedeType extends AbstractType
     {
         $builder
             ->add('nombreSede')
-            ->add('estado')
             ->add('idDetalleColegio')
+            ->add('estado')
         ;
     }
     

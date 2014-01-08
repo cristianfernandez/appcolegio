@@ -1,36 +1,26 @@
 {% extends 'TemasTemasBundle::admin.html.twig' %}
 
 {% block article %}
-    <h1>detalleColegio</h1>
+    <h1>Detalle Colegio</h1>
 
-    <table class="record_properties">
+    <table class="table table-striped table-bordered">
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
                 <th>Idcolegio</th>
-                <td>{{ entity.idColegio }}</td>
-            </tr>
-            <tr>
                 <th>Idsede</th>
-                <td>{{ entity.idSede }}</td>
-            </tr>
-            <tr>
                 <th>Actualyear</th>
-                <td>{{ entity.actualYear }}</td>
-            </tr>
-            <tr>
                 <th>Capacidades</th>
-                <td>{{ entity.capacidades }}</td>
-            </tr>
-            <tr>
                 <th>Discapacidades</th>
-                <td>{{ entity.discapacidades }}</td>
+                <th>Modeloeducativo</th>
             </tr>
             <tr>
-                <th>Modeloeducativo</th>
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.idColegio }}</td>
+                <td>{{ entity.idSede }}</td>
+                <td>{{ entity.actualYear }}</td>
+                <td>{{ entity.capacidades }}</td>
+                <td>{{ entity.discapacidades }}</td>
                 <td>{{ entity.modeloEducativo }}</td>
             </tr>
         </tbody>
@@ -38,15 +28,18 @@
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('detallecolegio') }}">
-            Back to the list
-        </a>
+        <a href="{{ path('detallecolegio') }}"><i class="icon-arrow-left"></i> Volver</a>
     </li>
     <li>
-        <a href="{{ path('detallecolegio_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
+        <a href="{{ path('detallecolegio_edit', { 'id': entity.id }) }}"><i class="icon-edit"> Editar</i></a>
     </li>
-    <li>{{ form(delete_form) }}</li>
+    {% for rol in app.user.roles %}
+            {#  Solo el Super Man puede eliminar #}
+            {% if rol.role == 'ROLE_SUPER_ADMIN' %}
+                <li>{{ form(delete_form) }}</li>
+            {% else %}
+            {% endif %}
+    {% endfor %}
+    
 </ul>
 {% endblock %}

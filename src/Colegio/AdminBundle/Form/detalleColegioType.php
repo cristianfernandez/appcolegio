@@ -11,7 +11,10 @@ class detalleColegioType extends AbstractType
 {
     public function __construct($idColegio) 
     {
-        $this->idColegio = $idColegio;
+        if ($idColegio != null)
+        {
+            $this->idColegio = $idColegio;
+        }
     }
     
         /**
@@ -39,11 +42,7 @@ class detalleColegioType extends AbstractType
             ->add('discapacidades')
             ->add('modeloEducativo')
             ->add('idJornada')
-            ->add('idRector')
-            ->add('Crear','submit',array(
-                'attr'=>array('class'=>'btn btn-primary dropdown-toggle')
-            ))
-        ;
+            ->add('idRector');
     }
     
     /**

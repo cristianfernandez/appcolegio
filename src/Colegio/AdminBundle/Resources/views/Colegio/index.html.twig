@@ -1,7 +1,14 @@
 {% extends 'TemasTemasBundle::admin.html.twig' %}
 
 {% block article %}
-    <h1>Listar Colegio</h1>
+{% for rol in app.user.roles %}
+        {#   #}
+        {% if rol.role == 'ROLE_SUPER_ADMIN' %}
+        <h1>Lista de Colegios</h1> 
+        {% else %}
+        <h1>Tú Colegio</h1>
+        {% endif %}
+{% endfor %}
 
     <table class="table table-striped table-bordered">
         <thead>
@@ -23,10 +30,10 @@
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('colegio_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('colegio_show', { 'id': entity.id }) }}" ><i class="icon-list"> </i></a>
                     </li>
                     <li>
-                        <a href="{{ path('colegio_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('colegio_edit', { 'id': entity.id }) }}"><i class="icon-edit"> </i></a>
                     </li>
                 </ul>
                 </td>
@@ -36,10 +43,17 @@
     </table>
 
         <ul>
-        <li>
-            <a href="{{ path('colegio_new') }}">
-                Crea un nuevo registro
-            </a>
-        </li>
+        {% for rol in app.user.roles %}
+            {# Solo habilita el botón de crear para el Super Man  #}
+            {% if rol.role == 'ROLE_SUPER_ADMIN' %}
+            <li>
+                <a href="{{ path('colegio_new') }}">
+                    <i class="icon-plus-sign"></i>
+                     Crea un nuevo registro
+                </a>
+            </li>
+            {% else %}
+            {% endif %}
+        {% endfor %}
     </ul>
     {% endblock %}

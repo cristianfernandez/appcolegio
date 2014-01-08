@@ -7,18 +7,14 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
                 <th>Nombre</th>
-                <td>{{ entity.nombre }}</td>
-            </tr>
-            <tr>
                 <th>Email</th>
-                <td>{{ entity.email }}</td>
+                <th>Telefono</th>
             </tr>
             <tr>
-                <th>Telefono</th>
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.nombre }}</td>
+                <td>{{ entity.email }}</td>
                 <td>{{ entity.telefono }}</td>
             </tr>
         </tbody>
@@ -26,20 +22,40 @@
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('colegio') }}">
-            Regresar
-        </a>
+        {% for rol in app.user.roles %}
+            {# Si es un administrador de Colegio cambia la ruta a Perfil, de lo contrario lo deja solo para el Super Man#}
+            {% if rol.role == 'ROLE_ADMIN' %}
+                <a href="{{ path('colegio_admin_perfil') }}">
+                        Volver
+                    </a>
+            {% elseif rol.role == 'ROLE_SUPER_ADMIN' %}
+                <a href="{{ path('detallecolegio') }}">
+                        Back to the list
+                    </a>
+            {% endif %}
+        {% endfor %}
     </li>
     <li>
         <a href="{{ path('colegio_edit', { 'id': entity.id }) }}">
             Editar
         </a>
     </li>
-    <li>{{ form(delete_form) }}</li>
-    <li>
-        <a href="{{ path('detallecolegio_new', { 'id': entity.id }) }}">
-            Crear Detalle Colegio
-        </a>
-    </li>
+        {% for rol in app.user.roles %}
+            {# Solo el super Man puede crear detalleColegio #}
+            {% if rol.role == 'ROLE_SUPER_ADMIN' %}
+                
+                <li>{{ form(delete_form) }}</li>
+                <li>
+                    <a href="{{ path('detallecolegio_new', { 'id': entity.id }) }}">
+                        Crear Detalle Colegio
+                    </a>
+                </li>
+                
+            {% elseif rol.role == 'ROLE_ADMIN' %}
+                <li>
+                     <a href="{{ path('detallecolegio')}}"><i class="icon-list"> Ver Detalle</i></a>
+                </li>
+            {% endif %}
+        {% endfor %}
 </ul>
 {% endblock %}
