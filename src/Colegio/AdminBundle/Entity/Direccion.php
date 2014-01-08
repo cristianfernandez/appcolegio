@@ -27,6 +27,13 @@ class Direccion
      * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\Departamento")
      */
     private $idDepartamento;
+    
+        /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\Sede")
+     */
+    private $idSede;
 
     /**
      * @var string
@@ -88,6 +95,29 @@ class Direccion
     public function getIdDepartamento()
     {
         return $this->idDepartamento;
+    }
+    
+    /**
+     * Set idSede
+     *
+     * @param string $idSede
+     * @return Direccion
+     */
+    public function setIdSede(\Colegio\AdminBundle\Entity\Sede $idSede)
+    {
+        $this->idSede = $idSede;
+    
+        return $this;
+    }
+    
+    /**
+     * Get idSede
+     *
+     * @return string 
+     */
+    public function getIdSede()
+    {
+        return $this->idSede;
     }
 
     /**

@@ -105,16 +105,6 @@ class detalleColegio
     }
 
     /**
-     * Get idSede
-     *
-     * @return string 
-     */
-    public function getIdSede()
-    {
-        return $this->idSede;
-    }
-
-    /**
      * Set idJornada
      *
      * @param string $idJornada
