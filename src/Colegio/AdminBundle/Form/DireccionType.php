@@ -16,6 +16,7 @@ class DireccionType extends AbstractType
     {
         $builder
             ->add('direccionCompleta')
+            ->add('idSede')
             ->add('idDepartamento')
             ->add('idMunicipio')
             ->add('idLocalidad')

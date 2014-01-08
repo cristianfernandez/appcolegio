@@ -93,7 +93,11 @@
 	      			
 	      			<div class="widget-header">
 	      				<i class="icon-user"></i>
-                                        <h3>Título de funcionalidad</h3>
+                                        <h3>
+                                            {% for rol in app.user.roles %}
+                                                {{ rol.nombreTipoUsuario }}
+                                            {% endfor %}
+                                        </h3>
 	  				</div> <!-- /widget-header -->
 					
 					<div class="widget-content">

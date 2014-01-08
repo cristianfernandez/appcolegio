@@ -81,9 +81,10 @@ class detalleColegioController extends Controller
         $usuarioActivo = $this->get('security.context')->getToken()->getUser();
         $idColegio = $usuarioActivo->getIdColegio();
         $entity = new detalleColegio();
+        
         $entity->setActualYear('2014');
         $entity->setIdColegio($idColegio);
-
+        $idColegio = null;
         $form = $this->createForm(new detalleColegioType($idColegio), $entity);
 
         return $this->render('ColegioAdminBundle:detalleColegio:new.html.twig', array(

@@ -2,19 +2,18 @@
 
 namespace Colegio\AdminBundle\Form;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Security\Core\SecurityContext;
 
 class detalleColegioType extends AbstractType
 {
     public function __construct($idColegio) 
     {
-        if ($idColegio != null)
-        {
-            $this->idColegio = $idColegio;
-        }
+        $this->idColegio = $idColegio;
     }
     
         /**
@@ -22,9 +21,23 @@ class detalleColegioType extends AbstractType
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    {      
         $self = $this;
-        $builder
+        if ($this->idColegio == null)
+        {
+            $builder
+            ->add('idColegio')            
+            ->add('actualYear')
+            ->add('capacidades')
+            ->add('discapacidades')
+            ->add('modeloEducativo')
+            ->add('idJornada')
+            ->add('idRector')
+            ->add('crear', 'submit');
+        }
+        else
+        {
+            $builder
             ->add('idColegio', 'entity', array(
                 'class'=> 'ColegioAdminBundle:Colegio', 
                 'query_builder'=>function(EntityRepository $er) use($self){
@@ -34,15 +47,14 @@ class detalleColegioType extends AbstractType
                 },
                  'label'      => 'Mi colegio',
                  'empty_value'=> 'Tienes q escoger tu colegio',
-                 'required'   =>true)
-            )
-           
+                 'required'   =>true))            
             ->add('actualYear')
             ->add('capacidades')
             ->add('discapacidades')
             ->add('modeloEducativo')
             ->add('idJornada')
             ->add('idRector');
+        }
     }
     
     /**
