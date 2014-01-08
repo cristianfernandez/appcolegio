@@ -2,30 +2,44 @@ security:
     role_hierarchy:
         ROLE_ADMIN: [ROLE_ADMIN]
         ROLE_SUPER_ADMIN: [ROLE_SUPER_ADMIN]
+        ROLE_ESTUDIANTE: [ROLE_ESTUDIANTE]
     firewalls:
       backsedes:
-        pattern:     ^/admin
+        pattern:     ^/
         provider:    Usuarios
         anonymous:   ~
+        switch_user: { role: ROLE_SUPER_ADMIN }
         form_login: 
-          default_target_path: /admin/
-          login_path: /admin/login
-          check_path: /admin/login_check
+          default_target_path: /
+          login_path: /login
+          check_path: /login_check
         logout:
-          path:       admin_logout
-          target:     /admin/login
+          path:       ColegioAdminBundle_logout
+          target:     /login
+          invalidate_session: false
     
         remember_me:
            key: jairocris1234
            lifetime: 3600
     
     access_control:
-      - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+      - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
     
-      - { path: ^/grupo/*, roles: ROLE_ADMIN }
+      - { path: ^/grupo/*, roles: ROLE_SUPER_ADMIN }
+      
       - { path: ^/admin/estrato/*, roles: ROLE_SUPER_ADMIN }
+      - { path: ^/admin/estadocolegio/*, roles: ROLE_SUPER_ADMIN }
+      - { path: ^/admin/departamento/*, roles: ROLE_SUPER_ADMIN }
+      - { path: ^/admin/jornada/*, roles: ROLE_SUPER_ADMIN }
+      - { path: ^/admin/localidad/*, roles: ROLE_SUPER_ADMIN }
+      - { path: ^/admin/municipio/*, roles: ROLE_SUPER_ADMIN }
+      - { path: ^/admin/tipocolegio/*, roles: ROLE_SUPER_ADMIN }
+      
       - { path: ^/admin/perfil/*, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
       - { path: ^/admin/colegio/new , roles: ROLE_SUPER_ADMIN }
+      
+      - { path: ^/admin/direccion/new, roles: ROLE_SUPER_ADMIN }
+      
       - { path: ^/admin/*, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
       
      

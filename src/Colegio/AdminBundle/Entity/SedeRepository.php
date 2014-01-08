@@ -11,5 +11,16 @@ use Doctrine\ORM\EntityRepository;
  * repository methods below.
  */
 class SedeRepository extends EntityRepository
-{
+{   
+    public function findColegio($id)
+    {
+        $em = $this->getEntityManager();
+        $consulta = $em->createQuery('
+            SELECT u FROM ColegioAdminBundle:Sede u JOIN u.idDetalleColegio p 
+            WHERE p.idColegio = :id  
+            
+        ');
+        $consulta->setParameter('id', $id);
+        return $consulta->getResult();
+    }
 }

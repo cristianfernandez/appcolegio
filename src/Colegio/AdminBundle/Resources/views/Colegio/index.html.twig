@@ -69,7 +69,12 @@
         {% endfor %}
         </tbody>
     </table>
-        
+                <li>
+            <a href="{{ path('sede_new') }}">
+                <i class="icon-plus-sign"></i>
+                Crear nueva Sede
+            </a>
+        </li>
         
         <ul>
         {% for rol in app.user.roles %}

@@ -53,7 +53,8 @@ class detalleColegioType extends AbstractType
             ->add('discapacidades')
             ->add('modeloEducativo')
             ->add('idJornada')
-            ->add('idRector');
+            ->add('idRector')
+            ->add('crear', 'submit');
         }
     }
     

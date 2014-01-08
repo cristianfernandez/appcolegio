@@ -78,21 +78,51 @@ class detalleColegioController extends Controller
      */
     public function newAction()
     {
+        
+        $peticion = $this->getRequest();
         $usuarioActivo = $this->get('security.context')->getToken()->getUser();
         $idColegio = $usuarioActivo->getIdColegio();
         $entity = new detalleColegio();
+        //necesitamos q el colegio pueda crear por primera vez su detalleColegio, consultamos si existe
+        $em = $this->getDoctrine()->getManager();
+        $existe = $em->getRepository('ColegioAdminBundle:detalleColegio')->findByIdColegio($idColegio);
         
-        $entity->setActualYear('2014');
-        $entity->setIdColegio($idColegio);
-        $idColegio = null;
-        $form = $this->createForm(new detalleColegioType($idColegio), $entity);
-
-        return $this->render('ColegioAdminBundle:detalleColegio:new.html.twig', array(
-        'entity' => $entity,
-        'form'   => $form->createView(),
-        ));
+        if($existe == null){
+                    $entity->setActualYear('2000');
+                    $entity->setIdColegio($idColegio);
+                    
+                    $form = $this->createForm(new detalleColegioType($idColegio), $entity);
+        }else{
+                    $entity->setActualYear('2014');
+                    $entity->setIdColegio($idColegio);
+                    $idColegio = null;
+                    $form = $this->createForm(new detalleColegioType($idColegio), $entity);
+        }
+        // Ahora anexamos la inserción de estos datos
+        if($peticion->getMethod() == 'POST'){
+            $form->bind($peticion);
+            if($form->isValid()){
+                // persistir en la BD
+                $em = $this->getDoctrine()->getEntityManager();
+                $em->persist($entity);
+                $em->flush();
+                return $this->redirect($this->generateUrl('detallecolegio_show', array('id' => $entity->getId)));
+               // $ok = 'Bien';
+              }
+        }
+             return $this->render('ColegioAdminBundle:detalleColegio:new.html.twig', array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+             ));
+        
+        //return $this->render('ColegioAdminBundle:detalleColegio:new.html.twig', array(
+        //'entity' => $entity,
+        //'form'   => $form->createView(),
+        //'existe' => $existe,
+        //));
+    
     }
-
+    
     /**
      * Finds and displays a detalleColegio entity.
      *

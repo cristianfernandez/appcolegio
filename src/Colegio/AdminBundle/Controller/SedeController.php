@@ -22,8 +22,9 @@ class SedeController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('ColegioAdminBundle:Sede')->findAll();
+        $usuarioActivo = $this->get('security.context')->getToken()->getUser();
+        $idColegio = $usuarioActivo->getIdColegio();
+        $entities = $em->getRepository('ColegioAdminBundle:Sede')->findColegio($idColegio);
 
         return $this->render('ColegioAdminBundle:Sede:index.html.twig', array(
             'entities' => $entities,
