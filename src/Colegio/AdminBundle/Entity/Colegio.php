@@ -24,13 +24,6 @@ class Colegio
     /**
      * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\Direccion")
-     */
-    private $idDireccion;
-
-    /**
-     * @var string
-     *
      * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\EstadoColegio")
      */
     private $idEstadoColegio;
@@ -83,29 +76,6 @@ class Colegio
     public function setIdDireccion($idDireccion)
     {
         $this->idDireccion = $idDireccion;
-    
-        return $this;
-    }
-
-    /**
-     * Get idDireccion
-     *
-     * @return string 
-     */
-    public function getIdDireccion()
-    {
-        return $this->idDireccion;
-    }
-
-    /**
-     * Set idEstadoColegio
-     *
-     * @param string $idEstadoColegio
-     * @return Colegio
-     */
-    public function setIdEstadoColegio(\Colegio\AdminBundle\Entity\EstadoColegio $idEstadoColegio)
-    {
-        $this->idEstadoColegio = $idEstadoColegio;
     
         return $this;
     }

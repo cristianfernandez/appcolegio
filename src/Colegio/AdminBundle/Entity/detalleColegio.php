@@ -31,13 +31,6 @@ class detalleColegio
     /**
      * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\Sede")
-     */
-    private $idSede;
-
-    /**
-     * @var string
-     *
      * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\Jornada")
      */
     private $idJornada;
@@ -109,19 +102,6 @@ class detalleColegio
     public function getIdColegio()
     {
         return $this->idColegio;
-    }
-
-    /**
-     * Set idSede
-     *
-     * @param string $idSede
-     * @return detalleColegio
-     */
-    public function setIdSede(\Colegio\AdminBundle\Entity\Sede $idSede)
-    {
-        $this->idSede = $idSede;
-    
-        return $this;
     }
 
     /**

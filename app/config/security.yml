@@ -21,9 +21,14 @@ security:
     
     access_control:
       - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    
+      - { path: ^/grupo/*, roles: ROLE_ADMIN }
       - { path: ^/admin/estrato/*, roles: ROLE_SUPER_ADMIN }
       - { path: ^/admin/perfil/*, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+      - { path: ^/admin/colegio/new , roles: ROLE_SUPER_ADMIN }
       - { path: ^/admin/*, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+      
+     
       
 
     providers:

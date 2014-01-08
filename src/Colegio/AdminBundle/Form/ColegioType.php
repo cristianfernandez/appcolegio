@@ -18,7 +18,7 @@ class ColegioType extends AbstractType
             ->add('nombre')
             ->add('email')
             ->add('telefono')
-            ->add('idDireccion')
+            
             ->add('idEstadoColegio')
             ->add('idTipoColegio')
         ;

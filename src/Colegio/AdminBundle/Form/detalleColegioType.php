@@ -36,7 +36,7 @@ class detalleColegioType extends AbstractType
                  'empty_value'=> 'Tienes q escoger tu colegio',
                  'required'   =>true)
             )
-            ->add('idSede')
+           
             ->add('actualYear')
             ->add('capacidades')
             ->add('discapacidades')
