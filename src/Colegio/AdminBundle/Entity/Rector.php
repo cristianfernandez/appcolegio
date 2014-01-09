@@ -20,6 +20,13 @@ class Rector
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\Sede")
+     */
+    private $idSede;
 
     /**
      * @var string
@@ -59,7 +66,31 @@ class Rector
     {
         return $this->id;
     }
-
+    
+    /**
+     * Set idSede
+     *
+     * @param string $idSede
+     * @return Rector
+     */
+    public function setIdSede(\Colegio\AdminBundle\Entity\Sede $idSede)
+    {
+        $this->idSede = $idSede;
+    
+        return $this;
+    }
+    
+    /**
+     * Get idSede
+     *
+     * @param string $idSede
+     * @return Rector
+     */
+    public function getIdSede()
+    {
+        return $this->idSede;
+    }
+    
     /**
      * Set nombre
      *

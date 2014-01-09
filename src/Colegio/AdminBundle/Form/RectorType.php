@@ -16,6 +16,7 @@ class RectorType extends AbstractType
     {
         $builder
             ->add('nombre')
+            ->add('idSede')
             ->add('apellidos')
             ->add('email')
             ->add('telefono')

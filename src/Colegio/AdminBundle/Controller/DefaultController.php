@@ -21,12 +21,14 @@ class DefaultController extends Controller
         $usuarioActivo = $this->get('security.context')->getToken()->getUser();
         $idColegio = $usuarioActivo->getIdColegio();
         $em = $this->getDoctrine()->getManager();
+        
         $entities = $em->getRepository('ColegioAdminBundle:Colegio')->findBy(array (
             'id' => $idColegio,
         ));
         $sedes = $em->getRepository('ColegioAdminBundle:Sede')->findBy(array (
             'idDetalleColegio' => $idColegio,
         ));  
+        
         return $this->render('ColegioAdminBundle:Colegio:index.html.twig', array(
             'entities' => $entities,
             'sedes' => $sedes,
