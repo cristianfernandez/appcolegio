@@ -101,12 +101,22 @@ class SedeController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Sede entity.');
         }
-
+        
+        $direccion = $em->getRepository('ColegioAdminBundle:Direccion')->findBy( array(
+            'idSede' => $id
+        ));
+        
+        $rector = $em->getRepository('ColegioAdminBundle:Rector')->findBy( array(
+            'idSede' => $id
+        ));
+        
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ColegioAdminBundle:Sede:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+            'direccion' => $direccion,
+            'rector' => $rector,
+            'delete_form' => $deleteForm->createView()));
     }
 
     /**

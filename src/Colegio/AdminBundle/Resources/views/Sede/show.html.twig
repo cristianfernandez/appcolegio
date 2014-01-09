@@ -7,42 +7,104 @@
         <tbody>
             <tr>
                 <th width="60">Id</th>
-                <th width="800">Nombresede</th>
+                <th width="830">Nombresede</th>
                 <th>Estado</th>
-                <td>Acción</td>
+                <th>Acción</th>
             </tr>
             <tr>
                 <td>{{ entity.id }}</td>
                 <td>{{ entity.nombreSede }}</td>
                 <td>{{ entity.estado }}</td>
                 <td>
-                    <a href="{{ path('direccion') }}">
-                        <i class="icon-list"></i>
-                        Consultar Dirección
-                    </a>
+                    <ul>
+                        <li>
+                            <a href="{{ path('sede_edit', { 'id': entity.id }) }}"><i class="icon-edit"></i></a>
+                        </li>
+                    </ul>
                 </td>
             </tr>
         </tbody>
     </table>
+    <hr>
+    <h1> Dirección</h1>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th width="60">Id</th>
+                <th>Departamento</th>
+                <th>Sede</th>
+                <th>Municipio</th>
+                <th>Localidad</th>
+                <th>Estrato</th>
+                <th>Dirección</th>
+                <th>Acción</th>
+            </tr>
+            {% for direccion in direccion %}
+            <tr>
+                <td>{{ direccion.id }}</td>
+                <td>{{ direccion.idDepartamento }}</td>
+                <td>{{ direccion.idSede }}</td>
+                <td>{{ direccion.idMunicipio }}</td>
+                <td>{{ direccion.idLocalidad }}</td>
+                <td>{{ direccion.idEstrato }}</td>
+                <td>{{ direccion.direccionCompleta }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('direccion_edit', { 'id': direccion.id })}}"><i class="icon-edit"></i></a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <hr>
+    <h1>Rector</h1>
+    <table class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th width="60">Id</th>
+                <th>Sede</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Email</th>
+                <th>Telefono</th>
+                <th>Acción</th>
+            </tr>
+            <tr>
+                {% for rector in rector %}
+                    <td> {{ rector.id }}</td>
+                    <td> {{ rector.idSede }}</td>
+                    <td> {{ rector.nombre }}</td>
+                    <td> {{ rector.apellidos }}</td>
+                    <td> {{ rector.email }}</td>
+                    <td> {{ rector.telefono }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('rector_edit', { 'id': rector.id })}}"><i class="icon-edit"></i></a>
+                            </li>
+                        </ul>
+                    </td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+    
+<a href="{{ path('rector_new') }}"><i class="icon-plus-sign"> Crear nuevo Rector</i></a>
+<br>
+<hr>
 {% for rol in app.user.roles %}
-    {#   #}
+    {#  Solo puede eliminar el Super Man  #}
     {% if rol.role == 'ROLE_SUPER_ADMIN' %}
         <a href="{{ path('sede') }}"><i class="icon-arrow-left"></i> Volver</a>
+        <a href="{{ path('sede_edit', { 'id': entity.id }) }}"><i class="icon-edit"> Editar</i></a>
+        {{ form(delete_form) }}
     {% elseif rol.role == 'ROLE_ADMIN' %}
         <a href="{{ path('colegio_admin_perfil') }}"><i class="icon-arrow-left"></i> Volver</a>
     {% endif %}
 {% endfor %}
-<br>
-<a href="{{ path('sede_edit', { 'id': entity.id }) }}"><i class="icon-edit"> Editar</i></a>
-<br>
-
-{% for rol in app.user.roles %}
-    {# Solo puede eliminar el Super Man #}
-    {% if rol.role == 'ROLE_SUPER_ADMIN' %}
-        {{ form(delete_form) }}
-    {% else %}
-    {% endif %}
-{% endfor %}
-
 
 {% endblock %}

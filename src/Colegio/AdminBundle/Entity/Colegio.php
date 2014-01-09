@@ -89,7 +89,19 @@ class Colegio
     {
         return $this->idEstadoColegio;
     }
-
+    
+    /**
+     * Set idEstadoColegio
+     *
+     * @param string $idEstadoColegio
+     * @return Colegio
+     */
+    public function setIdEstadoColegio(\Colegio\AdminBundle\Entity\EstadoColegio $idEstadoColegio)
+    {
+        $this->idEstadoColegio = $idEstadoColegio;
+    
+        return $this;
+    }
     /**
      * Set idTipoColegio
      *
