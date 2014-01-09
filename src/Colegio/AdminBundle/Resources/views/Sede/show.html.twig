@@ -6,23 +6,43 @@
     <table class="table table-striped table-bordered">
         <tbody>
             <tr>
-                <th>Id</th>
-                <th>Nombresede</th>
+                <th width="60">Id</th>
+                <th width="800">Nombresede</th>
                 <th>Estado</th>
+                <td>Acción</td>
             </tr>
             <tr>
                 <td>{{ entity.id }}</td>
                 <td>{{ entity.nombreSede }}</td>
                 <td>{{ entity.estado }}</td>
+                <td>
+                    <a href="{{ path('direccion') }}">
+                        <i class="icon-list"></i>
+                        Consultar Dirección
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>
-
-<br>
-<a href="{{ path('sede') }}"><i class="icon-arrow-left"></i> Volver</a>
+{% for rol in app.user.roles %}
+    {#   #}
+    {% if rol.role == 'ROLE_SUPER_ADMIN' %}
+        <a href="{{ path('sede') }}"><i class="icon-arrow-left"></i> Volver</a>
+    {% elseif rol.role == 'ROLE_ADMIN' %}
+        <a href="{{ path('colegio_admin_perfil') }}"><i class="icon-arrow-left"></i> Volver</a>
+    {% endif %}
+{% endfor %}
 <br>
 <a href="{{ path('sede_edit', { 'id': entity.id }) }}"><i class="icon-edit"> Editar</i></a>
 <br>
-{{ form(delete_form) }}
+
+{% for rol in app.user.roles %}
+    {# Solo puede eliminar el Super Man #}
+    {% if rol.role == 'ROLE_SUPER_ADMIN' %}
+        {{ form(delete_form) }}
+    {% else %}
+    {% endif %}
+{% endfor %}
+
 
 {% endblock %}

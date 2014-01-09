@@ -22,7 +22,8 @@ class DireccionController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
+        $usuarioActivo = $this->get('security.context')->getToken()->getUser();
+        $idColegio = $usuarioActivo->getIdColegio();
         $entities = $em->getRepository('ColegioAdminBundle:Direccion')->findAll();
 
         return $this->render('ColegioAdminBundle:Direccion:index.html.twig', array(

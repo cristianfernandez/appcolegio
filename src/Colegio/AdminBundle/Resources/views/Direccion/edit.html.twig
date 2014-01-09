@@ -3,14 +3,19 @@
 {% block article %}
     <h1>Editar Dirección</h1>
 
-    {{ form(edit_form) }}
+{{ form(edit_form) }}
+<a href="{{ path('direccion') }}">
+    Regresar
+</a>
+{% for rol in app.user.roles %}
+    {#  Solo el Super Man Papa #}
+    {% if rol.role == 'ROLE_SUPER_ADMIN' %}
+        {{ form(delete_form) }}
+    {% else %}
+    {% endif %}
+{% endfor %}
+    
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('direccion') }}">
-            Regresar
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+
+
 {% endblock %}

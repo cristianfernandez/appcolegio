@@ -38,7 +38,6 @@
         </tbody>
     </table>
 
-<br>
 {% for rol in app.user.roles %}
     {# Solo puede crear el super Man #}
     {% if rol.role == 'ROLE_SUPER_ADMIN' %}
@@ -47,7 +46,6 @@
             Crear un nuevo Detalle
         </a>
     {% else %}
-        <a href="{{ path('direccion') }}"> Consultar Dirección</a>
         <br>
         <a href="{{ path('colegio_admin_perfil') }}"><i class="icon-arrow-left"> Volver</i></a>
     {% endif %}
