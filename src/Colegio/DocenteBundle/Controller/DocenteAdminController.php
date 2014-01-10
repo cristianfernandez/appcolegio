@@ -108,29 +108,6 @@ class DocenteController extends Controller
             'delete_form' => $deleteForm->createView(),        ));
     }
 
-       /**
-     * Encuentra los grupos de un docente.
-     *
-     */
-    public function gruposAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('ColegioDocenteBundle:Docente')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Docente entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('ColegioDocenteBundle:Docente:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        
-            ));
-    }
-    
-    
     /**
      * Displays a form to edit an existing Docente entity.
      *

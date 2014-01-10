@@ -6,6 +6,10 @@ docente_show:
     pattern:  /{id}/show
     defaults: { _controller: "ColegioDocenteBundle:Docente:show" }
 
+docente_grupos:
+    pattern:  /{id}/grupos
+    defaults: { _controller: "ColegioDocenteBundle:Docente:grupos" }
+
 docente_new:
     pattern:  /new
     defaults: { _controller: "ColegioDocenteBundle:Docente:new" }

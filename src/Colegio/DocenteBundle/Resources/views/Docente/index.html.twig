@@ -1,5 +1,7 @@
 {% extends 'TemasTemasBundle::admin.html.twig' %}
-
+{% block span %}
+span8
+{% endblock %}
 {% block article %}
 
     <h1>Lista de Docentes</h1>
@@ -11,11 +13,10 @@
                 <th>Sede</th>
                 <th>Materia</th>
                 <th>Nombres</th>
-                <th>Apellidos</th>
+                
                 <th>Telefono</th>
                 <th>Email</th>
-                <th>Tipo Identificación</th>
-                <th>N° Documento</th>
+               
                 <th>Estado</th>
                 <th>Actions</th>
             </tr>
@@ -26,12 +27,11 @@
                 <td><a href="{{ path('docente_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.idSede }}</td>
                 <td>{{ entity.idMateria }}</td>
-                <td>{{ entity.nombres }}</td>
-                <td>{{ entity.apellidos }}</td>
+                <td>{{ entity.nombres }} {{ entity.apellidos }}</td>
+                
                 <td>{{ entity.telefono }}</td>
                 <td>{{ entity.email }}</td>
-                <td>{{ entity.idTipoIdentificacion }}</td>
-                <td>{{ entity.numeroIdentificacion }}</td>
+                
                 <td>{{ entity.estado }}</td>
                 <td>
                 <ul>
@@ -40,6 +40,9 @@
                     </li>
                     <li>
                         <a href="{{ path('docente_edit', { 'id': entity.id }) }}"><i class="icon-edit"> </i></a>
+                    </li>
+                    <li>
+                        <a href="{{ path('docente_grupos', { 'id': entity.id }) }}"><i class="icon-group"></i></a>
                     </li>
                 </ul>
                 </td>
@@ -57,3 +60,16 @@
         </li>
     </ul>
     {% endblock %}
+  {% block extras %}  
+    {% embed 'TemasTemasBundle::span.html.twig' %}
+        {% block spanclase %}
+            span3
+        {% endblock %}
+        {% block headerspan %}
+            <i class="icon-group"></i><h3> Detalle Grupos</h3>
+        {% endblock %}
+        {% block articlespan %}
+            Aca
+        {% endblock %}
+    {% endembed %}
+  {% endblock %}
