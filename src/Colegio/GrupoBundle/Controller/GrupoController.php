@@ -48,11 +48,11 @@ class GrupoController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('grupo_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('grupo_show', array('idSede' => $entity->getIdSede())));
         }
 
         return $this->render('ColegioGrupoBundle:Grupo:new.html.twig', array(
-            'entity' => $entity,
+            'entities' => $entity,
             'form'   => $form->createView(),
         ));
     }

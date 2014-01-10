@@ -6,6 +6,10 @@ estudiante_show:
     pattern:  /{id}/show
     defaults: { _controller: "ColegioEstudianteBundle:Estudiante:show" }
 
+estudiante_shownotas:
+    pattern:  /{id}/showNotas
+    defaults: { _controller: "ColegioEstudianteBundle:Estudiante:showNotas" }
+
 estudiante_new:
     pattern:  /new
     defaults: { _controller: "ColegioEstudianteBundle:Estudiante:new" }
