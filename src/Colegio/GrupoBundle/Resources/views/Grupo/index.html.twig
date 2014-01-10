@@ -1,42 +1,33 @@
 {% extends 'TemasTemasBundle::admin.html.twig' %}
 
 {% block span %}
-span6
+span5
+{% endblock %}
+
+{% block headerarticle %}
+<i class="icon-th-list"></i><h3> Sedes Activas</h3>
 {% endblock %}
 
 {% block article %}
-
-
-    <h1>Lista de Grupos</h1>
-
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nivel</th>
-                <th>Docente Responsable</th>
-                <th>Sede</th>
-                <th>Nombre</th>
-                <th>Activo</th>
+                <th>Nombresede</th>
+                <th>Estado</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('grupo_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.idNivel }}</td>
-                <td>{{ entity.idDocenteResponsable }}</td>
-                <td>{{ entity.idSede }}</td>
-                <td>{{ entity.nombre }}</td>
-                <td>{{ entity.activo }}</td>
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.nombreSede }}</td>
+                <td>{{ entity.estado }}</td>
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('grupo_show', { 'id': entity.id }) }}" ><i class="icon-list"> </i></a>
-                    </li>
-                    <li>
-                        <a href="{{ path('grupo_edit', { 'id': entity.id }) }}"><i class="icon-edit"> </i></a>
+                        <a href="{{ path('grupo_showbysede', { 'id': entity.id }) }}" ><i class="icon-list"></i></a>
                     </li>
                 </ul>
                 </td>
@@ -44,49 +35,65 @@ span6
         {% endfor %}
         </tbody>
     </table>
+            <a href="{{ path('grupo_new') }}"> <i class="icon-plus-sign"></i> Crear nuevo Grupo</a>
+    
+{% endblock %}
 
-        <ul>
-        <li>
-            <a href="{{ path('grupo_new') }}">
-                <i class="icon-plus-sign"></i>
-                Crear nuevo Grupo
-            </a>
-        </li>
-    </ul>
+{# Halamos el bloque extras de admin.html.twig 
+y usamos la etiqueta embed para duplicar un span que por defecto es span6
+#}
+{% block extras %}
+            
+{% if grupos != null %}
+            
+{% embed 'TemasTemasBundle::span.html.twig' %}
+            
+{% block spanclase %}
+    span7
+{% endblock %}        
     
-    
+{% block headerspan %}
+    <i class="icon-th-list"></i><h3> Listado de Grupos</h3>
+{% endblock %}
+
+{# bloque del contenido, por defecto vacio #}
+{% block articlespan %}
+
+<table class="table table-striped table-bordered">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <th>Idnivel</th>
+            <th>Iddocenteresponsable</th>
+            <th>Idsede</th>
+            <th>Nombre</th>
+            <th>Activo</th>
+            <th>Acción</th>
+        </tr>
+        <tr>
+        {% for grupo in grupos %}
+            <td>{{ grupo.id }}</td>
+            <td>{{ grupo.idNivel }}</td>
+            <td>{{ grupo.idDocenteResponsable }}</td>
+            <td>{{ grupo.idSede }}</td>
+            <td>{{ grupo.nombre }}</td>
+            <td>{{ grupo.activo }}</td>
+            <td>
+            <ul>
+                <li>
+                    <a href="{{ path('grupo_edit', { 'id': grupo.id }) }}"><i class="icon-edit"> </i></a>
+                </li>
+            </ul>
+            </td>
+        {% endfor %}
+        </tr>
+    </tbody>
+</table>
+
+
     {% endblock %}
+{% endembed %}
 
-
-    
-
-    {% block extras %}
-    
-    {% embed 'TemasTemasBundle::span.html.twig' %}
+{% endif %}        
         
-        {% block spanclase %}
-               span3
-        {% endblock %}
-    
-        {% block header6 %}
-    <i class="icon-user"></i>
-        {% endblock %}
-        {% block article6 %}
-   
-            Esto va en article con todos sus juguetes, super 
-        {% endblock %}
-    {% endembed %}
-            
-            
-    {% embed 'TemasTemasBundle::span.html.twig' %}
-    
-        {% block header6 %}
-    <i class="icon-user"></i> y or supert
-        {% endblock %}
-        {% block article6 %}
-   
-            Y aca va otro 
-        {% endblock %}
-    {% endembed %}
-    
-    {% endblock %}
+{% endblock %}        

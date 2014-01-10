@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Colegio\GrupoBundle\Entity\Grupo;
 use Colegio\GrupoBundle\Form\GrupoType;
+use Colegio\AdminBundle\Entity\Sede;
 
 /**
  * Grupo controller.
@@ -22,11 +23,14 @@ class GrupoController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $usuarioActivo = $this->get('security.context')->getToken()->getUser();
+        $idColegio = $usuarioActivo->getIdColegio();
 
-        $entities = $em->getRepository('ColegioGrupoBundle:Grupo')->findAll();
-
+        $entities = $em->getRepository('ColegioAdminBundle:Sede')->findColegio($idColegio);
+        
         return $this->render('ColegioGrupoBundle:Grupo:index.html.twig', array(
             'entities' => $entities,
+            'grupos' => null
         ));
     }
     /**
@@ -94,8 +98,9 @@ class GrupoController extends Controller
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('ColegioGrupoBundle:Grupo')->find($id);
+        $entity = $em->getRepository('ColegioGrupoBundle:Grupo')->findBy(array(
+            'idSede' => $id
+        ));
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Grupo entity.');
@@ -104,10 +109,27 @@ class GrupoController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ColegioGrupoBundle:Grupo:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+            'entities' => $entity,
+            'grupos' => null,
+            'delete_form' => $deleteForm->createView()));
     }
-
+    
+    public function groupBySedeAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $usuarioActivo = $this->get('security.context')->getToken()->getUser();
+        $idColegio = $usuarioActivo->getIdColegio();
+       
+        $entities = $em->getRepository('ColegioAdminBundle:Sede')->findColegio($idColegio);
+        $grupos = $em ->getRepository('ColegioGrupoBundle:Grupo')->findBy(array(
+            'idSede' => $id
+        ));
+        
+        return $this->render('ColegioGrupoBundle:Grupo:index.html.twig', array(
+            'entities' => $entities,
+            'grupos' => $grupos));
+    }
     /**
      * Displays a form to edit an existing Grupo entity.
      *
