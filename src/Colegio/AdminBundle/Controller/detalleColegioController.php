@@ -85,7 +85,9 @@ class detalleColegioController extends Controller
         $entity = new detalleColegio();
         //necesitamos q el colegio pueda crear por primera vez su detalleColegio, consultamos si existe
         $em = $this->getDoctrine()->getManager();
-        $existe = $em->getRepository('ColegioAdminBundle:detalleColegio')->findByIdColegio($idColegio);
+        $existe = $em->getRepository('ColegioAdminBundle:detalleColegio')->findBy(array(
+            'idColegio'=>$idColegio,
+           ));
         
         if($existe == null){
                     $entity->setActualYear('2000');
