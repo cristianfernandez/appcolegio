@@ -27,6 +27,7 @@ class EstudianteController extends Controller
 
         return $this->render('ColegioEstudianteBundle:Estudiante:index.html.twig', array(
             'entities' => $entities,
+            'notas' => null
         ));
     }
     /**
@@ -108,6 +109,23 @@ class EstudianteController extends Controller
             'delete_form' => $deleteForm->createView(),        ));
     }
 
+    /**
+     * Finds and displays a Nota by Estudiante entity.
+     *
+     */
+    public function showNotasAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('ColegioEstudianteBundle:Estudiante')->findAll();
+        $notas = $em->getRepository('ColegioEstudianteBundle:Nota')->findBy(array(
+            'idEstudiante' => $id));
+        
+        return $this->render('ColegioEstudianteBundle:Estudiante:index.html.twig', array(
+            'entities' => $entities,
+            'notas' => $notas));
+    }
+    
     /**
      * Displays a form to edit an existing Estudiante entity.
      *

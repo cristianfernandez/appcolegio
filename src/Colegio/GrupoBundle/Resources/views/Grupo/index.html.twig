@@ -35,7 +35,8 @@ span5
         {% endfor %}
         </tbody>
     </table>
-            <a href="{{ path('grupo_new') }}"> <i class="icon-plus-sign"></i> Crear nuevo Grupo</a>
+    <hr>
+    <a href="{{ path('grupo_new') }}"> <i class="icon-plus-sign"></i> Crear nuevo Grupo</a>
     
 {% endblock %}
 
@@ -70,23 +71,24 @@ y usamos la etiqueta embed para duplicar un span que por defecto es span6
             <th>Activo</th>
             <th>Acción</th>
         </tr>
-        <tr>
         {% for grupo in grupos %}
-            <td>{{ grupo.id }}</td>
-            <td>{{ grupo.idNivel }}</td>
-            <td>{{ grupo.idDocenteResponsable }}</td>
-            <td>{{ grupo.idSede }}</td>
-            <td>{{ grupo.nombre }}</td>
-            <td>{{ grupo.activo }}</td>
-            <td>
-            <ul>
-                <li>
-                    <a href="{{ path('grupo_edit', { 'id': grupo.id }) }}"><i class="icon-edit"> </i></a>
-                </li>
-            </ul>
-            </td>
+            <tr>
+
+                <td>{{ grupo.id }}</td>
+                <td>{{ grupo.idNivel }}</td>
+                <td>{{ grupo.idDocenteResponsable }}</td>
+                <td>{{ grupo.idSede }}</td>
+                <td>{{ grupo.nombre }}</td>
+                <td>{{ grupo.activo }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('grupo_edit', { 'id': grupo.id }) }}"><i class="icon-edit"> </i></a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
         {% endfor %}
-        </tr>
     </tbody>
 </table>
 

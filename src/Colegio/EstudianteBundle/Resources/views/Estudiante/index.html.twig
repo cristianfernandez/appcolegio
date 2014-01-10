@@ -41,6 +41,9 @@
                         <a href="{{ path('estudiante_show', { 'id': entity.id }) }}" ><i class="icon-list"> </i></a>
                     </li>
                     <li>
+                        <a href="{{ path('estudiante_shownotas', { 'id': entity.id }) }}" ><i class="icon-list"> </i></a>
+                    </li>
+                    <li>
                         <a href="{{ path('estudiante_edit', { 'id': entity.id }) }}"><i class="icon-edit"> </i></a>
                     </li>
                 </ul>
@@ -59,3 +62,50 @@
         </li>
     </ul>
 {% endblock %}
+
+    
+{% block extras %}
+          
+{% if notas != null %}
+    
+{% embed 'TemasTemasBundle::span.html.twig' %}
+            
+{% block spanclase %}
+    span6
+{% endblock %}        
+    
+{% block headerspan %}
+    <i class="icon-th-list"></i><h3> Notas</h3>
+{% endblock %}
+
+{# bloque del contenido, por defecto vacio #}
+{% block articlespan %}
+
+<table class="table table-striped table-bordered">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <th>Estudiante</th>
+            <th>Asignatura</th>
+            <th>Calificación</th>
+            <th>Descripción</th>
+        </tr>
+        {% for nota in notas %}
+            <tr>
+
+                <td>{{ nota.id }}</td>
+                <td>{{ nota.idEstudiante }}</td>
+                <td>{{ nota.idAsignatura }}</td>
+                <td>{{ nota.calificacion }}</td>
+                <td>{{ nota.descripcion }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+    {% endblock %}
+{% endembed %}
+{% endif %}
+
+{% endblock %}    
