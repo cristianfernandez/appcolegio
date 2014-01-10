@@ -12,25 +12,32 @@
                 <th>Idsede</th>
                 <th>Nombre</th>
                 <th>Activo</th>
+                <th>Acción</th>
             </tr>
             <tr>
+            {% for entity in entities %}
                 <td>{{ entity.id }}</td>
                 <td>{{ entity.idNivel }}</td>
                 <td>{{ entity.idDocenteResponsable }}</td>
                 <td>{{ entity.idSede }}</td>
                 <td>{{ entity.nombre }}</td>
                 <td>{{ entity.activo }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('grupo_edit', { 'id': entity.id }) }}"><i class="icon-edit"> </i></a>
+                    </li>
+                </ul>
+                </td>
+            {% endfor %}
             </tr>
         </tbody>
     </table>
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('grupo_edit', { 'id': entity.id }) }}" class="btn btn-small btn-success"><i class="icon-edit"> </i></a>
-        {{ form(delete_form) }}
-    </li>
-    <li>
         <a href="{{ path('grupo') }}"><i class="icon-arrow-left"> Volver a la lista</i></a>
     </li>
 </ul>
+
 {% endblock %}
