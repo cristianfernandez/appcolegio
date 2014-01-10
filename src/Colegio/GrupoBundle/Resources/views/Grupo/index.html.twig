@@ -1,6 +1,11 @@
 {% extends 'TemasTemasBundle::admin.html.twig' %}
 
+{% block span %}
+span6
+{% endblock %}
+
 {% block article %}
+
 
     <h1>Lista de Grupos</h1>
 
@@ -48,4 +53,40 @@
             </a>
         </li>
     </ul>
+    
+    
+    {% endblock %}
+
+
+    
+
+    {% block extras %}
+    
+    {% embed 'TemasTemasBundle::span.html.twig' %}
+        
+        {% block spanclase %}
+               span3
+        {% endblock %}
+    
+        {% block header6 %}
+    <i class="icon-user"></i>
+        {% endblock %}
+        {% block article6 %}
+   
+            Esto va en article con todos sus juguetes, super 
+        {% endblock %}
+    {% endembed %}
+            
+            
+    {% embed 'TemasTemasBundle::span.html.twig' %}
+    
+        {% block header6 %}
+    <i class="icon-user"></i> y or supert
+        {% endblock %}
+        {% block article6 %}
+   
+            Y aca va otro 
+        {% endblock %}
+    {% endembed %}
+    
     {% endblock %}

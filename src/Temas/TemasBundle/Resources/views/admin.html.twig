@@ -87,31 +87,50 @@
 	
 	      <div class="row">
 	      	
-	      	<div class="span12">      		
+ {% block superarticle %}
+                  {# Bloque con un span de 12 #}
+                  <div class="{% block span %}
+                                   span12
+                               {% endblock %} ">      		
 	      		
+                    
+                    
 	      		<div class="widget ">
 	      			
 	      			<div class="widget-header">
-	      				<i class="icon-user"></i>
+	      			{% block headerarticle %}	
+                                    <i class="icon-user"></i>
                                         <h3>
                                            {{ app.user }}
                                         </h3>
-	  				</div> <!-- /widget-header -->
+                                 {% endblock %}
+                                 </div> <!-- /widget-header -->
+                                 
 					
 					<div class="widget-content">
 
      {% block article %}
 
-   Acá va un texto a algo!!!!
-   Cuando extiendes la plantilla y usas
-   article se borra
+                                 
+
    
                     
      {% endblock %}
+             
+                                            
+                                            
                                             
                                         </div>
                         </div>
                 </div>
+ {% endblock %}
+                
+                
+            {% block extras %}
+                                            
+              {% endblock %}     
+                
+                
               </div>
             </div>
         </div>
