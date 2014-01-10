@@ -5,6 +5,10 @@ grupo:
 grupo_show:
     pattern:  /{id}/show
     defaults: { _controller: "ColegioGrupoBundle:Grupo:show" }
+    
+grupo_showbysede:
+    pattern:  /{id}/groupBySede
+    defaults: { _controller: "ColegioGrupoBundle:Grupo:groupBySede" }
 
 grupo_new:
     pattern:  /new
