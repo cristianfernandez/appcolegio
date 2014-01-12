@@ -12,8 +12,9 @@ use Doctrine\ORM\EntityRepository;
  */
 class DocenteRepository extends EntityRepository
 {
-    public function docentegrupo()
+    public function docentesede($idcolegio)
     {
+        
         
     }
 }

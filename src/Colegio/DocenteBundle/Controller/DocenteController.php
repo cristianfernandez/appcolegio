@@ -22,11 +22,15 @@ class DocenteController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('ColegioDocenteBundle:Docente')->findAll();
-
+        $usuarioActivo = $this->get('security.context')->getToken()->getUser();
+        $idColegio = $usuarioActivo->getIdColegio();
+        $sede = $em->getRepository('ColegioAdminBundle:Sede')->findColegio($idColegio);
+        $entities = $em->getRepository('ColegioDocenteBundle:Docente')->findByidSede($sede);
+        
         return $this->render('ColegioDocenteBundle:Docente:index.html.twig', array(
             'entities' => $entities,
+            'grupos'   => null,
+            'profe'    => null,
         ));
     }
     /**
@@ -116,17 +120,25 @@ class DocenteController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ColegioDocenteBundle:Docente')->find($id);
-
+        $usuarioActivo = $this->get('security.context')->getToken()->getUser();
+        $idColegio = $usuarioActivo->getIdColegio();
+        $sede = $em->getRepository('ColegioAdminBundle:Sede')->findColegio($idColegio);
+        
+        $entity  = $em->getRepository('ColegioDocenteBundle:Docente')->findByidSede($sede);
+        $entity2 = $em->getRepository('ColegioDocenteBundle:Docente')->find($id);
+        $grupos  = $em->getRepository('ColegioGrupoBundle:Grupo')->findByidDocenteResponsable($id);
+         
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Docente entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('ColegioDocenteBundle:Docente:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        
+        return $this->render('ColegioDocenteBundle:Docente:index.html.twig', array(
+            'entities'    => $entity,
+            'delete_form' => $deleteForm->createView(), 
+            'grupos'      => $grupos,
+            'profe'       => $entity2,
             ));
     }
     
@@ -194,7 +206,7 @@ class DocenteController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('docente_edit', array('id' => $id)));
+            return $this->redirect($this->geneAllrateUrl('docente_edit', array('id' => $id)));
         }
 
         return $this->render('ColegioDocenteBundle:Docente:edit.html.twig', array(

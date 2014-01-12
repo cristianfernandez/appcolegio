@@ -1,4 +1,10 @@
 {% extends 'TemasTemasBundle::admin.html.twig' %}
+{% block span %}
+span6
+{% endblock %}
+{% block headerarticle %}
+
+{% endblock %}
 
 {% block article %}
 {% for rol in app.user.roles %}
@@ -38,6 +44,13 @@
         {% endfor %}
         </tbody>
     </table>
+{% endblock %}
+
+{% block extras %}
+
+{% embed 'TemasTemasBundle::span.html.twig' %}
+    
+{% block articlespan %}    
 {% for rol in app.user.roles %}
     {# Solo habilita el botón de crear para el Super Man  #}
     {% if rol.role == 'ROLE_SUPER_ADMIN' %}
@@ -81,4 +94,6 @@
         <hr>
     {% endif %}
 {% endfor %}
+{% endblock %}
+{% endembed %}
 {% endblock %}

@@ -60,16 +60,45 @@ span8
         </li>
     </ul>
     {% endblock %}
+    
+    
+    
   {% block extras %}  
+    
+    {% if grupos != null %}
+    
     {% embed 'TemasTemasBundle::span.html.twig' %}
         {% block spanclase %}
-            span3
+            span4
         {% endblock %}
         {% block headerspan %}
-            <i class="icon-group"></i><h3> Detalle Grupos</h3>
+            <i class="icon-group"></i><h3> Detalle Grupos de {{ profe.nombres }}</h3>
         {% endblock %}
         {% block articlespan %}
-            Aca
+           
+             <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                
+                <th>Grupo</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in grupos %}
+            <tr>
+                
+                <td>{{ entity.nombre }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+            
         {% endblock %}
     {% endembed %}
+             {% else %}
+           
+      {% endif %}
+            
   {% endblock %}
+      
