@@ -1,3 +1,7 @@
 tucolegio_ppal_homepage:
     pattern:  /
     defaults: { _controller: TucolegioPpalBundle:Default:index }
+
+tucolegio_conocenos:
+    pattern:  /conocenos
+    defaults: { _controller: TucolegioPpalBundle:Default:conocenos }
