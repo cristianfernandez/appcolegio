@@ -3,18 +3,35 @@ security:
         ROLE_ADMIN: ROLE_ADMIN
         ROLE_SUPER_ADMIN: [ROLE_SUPER_ADMIN]
         ROLE_ESTUDIANTE: [ROLE_ESTUDIANTE]
+    
     firewalls:
+      superadmin:
+          pattern :   ^/usuarios
+          provider:   in_memory
+          anonymous:   ~
+          form_login: 
+            default_target_path: /usuarios/
+            login_path: /usuarios/login
+            check_path: /usuarios/login_check
+          logout:
+            path:       usuarios_logout
+            target:     /usuarios/login
+            invalidate_session: false
+    
+          remember_me:
+           key: jairocris1234
+           lifetime: 3600
+      
       admin:
         pattern:     ^/admin
         provider:    Usuarios
         anonymous:   ~
-        switch_user: { role: ROLE_SUPER_ADMIN }
         form_login: 
-          default_target_path: /admin
+          default_target_path: /admin/
           login_path: /admin/login
           check_path: /admin/login_check
         logout:
-          path:       ColegioAdminBundle_logout
+          path:       usuarios_logout
           target:     /admin/login
           invalidate_session: false
     
@@ -22,8 +39,11 @@ security:
            key: jairocris1234
            lifetime: 3600
     
+      
+    
+ 
     access_control:
-      - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+      - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
     
       - { path: ^/grupo/*, roles: ROLE_SUPER_ADMIN }
       
@@ -40,7 +60,7 @@ security:
       
       - { path: ^/admin/direccion/new, roles: ROLE_SUPER_ADMIN }
       
-      - { path: ^/admin/*, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+      - { path: ^/admin/, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
       
      
       

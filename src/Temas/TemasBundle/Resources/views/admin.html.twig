@@ -18,7 +18,7 @@
     <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
-                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="index.html">Tú Colegio al Día </a>
+                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="{{ path('tucolegio_ppal_homepage') }}">Tú Colegio al Día </a>
       <div class="nav-collapse">
         <ul class="nav pull-right">
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
@@ -32,7 +32,7 @@
                             class="icon-user"></i> {{ app.user }} <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="{{ path('colegio_admin_perfil')}}">Perfil</a></li>
-              <li><a href="{{ path('ColegioAdminBundle_logout')}}">Cerrar Sesión</a></li>
+              <li><a href="{{ path('usuarios_logout')}}">Cerrar Sesión</a></li>
             </ul>
           </li>
         </ul>
