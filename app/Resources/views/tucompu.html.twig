@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <!-- start: Meta -->
+	<meta charset="utf-8">
+	<title>{% block title %}Bienvenidos!{% endblock %}</title> 
+	<meta name="description" content=""/>
+	<meta name="keywords" content="" />
+	<meta name="author" content=""/>
+        <!-- end: Meta -->
+		   
+        <!-- start: Mobile Specific -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- end: Mobile Specific -->
+	
+	<!-- start: Facebook Open Graph -->
+	<meta property="og:title" content=""/>
+	<meta property="og:description" content=""/>
+	<meta property="og:type" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:image" content=""/>
+        <!-- end: Facebook Open Graph -->
+        <!-- start: CSS -->	
+	{% block stylesheets %}{% endblock %}	
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Economica:700,400italic">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <!-- end: CSS -->
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<!--start: Header -->
+	<header>
+		
+		<!--start: Container -->
+		<div class="container">
+			
+			<!--start: Row -->
+			<div class="row">
+					
+				<!--start: Logo -->
+				<div class="logo span3">
+						
+					<a class="brand" href="#"><img src="{{ asset('bundles/tucolegioppal/img/logo.png') }}" alt="Logo"></a>
+						
+				</div>
+				<!--end: Logo -->
+					
+				<!--start: Navigation -->
+				<div class="span9">
+					
+					<div class="navbar navbar-inverse">
+			    		<div class="navbar-inner">
+			          		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+			            		<span class="icon-bar"></span>
+			            		<span class="icon-bar"></span>
+			            		<span class="icon-bar"></span>
+			          		</a>
+			          		<div class="nav-collapse collapse">
+			            		<ul class="nav">
+			              			<li class="active"><a href="#">Inicio</a></li>
+			              			<li><a href="#">Quienes somos?</a></li>
+									<li><a href="#">Contáctanos</a></li>
+									<li><a href="#">Precios </a></li>
+			              			
+			              			<li class="dropdown">
+			                			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios <b class="caret"></b></a>
+			                			<ul class="dropdown-menu">
+			                  				<li><a href="#">Estudiantes</a></li>
+			                  				<li><a href="#">Docentes</a></li>
+			                  				<li><a href="#">Administradores</a></li>
+			                  				
+			                			</ul>
+			              			</li>
+			            		</ul>
+			          		</div>
+			        	</div>
+			      	</div>
+					
+				</div>	
+				<!--end: Navigation -->
+					
+			</div>
+			<!--end: Row -->
+			
+		</div>
+		<!--end: Container-->			
+			
+	</header>
+	<!--end: Header-->
+
+            
+                {% block body %}
+
+
+                {% endblock %}
+             <!-- start: Footer Menu -->
+	<div id="footer-menu" class="hidden-tablet hidden-phone">
+
+		<!-- start: Container -->
+		<div class="container">
+			
+			<!-- start: Row -->
+			<div class="row">
+
+				<!-- start: Footer Menu Logo -->
+				<div class="span2">
+					<div id="footer-menu-logo">
+						<a href="#"><img src="{{ asset('bundles/tucolegioppal/img/logo-footer-menu.png') }}" alt="logo" /></a>
+					</div>
+				</div>
+				<!-- end: Footer Menu Logo -->
+
+				<!-- start: Footer Menu Links-->
+				<div class="span9">
+					
+					<div id="footer-menu-links">
+
+						<ul id="footer-nav">
+
+							<li><a href="#">Inicio</a></li>
+
+							<li><a href="#">Quienes somos?</a></li>
+
+							<li><a href="#">Contáctanos</a></li>
+
+							<li><a href="#">Usuarios</a></li>
+							
+							
+						</ul>
+
+					</div>
+					
+				</div>
+				<!-- end: Footer Menu Links-->
+
+				<!-- start: Footer Menu Back To Top -->
+				<div class="span1">
+						
+					<div id="footer-menu-back-to-top">
+						<a href="#"></a>
+					</div>
+				
+				</div>
+				<!-- end: Footer Menu Back To Top -->
+			
+			</div>
+			<!-- end: Row -->
+			
+		</div>
+		<!-- end: Container  -->	
+
+	</div>	
+	<!-- end: Footer Menu -->
+
+	<!-- start: Footer -->
+	<div id="footer">
+		
+		<!-- start: Container -->
+		<div class="container">
+			
+			<!-- start: Row -->
+			<div class="row">
+
+				<!-- start: About -->
+				<div class="span3">
+					
+					<h3>Acerca de</h3>
+					<p>
+						Tu Colegio al día, es una plataforma amigable, flexible y en constante evolución, llevamos 3 años en proceso de mejora y desarrollo de lo que es en este momento "Tu colegio al día", esperamos que hagas parte de nuestra comunidad.
+					</p>
+						
+				</div>
+				<!-- end: About -->
+
+				<!-- start: Photo Stream -->
+				<div class="span3">
+					
+					<h3>Donde estamos!</h3>
+					<div id="small-map-container"><a href="#"></a></div>
+					
+					<iframe id="small-map" width="210" height="210" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.es/maps?f=q&amp;source=s_q&amp;hl=es-419&amp;geocode=&amp;q=Tunja+-+Boyac%C3%A1,+Colombia&amp;aq=0&amp;oq=Tunja&amp;sll=40.396764,-3.713379&amp;sspn=10.018759,21.643066&amp;ie=UTF8&amp;hq=&amp;hnear=Tunja,+Boyac%C3%A1,+Colombia&amp;t=m&amp;z=12&amp;ll=5.533333,-73.366667&amp;output=embed"></iframe>
+				</div>
+				<!-- end: Photo Stream -->
+
+				<div class="span6">
+				
+					<!-- start: Follow Us -->
+					<h3>Siguenos!</h3>
+					<ul class="social-grid">
+						<li>
+							<div class="social-item">				
+								<div class="social-info-wrap">
+									<div class="social-info">
+										<div class="social-info-front social-twitter">
+											<a href="http://twitter.com/jairog12" target="_blank"></a>
+										</div>
+										<div class="social-info-back social-twitter-hover">
+											<a href="http://twitter.com/jairog12" target="_blank"></a>
+										</div>	
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="social-item">				
+								<div class="social-info-wrap">
+									<div class="social-info">
+										<div class="social-info-front social-facebook">
+											<a href="http://facebook.com/jairoalonsog12" target="_blank"></a>
+										</div>
+										<div class="social-info-back social-facebook-hover">
+											<a href="http://facebook.com/jairoalonsog12" target="_blank"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<!--<li>
+							 <div class="social-item">				
+								<div class="social-info-wrap">
+									<div class="social-info">
+										<div class="social-info-front social-dribbble">
+											<a href="http://dribbble.com"></a>
+										</div>
+										<div class="social-info-back social-dribbble-hover">
+											<a href="http://dribbble.com"></a>
+										</div>	
+									</div>
+								</div>
+							</div> 
+						</li>
+						<li>
+							<div class="social-item">				
+								<div class="social-info-wrap">
+									<div class="social-info">
+										<div class="social-info-front social-flickr">
+											<a href="http://flickr.com"></a>
+										</div>
+										<div class="social-info-back social-flickr-hover">
+											<a href="http://flickr.com"></a>
+										</div>	
+									</div>
+								</div>
+							</div>
+						</li>-->
+					</ul>
+					<!-- end: Follow Us -->
+				
+					<!-- start: Newsletter -->
+					<form id="newsletter">
+						<h3>Newsletter</h3>
+						<p>Suscribete a través de tu email</p>
+						<label for="newsletter_input">@:</label>
+						<input type="text" id="newsletter_input"/>
+						<input type="submit" id="newsletter_submit" value="submit">
+					</form>
+					<!-- end: Newsletter -->
+				
+				</div>
+				
+			</div>
+			<!-- end: Row -->	
+			
+		</div>
+		<!-- end: Container  -->
+
+	</div>
+	<!-- end: Footer -->
+
+	<!-- start: Copyright -->
+	<div id="copyright">
+	
+		<!-- start: Container -->
+		<div class="container">
+		
+			<p>
+				Gracias a &copy; 2013, creativeLabs. <a href="http://bootstrapmaster.com" alt="Bootstrap Themes">Bootstrap Themes</a> designed by BootstrapMaster in Poland <img src="{{ asset('bundles/tucolegioppal/img/poland2.png') }}" alt="Poland" style="margin-top:-4px">
+			</p>
+	
+		</div>
+		<!-- end: Container  -->
+		
+	</div>	
+	<!-- end: Copyright -->
+<!-- start: Java Script -->
+<!-- Placed at the end of the document so the pages load faster -->
+            {%  block javascripts %}{% endblock %}
+
+<!-- end: Java Script -->
+</body>
+</html>

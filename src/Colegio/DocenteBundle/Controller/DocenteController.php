@@ -24,9 +24,12 @@ class DocenteController extends Controller
         $em = $this->getDoctrine()->getManager();
         $usuarioActivo = $this->get('security.context')->getToken()->getUser();
         $idColegio = $usuarioActivo->getIdColegio();
+        if($idColegio == null){
+        $entities = $em->getRepository('ColegioDocenteBundle:Docente')->findAll();
+        }else{
         $sede = $em->getRepository('ColegioAdminBundle:Sede')->findColegio($idColegio);
         $entities = $em->getRepository('ColegioDocenteBundle:Docente')->findByidSede($sede);
-        
+        }
         return $this->render('ColegioDocenteBundle:Docente:index.html.twig', array(
             'entities' => $entities,
             'grupos'   => null,
@@ -122,11 +125,17 @@ class DocenteController extends Controller
 
         $usuarioActivo = $this->get('security.context')->getToken()->getUser();
         $idColegio = $usuarioActivo->getIdColegio();
+        if($idColegio != null){
         $sede = $em->getRepository('ColegioAdminBundle:Sede')->findColegio($idColegio);
-        
         $entity  = $em->getRepository('ColegioDocenteBundle:Docente')->findByidSede($sede);
         $entity2 = $em->getRepository('ColegioDocenteBundle:Docente')->find($id);
         $grupos  = $em->getRepository('ColegioGrupoBundle:Grupo')->findByidDocenteResponsable($id);
+        }else{
+        $entity  = $em->getRepository('ColegioDocenteBundle:Docente')->findAll();
+        $entity2 = $em->getRepository('ColegioDocenteBundle:Docente')->find($id);
+        $grupos  = $em->getRepository('ColegioGrupoBundle:Grupo')->findByidDocenteResponsable($id);
+        }
+        
          
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Docente entity.');

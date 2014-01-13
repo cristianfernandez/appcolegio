@@ -1,0 +1,3 @@
+tucolegio_ppal_homepage:
+    pattern:  /
+    defaults: { _controller: TucolegioPpalBundle:Default:index }

@@ -72,7 +72,7 @@ span8
             span4
         {% endblock %}
         {% block headerspan %}
-            <i class="icon-group"></i><h3> Detalle Grupos de {{ profe.nombres }}</h3>
+            <i class="icon-group"></i><h3> Detalle Grupos de {{ profe.nombres }} {{ profe.apellidos }}</h3>
         {% endblock %}
         {% block articlespan %}
            
@@ -98,6 +98,23 @@ span8
     {% endembed %}
              {% else %}
            
+       {% embed 'TemasTemasBundle::span.html.twig' %}
+        {% block spanclase %}
+            span4
+        {% endblock %}
+            
+        {% block articlespan %}
+            
+                {% if grupos == null %}
+            <h3>   No hay grupos para el Docente {{ profe.nombres }} {{ profe.apellidos }} </h3>
+                {% else %}
+            <h3>Acá se cargarán los grupos del Docente</h3>
+                {% endif %}     
+            
+        {% endblock %}            
+       {% endembed %}
+            
+            
       {% endif %}
             
   {% endblock %}

@@ -1,0 +1,36 @@
+{% extends '::tucompu.html.twig' %}
+
+{% block stylesheets %}
+
+{% stylesheets output='css/tucolegiostyle.css' filter='cssrewrite,yui_css' debug=false 
+'bundles/tucolegioppal/css/*'
+ -%}
+    <link href="{{ asset_url }}" rel="stylesheet" type="text/css" media="screen" />
+{% endstylesheets %}
+
+{% endblock %}
+
+{% block body -%}
+    
+    {% block article %}
+    
+    {% endblock %}
+    
+{% endblock %}
+                
+{% block javascripts %}
+{% javascripts output='js/tucolegioscript.js' filter='yui_js' 
+debug=false
+'bundles/tucolegioppal/js/jquery-1.8.2.js'
+'bundles/tucolegioppal/js/bootstrap.js'
+'bundles/tucolegioppal/js/jquery.cslider.js'
+'bundles/tucolegioppal/js/slider.js'
+'bundles/tucolegioppal/js/flexslider.js'
+'bundles/tucolegioppal/js/carousel.js'
+'bundles/tucolegioppal/js/custom.js'
+-%}
+    <script src="{{ asset_url }}"></script>
+    
+{% endjavascripts %}
+{% endblock %}
+    
