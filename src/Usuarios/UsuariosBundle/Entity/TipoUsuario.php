@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TipoUsuario
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Usuarios\UsuariosBundle\Entity\TipoUsuarioRepository")
  */
 class TipoUsuario implements RoleInterface
 {
