@@ -26,7 +26,7 @@ class TipoUsuario implements RoleInterface
     /**
      * @var string
      *
-     * @ORM\ManyToMany(targetEntity="Usuarios\UsuariosBundle\Entity\TipoUsuario", mappedBy="roles")
+     * @ORM\ManyToMany(targetEntity="Usuarios\UsuariosBundle\Entity\Usuarios", mappedBy="roles")
      */
     private $idUsuario;
 
