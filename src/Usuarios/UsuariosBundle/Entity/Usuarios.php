@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Usuarios
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Usuarios\UsuariosBundle\Entity\UsuariosRepository")
+ * @ORM\Entity
  */
 class Usuarios implements AdvancedUserInterface, \Serializable
 {    
