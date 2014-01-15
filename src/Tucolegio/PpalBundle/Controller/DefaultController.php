@@ -15,4 +15,9 @@ class DefaultController extends Controller
     {
         return $this->render('TucolegioPpalBundle:Default:conocenos.html.twig');
     }
+     
+    public function contactoAction()
+    {
+        return $this->render('TucolegioPpalBundle:Default:contact.html.twig');
+    }
 }

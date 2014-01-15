@@ -5,3 +5,7 @@ tucolegio_ppal_homepage:
 tucolegio_conocenos:
     pattern:  /conocenos
     defaults: { _controller: TucolegioPpalBundle:Default:conocenos }
+
+tucolegio_contacto:
+    pattern:  /contáctanos
+    defaults: { _controller: TucolegioPpalBundle:Default:contacto }
