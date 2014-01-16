@@ -1,11 +1,24 @@
 {% extends 'TemasTemasBundle::admin.html.twig' %}
 
+{% block span %}
+span7
+{% endblock %}
+
+{% block headerarticle %}
+    <h3>Asociación Estudiante</h3>
+{% endblock %}
+
 {% block article %}
-
-<h1>Creación Grupo Estudiante</h1>
-
+    
+{% if MostrarAlerta == 'Si' %}    
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Asociación Creada.</strong> 
+    </div>
+{% endif %}
+    
+    
 {{ form(form) }}
-
 
 {% for rol in app.user.roles %}
     {#   #}

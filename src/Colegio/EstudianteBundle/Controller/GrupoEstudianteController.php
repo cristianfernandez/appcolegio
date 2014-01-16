@@ -46,9 +46,12 @@ class GrupoEstudianteController extends Controller
 
             //return $this->redirect($this->generateUrl('grupoestudiantebygrupo', array('id' => $entity->getIdGrupo())));
         }
+        
+        $grupo = $em->getRepository('ColegioGrupoBundle:Grupo')->find($entity->getIdGrupo());
         return $this->render('ColegioEstudianteBundle:GrupoEstudiante:new.html.twig', array(
             'entity' => $entity,
-            'idGrupo' => null,
+            'idGrupo' => $grupo->getId(),
+            'MostrarAlerta' => 'Si',
             'form'   => $form->createView(),
         ));
     }
@@ -95,6 +98,7 @@ class GrupoEstudianteController extends Controller
 
         return $this->render('ColegioEstudianteBundle:GrupoEstudiante:new.html.twig', array(
             'entity' => $entity,
+            'MostrarAlerta' => 'No',
             'form'   => $form->createView(),
         ));
     }
@@ -111,6 +115,7 @@ class GrupoEstudianteController extends Controller
         return $this->render('ColegioEstudianteBundle:GrupoEstudiante:new.html.twig', array(
             'entity' => $entity,
             'idGrupo' => $id,
+            'MostrarAlerta' => 'No',
             'form'   => $form->createView(),
         ));
     }
@@ -147,6 +152,9 @@ class GrupoEstudianteController extends Controller
         $entity = $em->getRepository('ColegioEstudianteBundle:GrupoEstudiante')->findBy(array (
             'idGrupo' => $id
         ));
+        
+        $grupo = $em->getRepository('ColegioGrupoBundle:Grupo')->find($id);
+        $sede = $em->getRepository('ColegioAdminBundle:Sede')->find($grupo->getIdSede());
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find GrupoEstudiante entity.');
@@ -157,7 +165,8 @@ class GrupoEstudianteController extends Controller
         return $this->render('ColegioEstudianteBundle:GrupoEstudiante:show.html.twig', array(
             'entities'      => $entity,
             'idGrupo' => $id,
-            'delete_form' => $deleteForm->createView(),        ));
+            'idSede' => $sede->getId(),
+            'delete_form' => $deleteForm->createView()));
     }
             
     /**
@@ -169,7 +178,9 @@ class GrupoEstudianteController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('ColegioEstudianteBundle:GrupoEstudiante')->find($id);
-
+        $idGrupo = $entity->getIdGrupo();
+        $grupo = $em->getRepository('ColegioGrupoBundle:Grupo')->find($idGrupo);
+        
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find GrupoEstudiante entity.');
         }
@@ -179,6 +190,8 @@ class GrupoEstudianteController extends Controller
 
         return $this->render('ColegioEstudianteBundle:GrupoEstudiante:edit.html.twig', array(
             'entity'      => $entity,
+            'idGrupo' => $grupo->getId(),
+            'MostrarAlerta' => 'No',
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
@@ -202,6 +215,7 @@ class GrupoEstudianteController extends Controller
 
         return $form;
     }
+    
     /**
      * Edits an existing GrupoEstudiante entity.
      *
@@ -211,7 +225,8 @@ class GrupoEstudianteController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('ColegioEstudianteBundle:GrupoEstudiante')->find($id);
-
+        $Grupo = $em->getRepository('ColegioGrupoBundle:Grupo')->find($entity->getIdGrupo());
+        
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find GrupoEstudiante entity.');
         }
@@ -223,15 +238,18 @@ class GrupoEstudianteController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('grupoestudiante_edit', array('id' => $id)));
+            //return $this->redirect($this->generateUrl('grupoestudiante_edit', array('id' => $id)));
         }
 
         return $this->render('ColegioEstudianteBundle:GrupoEstudiante:edit.html.twig', array(
             'entity'      => $entity,
+            'idGrupo' => $Grupo->getId(),
+            'MostrarAlerta' => 'Si',
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
+    
     /**
      * Deletes a GrupoEstudiante entity.
      *
@@ -244,7 +262,8 @@ class GrupoEstudianteController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('ColegioEstudianteBundle:GrupoEstudiante')->find($id);
-
+            $grupo = $em->getRepository('ColegioGrupoBundle:Grupo')->find($entity->getIdGrupo());
+            
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find GrupoEstudiante entity.');
             }
@@ -253,7 +272,7 @@ class GrupoEstudianteController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('grupoestudiante'));
+        return $this->redirect($this->generateUrl('grupoestudiantebygrupo', array('id' => $grupo->getId())));
     }
 
     /**
