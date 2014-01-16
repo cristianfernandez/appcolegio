@@ -2,10 +2,24 @@
 
 {% block article %}
 
-    <h1>Creación Grupo Estudiante</h1>
+<h1>Creación Grupo Estudiante</h1>
 
-    {{ form(form) }}
+{{ form(form) }}
 
-    <a href="{{ path('grupoestudiante') }}"><i class="icon-arrow-left"> Volver a la lista</i></a>
+
+{% for rol in app.user.roles %}
+    {#   #}
+    {% if rol.role == 'ROLE_SUPER_ADMIN' %}
+        <a href="{{ path('grupoestudiante') }}"><i class="icon-arrow-left"> Volver a la lista</i></a>
+    {% elseif rol.role == 'ROLE_ADMIN' %}
+        {% if idGrupo != null %}
+            <a href="{{ path('grupoestudiantebygrupo', { 'id': idGrupo }) }}"><i class="icon-arrow-left"> Volver a la lista</i></a>
+        {% else %}
+            <a href="{{ path('grupo') }}"><i class="icon-arrow-left"> Volver a la lista</i></a>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+
     
 {% endblock %}

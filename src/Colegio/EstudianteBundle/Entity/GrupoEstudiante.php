@@ -2,6 +2,8 @@
 
 namespace Colegio\EstudianteBundle\Entity;
 
+use Colegio\GrupoBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,14 +26,14 @@ class GrupoEstudiante
     /**
      * @var string
      *
-     * @ORM\Column(name="id_Estudiante", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Colegio\EstudianteBundle\Entity\Estudiante")
      */
     private $idEstudiante;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="id_Grupo", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Colegio\GrupoBundle\Entity\Grupo")
      */
     private $idGrupo;
 
@@ -52,7 +54,7 @@ class GrupoEstudiante
      * @param string $idEstudiante
      * @return GrupoEstudiante
      */
-    public function setIdEstudiante($idEstudiante)
+    public function setIdEstudiante(\Colegio\EstudianteBundle\Entity\Estudiante $idEstudiante)
     {
         $this->idEstudiante = $idEstudiante;
     
@@ -75,7 +77,7 @@ class GrupoEstudiante
      * @param string $idGrupo
      * @return GrupoEstudiante
      */
-    public function setIdGrupo($idGrupo)
+    public function setIdGrupo(\Colegio\GrupoBundle\Entity\Grupo $idGrupo)
     {
         $this->idGrupo = $idGrupo;
     
