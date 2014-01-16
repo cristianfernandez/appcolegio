@@ -10,7 +10,7 @@
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>Email</th>
-                <th>Telefono</th>
+                <th>Teléfono</th>
             </tr>
             <tr>
                 <td>{{ entity.id }}</td>
@@ -25,12 +25,12 @@
         <ul class="record_actions">
     <li>
         <a href="{{ path('rector') }}">
-            Back to the list
+            Regresar al Listado
         </a>
     </li>
     <li>
         <a href="{{ path('rector_edit', { 'id': entity.id }) }}">
-            Edit
+            Editar
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>

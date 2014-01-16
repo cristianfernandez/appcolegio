@@ -32,7 +32,17 @@ class DocenteType extends AbstractType
                  'label'=>'Sede',
                  'required'=> true,
             ))
-            ->add('idMateria')
+            ->add('idMateria','entity',array(
+                'class' => 'ColegioGrupoBundle:Asignatura',
+                'query_builder' => function(EntityRepository $er) use($self){
+                        return $er->createQueryBuilder('u')
+                                ->where('u.idColegio = :sede')
+                                ->setParameter('sede', $self->sede);
+                },
+                 'label'=>'Materia',
+                 'empty_value'=>'Escoge la materia',
+                 'required'=> true,
+            ))
             ->add('nombres')
             ->add('apellidos')
             ->add('telefono')

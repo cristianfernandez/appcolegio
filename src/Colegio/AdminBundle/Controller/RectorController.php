@@ -62,7 +62,11 @@ class RectorController extends Controller
     */
     private function createCreateForm(Rector $entity)
     {
-        $form = $this->createForm(new RectorType(), $entity, array(
+        $em = $this->getDoctrine()->getManager();
+        $usuarioActivo = $this->get('security.context')->getToken()->getUser();
+        $idColegio = $usuarioActivo->getIdColegio();
+        $sedeactual = $em->getRepository('ColegioAdminBundle:Sede')->findColegio($idColegio);
+        $form = $this->createForm(new RectorType($idColegio), $entity, array(
             'action' => $this->generateUrl('rector_create'),
             'method' => 'POST',
         ));
