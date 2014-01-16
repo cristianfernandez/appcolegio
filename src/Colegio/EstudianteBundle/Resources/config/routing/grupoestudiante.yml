@@ -5,10 +5,18 @@ grupoestudiante:
 grupoestudiante_show:
     pattern:  /{id}/show
     defaults: { _controller: "ColegioEstudianteBundle:GrupoEstudiante:show" }
+    
+grupoestudiantebygrupo:    
+    pattern:  /{id}/showbygrupo
+    defaults: { _controller: "ColegioEstudianteBundle:GrupoEstudiante:showbygrupo" }
 
 grupoestudiante_new:
     pattern:  /new
     defaults: { _controller: "ColegioEstudianteBundle:GrupoEstudiante:new" }
+
+grupoestudiante_newasociacion:
+    pattern:  /{id}/newasociacion
+    defaults: { _controller: "ColegioEstudianteBundle:GrupoEstudiante:newasociacion" }
 
 grupoestudiante_create:
     pattern:  /create
