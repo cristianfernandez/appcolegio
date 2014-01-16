@@ -28,6 +28,12 @@ class Asignatura
      */
     private $nombre;
 
+    /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\Colegio")
+     */
+    private $idColegio;    
 
     /**
      * Get id
@@ -61,6 +67,31 @@ class Asignatura
     {
         return $this->nombre;
     }
+    
+    /**
+     * Set idColegio
+     *
+     * @param string $nombre
+     * @return Asignatura
+     */
+    public function setIdColegio(\Colegio\AdminBundle\Entity\Colegio $idColegio)
+    {
+        $this->idColegio = $idColegio;
+    
+        return $this;
+    }
+
+    /**
+     * Get idColegio
+     *
+     * @return string 
+     */
+    public function getIdColegio()
+    {
+        return $this->idColegio;
+    }
+    
+    
     
     public function __toString()
     {

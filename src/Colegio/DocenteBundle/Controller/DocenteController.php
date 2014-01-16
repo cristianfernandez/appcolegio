@@ -69,7 +69,10 @@ class DocenteController extends Controller
     */
     private function createCreateForm(Docente $entity)
     {
-        $form = $this->createForm(new DocenteType(), $entity, array(
+        $em = $this->getDoctrine()->getManager();
+        $usuarioActivo = $this->get('security.context')->getToken()->getUser();
+        $idColegio = $usuarioActivo->getIdColegio();
+        $form = $this->createForm(new DocenteType($idColegio), $entity, array(
             'action' => $this->generateUrl('docente_create'),
             'method' => 'POST',
         ));
@@ -87,7 +90,7 @@ class DocenteController extends Controller
     {
         $entity = new Docente();
         $form   = $this->createCreateForm($entity);
-
+        
         return $this->render('ColegioDocenteBundle:Docente:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
