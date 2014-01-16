@@ -22,8 +22,9 @@ class AsignaturaController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('ColegioGrupoBundle:Asignatura')->findAll();
+        $usuarioActivo = $this->get('security.context')->getToken()->getUser();
+        $idColegio = $usuarioActivo->getIdColegio();
+        $entities = $em->getRepository('ColegioGrupoBundle:Asignatura')->findByidColegio($idColegio);
 
         return $this->render('ColegioGrupoBundle:Asignatura:index.html.twig', array(
             'entities' => $entities,
@@ -35,6 +36,7 @@ class AsignaturaController extends Controller
      */
     public function createAction(Request $request)
     {
+
         $entity = new Asignatura();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -62,7 +64,10 @@ class AsignaturaController extends Controller
     */
     private function createCreateForm(Asignatura $entity)
     {
-        $form = $this->createForm(new AsignaturaType(), $entity, array(
+        $em = $this->getDoctrine()->getManager();
+        $usuarioActivo = $this->get('security.context')->getToken()->getUser();
+        $idColegio = $usuarioActivo->getIdColegio();
+        $form = $this->createForm(new AsignaturaType($idColegio), $entity, array(
             'action' => $this->generateUrl('asignatura_create'),
             'method' => 'POST',
         ));
@@ -141,7 +146,10 @@ class AsignaturaController extends Controller
     */
     private function createEditForm(Asignatura $entity)
     {
-        $form = $this->createForm(new AsignaturaType(), $entity, array(
+         $em = $this->getDoctrine()->getManager();
+        $usuarioActivo = $this->get('security.context')->getToken()->getUser();
+        $idColegio = $usuarioActivo->getIdColegio();
+        $form = $this->createForm(new AsignaturaType($idColegio), $entity, array(
             'action' => $this->generateUrl('asignatura_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
