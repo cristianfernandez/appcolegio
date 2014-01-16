@@ -24,7 +24,11 @@ class GrupoType extends AbstractType
             ->add('idNivel')
             ->add('idDocenteResponsable','entity',array(
                 'class'=> 'ColegioDocenteBundle:Docente',
-                'query_builder'
+                'query_builder'=> function(EntityRepository $er) use($self){
+                        return $er->createQueryBuilder('u')
+                                ->where('u.idDetalleColegio = :sede')
+                                ->setParameter('sede', $self->sede);
+                },
                 'label'=> 'Docente Responsable'
             ))
             ->add('idSede','entity',array(
