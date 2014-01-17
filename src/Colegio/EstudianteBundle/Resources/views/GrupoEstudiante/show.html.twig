@@ -45,7 +45,7 @@ span7
     {% elseif rol.role == 'ROLE_ADMIN' %}
         <a href="{{ path('grupoestudiante_newasociacion', { 'id': idGrupo }) }}"> <i class="icon-plus-sign"></i> Asociar Nuevo Estudiante</a>
         <br>
-        <a href="{{ path('grupo') }}"><i class="icon-arrow-left"> Volver</i></a>
+        <a href="{{ path('grupo_showbysede', { 'id': idSede}) }}"><i class="icon-arrow-left"> Volver</i></a>
     {% endif %}
 {% endfor %}
 

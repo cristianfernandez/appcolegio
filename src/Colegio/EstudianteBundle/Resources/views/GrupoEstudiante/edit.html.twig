@@ -1,11 +1,33 @@
 {% extends 'TemasTemasBundle::admin.html.twig' %}
 
+{% block span %}
+span7
+{% endblock %}
+
+{% block headerarticle %}
+<h3>Editar Asignación</h3>
+{% endblock %}
+
 {% block article %}
 
-    <h1>Editar Grupo Estudiante</h1>
+{% if MostrarAlerta == 'Si' %}    
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Asociación Actualizada.</strong> 
+    </div>
+{% endif %}
 
     {{ form(edit_form) }}
     {{ form(delete_form) }}
+
+{% for rol in app.user.roles %}
+    {#   #}
+    {% if rol.role == 'ROLE_SUPER_ADMIN' %}
+        <a href="{{ path('grupoestudiante') }}"><i class="icon-arrow-left"> Volver a la lista</i></a>
+    {% else %}
+        <a href="{{ path('grupoestudiantebygrupo', { 'id': idGrupo }) }}"><i class="icon-arrow-left"> Volver a la lista</i></a>
+    {% endif %}
+{% endfor %}
+
     
-    <a href="{{ path('grupoestudiante') }}"><i class="icon-arrow-left"> Volver a la lista</i></a>
 {% endblock %}
