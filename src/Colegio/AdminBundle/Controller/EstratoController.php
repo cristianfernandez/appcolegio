@@ -43,7 +43,9 @@ class EstratoController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');
             return $this->redirect($this->generateUrl('estrato_show', array('id' => $entity->getId())));
         }
 
@@ -170,7 +172,9 @@ class EstratoController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');
             return $this->redirect($this->generateUrl('estrato_edit', array('id' => $id)));
         }
 
@@ -199,7 +203,10 @@ class EstratoController extends Controller
 
             $em->remove($entity);
             $em->flush();
-        }
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');
+            }
 
         return $this->redirect($this->generateUrl('estrato'));
     }

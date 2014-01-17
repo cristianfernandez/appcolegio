@@ -50,7 +50,9 @@ class DocenteController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');
             return $this->redirect($this->generateUrl('docente_show', array('id' => $entity->getId())));
         }
 
@@ -217,7 +219,9 @@ class DocenteController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');
             return $this->redirect($this->geneAllrateUrl('docente_edit', array('id' => $id)));
         }
 
@@ -246,6 +250,9 @@ class DocenteController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');            
         }
 
         return $this->redirect($this->generateUrl('docente'));

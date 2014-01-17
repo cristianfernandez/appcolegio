@@ -43,7 +43,9 @@ class detalleColegioController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');
             return $this->redirect($this->generateUrl('detallecolegio_show', array('id' => $entity->getId())));
         }
 
@@ -108,6 +110,9 @@ class detalleColegioController extends Controller
                 $em = $this->getDoctrine()->getEntityManager();
                 $em->persist($entity);
                 $em->flush();
+                 $this->get('session')->getFlashBag()->add(
+                'notice',
+                'Bien hecho!');
                 return $this->redirect($this->generateUrl('detallecolegio_show', array('id' => $entity->getId)));
                // $ok = 'Bien';
               }
@@ -211,7 +216,9 @@ class detalleColegioController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');
             return $this->redirect($this->generateUrl('detallecolegio_edit', array('id' => $id)));
         }
 
@@ -240,7 +247,10 @@ class detalleColegioController extends Controller
 
             $em->remove($entity);
             $em->flush();
-        }
+             $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');
+            }
 
         return $this->redirect($this->generateUrl('detallecolegio'));
     }

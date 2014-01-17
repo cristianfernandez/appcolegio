@@ -43,7 +43,9 @@ class EstudianteBoletinController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');
             return $this->redirect($this->generateUrl('estudianteboletin_show', array('id' => $entity->getId())));
         }
 
@@ -170,7 +172,9 @@ class EstudianteBoletinController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');
             return $this->redirect($this->generateUrl('estudianteboletin_edit', array('id' => $id)));
         }
 
@@ -199,7 +203,10 @@ class EstudianteBoletinController extends Controller
 
             $em->remove($entity);
             $em->flush();
-        }
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');  
+            }
 
         return $this->redirect($this->generateUrl('estudianteboletin'));
     }

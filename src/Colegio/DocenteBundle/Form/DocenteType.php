@@ -11,6 +11,7 @@ class DocenteType extends AbstractType
 {
     public function __construct($sede)
     {
+        //recibe el idcolegio del usuario activo, no la sede como aparenta
         $this->sede = $sede;
     } 
     
@@ -30,13 +31,14 @@ class DocenteType extends AbstractType
                                 ->setParameter('sede', $self->sede);
                 },
                  'label'=>'Sede',
+                 'empty_value'=>'Escoge una sede',
                  'required'=> true,
             ))
             ->add('idMateria','entity',array(
                 'class' => 'ColegioGrupoBundle:Asignatura',
                 'query_builder' => function(EntityRepository $er) use($self){
-                        return $er->createQueryBuilder('u')
-                                ->where('u.idColegio = :sede')
+                        return $er->createQueryBuilder('p')
+                                ->where('p.idColegio = :sede')
                                 ->setParameter('sede', $self->sede);
                 },
                  'label'=>'Materia',
