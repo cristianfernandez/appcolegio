@@ -79,7 +79,11 @@
 	    <div class="container">
 	
 	      <div class="row">
-	      	
+                  <div class="span4" style="align:center">
+{% for flashMessage in app.session.flashbag.get('notice') %}                  
+                  <div class="alert alert-info"><strong>{{ flashMessage }}</strong></div>
+{% endfor %}
+                  </div>
  {% block superarticle %}
                   {# Bloque con un span de 12 #}
                   <div class="{% block span %}
@@ -148,7 +152,7 @@
                             Soporte</h4>
                         <ul>
                             <li><a href="javascript:;">Tutoriales</a></li>
-                            <li><a href="javascript:;">Escribanos</a></li>
+                            <li><a href="javascript:;">Escríbenos</a></li>
                             <li><a href="javascript:;">Videos</a></li>
                             <li><a href="javascript:;">Noticias</a></li>
                         </ul>

@@ -43,6 +43,9 @@ class BoletinController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');            
 
             return $this->redirect($this->generateUrl('boletin_show', array('id' => $entity->getId())));
         }
@@ -170,7 +173,9 @@ class BoletinController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');
             return $this->redirect($this->generateUrl('boletin_edit', array('id' => $id)));
         }
 
@@ -199,7 +204,10 @@ class BoletinController extends Controller
 
             $em->remove($entity);
             $em->flush();
-        }
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');
+            }
 
         return $this->redirect($this->generateUrl('boletin'));
     }

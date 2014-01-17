@@ -45,7 +45,9 @@ class AsignaturaController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Has creado correctamente tu Asignatura!');
             return $this->redirect($this->generateUrl('asignatura_show', array('id' => $entity->getId())));
         }
 

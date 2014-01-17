@@ -43,7 +43,9 @@ class GrupoAsignaturaController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');
             return $this->redirect($this->generateUrl('grupoasignatura_show', array('id' => $entity->getId())));
         }
 
@@ -170,7 +172,9 @@ class GrupoAsignaturaController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
-
+             $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');
             return $this->redirect($this->generateUrl('grupoasignatura_edit', array('id' => $id)));
         }
 

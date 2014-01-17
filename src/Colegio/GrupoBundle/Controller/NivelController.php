@@ -43,6 +43,9 @@ class NivelController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');
 
             return $this->redirect($this->generateUrl('nivel_show', array('id' => $entity->getId())));
         }
@@ -170,7 +173,9 @@ class NivelController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add(
+            'notice',
+            'Bien hecho!');
             return $this->redirect($this->generateUrl('nivel_edit', array('id' => $id)));
         }
 
