@@ -1,7 +1,15 @@
 {% extends 'TemasTemasBundle::admin.html.twig' %}
 
+{% block span %}
+span6
+{% endblock %}
+
+{% block headerarticle %}
+    <h3>Creación Sede</h3>
+{% endblock %}
+
+
 {% block article %}
-    <h1>Creación Sede</h1>
 
     {{ form(form) }}
 
