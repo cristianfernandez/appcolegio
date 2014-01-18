@@ -1,8 +1,14 @@
 {% extends 'TemasTemasBundle::admin.html.twig' %}
 
-{% block article %}
-    <h1>Sede</h1>
+{% block span %}
+span4
+{% endblock %}
 
+{% block headerarticle %}
+    <h3>Sede</h3>
+{% endblock %}
+
+{% block article %}
     <table class="table table-striped table-bordered">
         <tbody>
             <tr>
@@ -25,8 +31,21 @@
             </tr>
         </tbody>
     </table>
-    <hr>
-    <h1> Dirección</h1>
+{% endblock %}
+    
+{% block extras %}
+
+{% embed 'TemasTemasBundle::span.html.twig' %}
+    
+{% block spanclase %}
+    span8
+{% endblock %}
+
+{% block headerspan %}
+    <h3>Dirección</h3>
+{% endblock %}
+    
+{% block articlespan %}    
     <table class="table table-striped table-bordered">
         <tbody>
             <tr>
@@ -59,9 +78,22 @@
             {% endfor %}
         </tbody>
     </table>
+{% endblock %}  
+{% endembed %}
     
-    <hr>
-    <h1>Rector</h1>
+{% block rector %}
+
+{% embed 'TemasTemasBundle::span.html.twig' %}
+    
+{% block spanclase %}
+    span12
+{% endblock %}
+
+{% block headerspan %}
+    <h3>Rector</h3>
+{% endblock %}
+    
+{% block articlespan %}
     <table class="table table-striped table-bordered">
         <tbody>
             <tr>
@@ -95,7 +127,8 @@
     
 <a href="{{ path('rector_new') }}"><i class="icon-plus-sign"> Crear nuevo Rector</i></a>
 <br>
-<hr>
+{% endblock %}
+{% endembed %}
 {% for rol in app.user.roles %}
     {#  Solo puede eliminar el Super Man  #}
     {% if rol.role == 'ROLE_SUPER_ADMIN' %}
@@ -103,8 +136,10 @@
         <a href="{{ path('sede_edit', { 'id': entity.id }) }}"><i class="icon-edit"> Editar</i></a>
         {{ form(delete_form) }}
     {% elseif rol.role == 'ROLE_ADMIN' %}
-        <a href="{{ path('colegio_admin_perfil') }}"><i class="icon-arrow-left"></i> Volver</a>
+        <ul><a href="{{ path('colegio_admin_perfil') }}"><i class="icon-arrow-left"></i> Volver</a></ul>
     {% endif %}
 {% endfor %}
+{% endblock %}
 
 {% endblock %}
+

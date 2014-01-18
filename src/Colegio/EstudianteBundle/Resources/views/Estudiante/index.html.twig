@@ -1,9 +1,13 @@
 {% extends 'TemasTemasBundle::admin.html.twig' %}
 
+{% block span %}
+span12
+{% endblock %}
+
+{% block headerarticle %}
+    <h3>Lista de Estudiantes</h3>
+{% endblock %}
 {% block article %}
-
-    <h1>Lista de Estudiantes</h1>
-
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
@@ -37,9 +41,11 @@
                 <td>{{ entity.numeroDocumento }}</td>
                 <td>
                 <ul>
+                    {#
                     <li>
                         <a href="{{ path('estudiante_show', { 'id': entity.id }) }}" ><i class="icon-list"> </i></a>
                     </li>
+                    #}
                     <li>
                         <a href="{{ path('estudiante_shownotas', { 'id': entity.id }) }}" ><i class="icon-bar-chart"> </i></a>
                     </li>

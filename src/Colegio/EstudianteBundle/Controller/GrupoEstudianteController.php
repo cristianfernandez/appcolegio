@@ -51,7 +51,6 @@ class GrupoEstudianteController extends Controller
         return $this->render('ColegioEstudianteBundle:GrupoEstudiante:new.html.twig', array(
             'entity' => $entity,
             'idGrupo' => $grupo->getId(),
-            'MostrarAlerta' => 'Si',
             'form'   => $form->createView(),
         ));
     }
@@ -98,7 +97,6 @@ class GrupoEstudianteController extends Controller
 
         return $this->render('ColegioEstudianteBundle:GrupoEstudiante:new.html.twig', array(
             'entity' => $entity,
-            'MostrarAlerta' => 'No',
             'form'   => $form->createView(),
         ));
     }
@@ -115,7 +113,6 @@ class GrupoEstudianteController extends Controller
         return $this->render('ColegioEstudianteBundle:GrupoEstudiante:new.html.twig', array(
             'entity' => $entity,
             'idGrupo' => $id,
-            'MostrarAlerta' => 'No',
             'form'   => $form->createView(),
         ));
     }
@@ -156,10 +153,6 @@ class GrupoEstudianteController extends Controller
         $grupo = $em->getRepository('ColegioGrupoBundle:Grupo')->find($id);
         $sede = $em->getRepository('ColegioAdminBundle:Sede')->find($grupo->getIdSede());
 
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find GrupoEstudiante entity.');
-        }
-
         $deleteForm = $this->createDeleteForm($id);
                 
         return $this->render('ColegioEstudianteBundle:GrupoEstudiante:show.html.twig', array(
@@ -191,7 +184,6 @@ class GrupoEstudianteController extends Controller
         return $this->render('ColegioEstudianteBundle:GrupoEstudiante:edit.html.twig', array(
             'entity'      => $entity,
             'idGrupo' => $grupo->getId(),
-            'MostrarAlerta' => 'No',
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
@@ -244,7 +236,6 @@ class GrupoEstudianteController extends Controller
         return $this->render('ColegioEstudianteBundle:GrupoEstudiante:edit.html.twig', array(
             'entity'      => $entity,
             'idGrupo' => $Grupo->getId(),
-            'MostrarAlerta' => 'Si',
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

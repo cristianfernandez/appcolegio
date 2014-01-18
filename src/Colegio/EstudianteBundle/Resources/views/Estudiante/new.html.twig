@@ -1,11 +1,16 @@
 {% extends 'TemasTemasBundle::admin.html.twig' %}
 
+{% block span %}
+span7
+{% endblock %}
+
+{% block headerarticle %}
+    <h3>Creación Estudiante</h3>
+{% endblock %}
+
 {% block article %}
 
-    <h1>Creación Estudiante</h1>
-
-    {{ form(form) }}
-
-    <a href="{{ path('estudiante') }}"><i class="icon-arrow-left"> Volver a la lista</i></a>
+{{ form(form) }}
+<a href="{{ path('estudiante') }}"><i class="icon-arrow-left"> Volver a la lista</i></a>
 
 {% endblock %}

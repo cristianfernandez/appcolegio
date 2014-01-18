@@ -23,7 +23,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         
         $entities = $em->getRepository('ColegioAdminBundle:Colegio')->findBy(array (
-            'id' => $idColegio,
+            'id' => $idColegio
         ));
         $sedes = $em->getRepository('ColegioAdminBundle:Sede')->findBy(array (
             'idDetalleColegio' => $idColegio,

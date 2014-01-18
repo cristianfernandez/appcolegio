@@ -20,6 +20,7 @@ class NotaType extends AbstractType
             ->add('descripcion')
             ->add('fecha')
             ->add('idEstudiante')
+            ->add('idPeriodo')
         ;
     }
     

@@ -8,15 +8,7 @@ span7
     <h3>Asociación Estudiante</h3>
 {% endblock %}
 
-{% block article %}
-    
-{% if MostrarAlerta == 'Si' %}    
-    <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Asociación Creada.</strong> 
-    </div>
-{% endif %}
-    
+{% block article %} 
     
 {{ form(form) }}
 

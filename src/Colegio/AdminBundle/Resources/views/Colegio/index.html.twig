@@ -3,18 +3,18 @@
 span6
 {% endblock %}
 {% block headerarticle %}
-
-{% endblock %}
-
-{% block article %}
 {% for rol in app.user.roles %}
         {#   #}
         {% if rol.role == 'ROLE_SUPER_ADMIN' %}
-        <h1>Lista de Colegios</h1> 
+        <h3>Lista de Colegios</h3> 
         {% else %}
-        <h1>Tu Colegio</h1>
+        <h3>Tú Colegio</h3>
         {% endif %}
 {% endfor %}
+{% endblock %}
+
+{% block article %}
+
     <br>
     <table class="table table-striped table-bordered">
         <thead>
@@ -44,23 +44,35 @@ span6
         {% endfor %}
         </tbody>
     </table>
+    <hr>
+    {% for rol in app.user.roles %}
+        {# Solo habilita el botón de crear para el Super Man  #}
+        {% if rol.role == 'ROLE_SUPER_ADMIN' %}
+            <a href="{{ path('colegio_new') }}"><i class="icon-plus-sign"></i> Crea un nuevo registro</a>
+        {% elseif rol.role == 'ROLE_ADMIN' %}
+            <a href="{{ path('detallecolegio')}}"><i class="icon-list"> Ver Detalle</i></a>
+        {% endif %}
+    {% endfor %}
 {% endblock %}
 
 {% block extras %}
 
 {% embed 'TemasTemasBundle::span.html.twig' %}
+{% block spanclase %}
+span6     
+{% endblock %}
+
+{% block headerspan %}
+    <h3>Sedes</h3>
+{% endblock %}
     
-{% block articlespan %}    
+{% block articlespan %}   
+    
 {% for rol in app.user.roles %}
     {# Solo habilita el botón de crear para el Super Man  #}
     {% if rol.role == 'ROLE_SUPER_ADMIN' %}
         <a href="{{ path('colegio_new') }}"><i class="icon-plus-sign"></i> Crea un nuevo registro</a>
     {% elseif rol.role == 'ROLE_ADMIN' %}
-        <a href="{{ path('detallecolegio')}}"><i class="icon-list"> Ver Detalle</i></a>
-        
-        <hr>
-        <h1>Sedes</h1>
-        <br>
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
@@ -90,8 +102,9 @@ span6
             {% endfor %}
             </tbody>
         </table>
-            <a href="{{ path('sede_new') }}"><i class="icon-plus-sign"></i> Crear nueva Sede</a>
         <hr>
+        <a href="{{ path('sede_new') }}"><i class="icon-plus-sign"></i> Crear nueva Sede</a>
+        
     {% endif %}
 {% endfor %}
 {% endblock %}
