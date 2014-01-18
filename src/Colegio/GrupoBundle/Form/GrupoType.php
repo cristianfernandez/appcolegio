@@ -11,7 +11,7 @@ class GrupoType extends AbstractType
 {
     public function __construct($sede)
     {
-        $this->sede = $sede;
+        $this->sede= $sede;
     } 
     
     /**
@@ -23,15 +23,7 @@ class GrupoType extends AbstractType
         $self = $this; 
         $builder
             ->add('idNivel')
-            ->add('idDocenteResponsable','entity',array(
-                'class'=> 'ColegioDocenteBundle:Docente, ColegioAdminBundle:detalleColegio',
-                'query_builder'=> function(EntityRepository $er) use($self){
-                        return $er->createQueryBuilder('u,d')
-                                ->where('d.idColegio = :sede')
-                                ->setParameter('sede', $self->sede);
-                },
-                'label'=> 'Docente Responsable'
-            ))
+            
             ->add('idSede','entity',array(
                 'class' => 'ColegioAdminBundle:Sede',
                 'query_builder' => function(EntityRepository $er) use($self){
@@ -43,6 +35,10 @@ class GrupoType extends AbstractType
                  'empty_value'=>'Escoge una sede',
                  'required'=> true,
             ))
+            ->add('idDocenteResponsable',null, array(
+                'label'=>'Docente Responsable'
+                )
+            )
             ->add('nombre')
             ->add('activo')
         ;
