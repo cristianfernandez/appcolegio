@@ -14,7 +14,7 @@ class SedeRepository extends EntityRepository
 {   
     public function findColegio($id)
     {
-        //Recibe el parámetro id q es el id de la Sede del usuario logueado
+        //Recibe el parámetro id q es el id del colegio del usuario logueado
         $em = $this->getEntityManager();
         $consulta = $em->createQuery('
             SELECT u FROM ColegioAdminBundle:Sede u JOIN u.idDetalleColegio p 
