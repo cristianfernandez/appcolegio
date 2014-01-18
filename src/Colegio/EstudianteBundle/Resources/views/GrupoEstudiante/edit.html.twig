@@ -10,13 +10,6 @@ span7
 
 {% block article %}
 
-{% if MostrarAlerta == 'Si' %}    
-    <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Asociación Actualizada.</strong> 
-    </div>
-{% endif %}
-
     {{ form(edit_form) }}
     {{ form(delete_form) }}
 

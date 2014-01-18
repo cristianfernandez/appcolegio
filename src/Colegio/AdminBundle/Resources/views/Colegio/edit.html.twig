@@ -1,21 +1,22 @@
 {% extends 'TemasTemasBundle::admin.html.twig' %}
 
+{% block span %}
+span7
+{% endblock %}
+
+{% block headerarticle %}
+    <h3>Editar Colegio</h3>
+{% endblock %}
+
 {% block article %}
-    <h1>Editar Colegio</h1>
-
     {{ form(edit_form) }}
-
-<ul class="record_actions">
-    
     {% for rol in app.user.roles %}
             {#  Sólo puede eliminar registros el super Man #}
             {% if rol.role == 'ROLE_SUPER_ADMIN' %}
                 {{ form(delete_form) }}                
-                <a href="{{ path('colegio') }}">Volver</a>
+                <a href="{{ path('colegio') }}"><i class="icon-arrow-left"> Volver</i></a>
             {% elseif rol.role == 'ROLE_ADMIN' %}
-                <a href="{{ path('colegio_admin_perfil') }}">Volver</a>
+                <a href="{{ path('colegio_admin_perfil') }}"><i class="icon-arrow-left"> Volver</i></a>
             {% endif %}
         {% endfor %}
-
-</ul>
 {% endblock %}

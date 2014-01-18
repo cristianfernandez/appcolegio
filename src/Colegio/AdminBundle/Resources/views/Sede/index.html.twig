@@ -1,11 +1,11 @@
 {% extends 'TemasTemasBundle::admin.html.twig' %}
 
 {% block span %}
-span6
+span5
 {% endblock %}
 
 {% block headerarticle %}
-    <h3>Lista de Sedes</h3>
+<i class="icon-th-list"></i><h3> Lista de Sedes</h3>
 {% endblock %}
 
 {% block article %}
@@ -38,6 +38,7 @@ span6
         {% endfor %}
         </tbody>
     </table>
+    <hr>
         <ul>
         <li>
             <a href="{{ path('sede_new') }}">

@@ -27,6 +27,13 @@ class Nota
      * @ORM\ManyToOne(targetEntity="Colegio\EstudianteBundle\Entity\Estudiante")
      */
     private $idEstudiante;
+    
+        /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="Colegio\BoletinBundle\Entity\Periodo")
+     */
+    private $idPeriodo;
 
     /**
      * @var string
@@ -66,7 +73,30 @@ class Nota
     {
         return $this->id;
     }
+    
+        /**
+     * Get idPeriodo
+     *
+     * @return integer 
+     */
+    public function getIdPeriodo()
+    {
+        return $this->idPeriodo;
+    }
 
+        /**
+     * Set idPeriodo
+     *
+     * @param string $idPeriodo
+     * @return Nota
+     */
+    public function setIdPeriodo(\Colegio\BoletinBundle\Entity\Periodo $idPeriodo)
+    {
+        $this->idPeriodo = $idPeriodo;
+    
+        return $this;
+    }
+    
     /**
      * Set idEstudiante
      *
