@@ -1,0 +1,42 @@
+{% extends 'TemasTemasBundle::acount.html.twig' %}
+{% block article %}
+
+<div class="container">
+	
+	<div class="row">
+		
+		<div class="span12">
+			
+			<div class="error-container">
+				<h1>{{ status_code }}!</h1>
+				
+				<h2>Upsss ha ocurrido un error...</h2>
+				
+				<div class="error-details">
+					{{ status_text }} <a href="{{ path('tucolegio_ppal_homepage') }}">Página principal</a>
+					
+				</div> <!-- /error-details -->
+				
+				<div class="error-actions">
+					<a href="{{ path('colegio_admin_homepage') }}" class="btn btn-large btn-primary">
+						<i class="icon-chevron-left"></i>
+						&nbsp;
+						Volver al panel						
+					</a>
+					
+					
+					
+				</div> <!-- /error-actions -->
+							
+			</div> <!-- /error-container -->			
+			
+		</div> <!-- /span12 -->
+		
+	</div> <!-- /row -->
+	
+</div> <!-- /container -->
+
+
+
+
+{% endblock %}

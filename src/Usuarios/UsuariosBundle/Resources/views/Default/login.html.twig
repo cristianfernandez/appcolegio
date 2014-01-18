@@ -13,7 +13,7 @@
 				
 				<p>Por favor digita tus credenciales</p>
 				{% if error %}
-                                    <div>{{ error.message }}</div>
+                                <div class="alert-danger"><strong>Es probable, que tu usuario o contraseña estén mal "{{ error.message }}"</strong></div>
                                 {% endif %}
 				<div class="field">
 					<label for="username">Usuario</label>

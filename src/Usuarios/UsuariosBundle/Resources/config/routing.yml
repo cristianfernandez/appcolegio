@@ -1,18 +1,8 @@
-usuarios_login:
-    pattern:  /login
-    defaults: { _controller: UsuariosUsuariosBundle:Default:login }
-
-usuarios_login_check:
-    pattern:  /login_check
-
-usuarios_logout:
-    pattern:  /logout
-
 usuarios_usuarios_homepage:
     pattern:  /
     defaults: { _controller: UsuariosUsuariosBundle:Default:index }
 
-UsuariosUsuariosBundle_usuarios:
+usuariosBundle_usuarios:
     resource: "@UsuariosUsuariosBundle/Resources/config/routing/usuarios.yml"
     prefix:   /usuarios
 

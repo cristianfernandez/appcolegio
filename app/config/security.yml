@@ -1,40 +1,23 @@
 security:
     role_hierarchy:
-        ROLE_ADMIN: ROLE_ADMIN
-        ROLE_SUPER_ADMIN: [ROLE_SUPER_ADMIN]
-        ROLE_ESTUDIANTE: [ROLE_ESTUDIANTE]
+        ROLE_ADMIN: ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
     
     firewalls:
-      superadmin:
-          pattern :   ^/usuarios
-          provider:   in_memory
-          anonymous:   ~
-          form_login: 
-            default_target_path: /usuarios/
-            login_path: /usuarios/login
-            check_path: /usuarios/login_check
-          logout:
-            path:       usuarios_logout
-            target:     /usuarios/login
-            invalidate_session: false
-    
-          remember_me:
-           key: jairocris1234
-           lifetime: 3600
-      
       admin:
-        pattern:     ^/admin
+        pattern:     ^/*
         provider:    Usuarios
         anonymous:   ~
-        form_login: 
+        form_login:  
           default_target_path: /admin/
+          always_use_default_target_path: true
           login_path: /admin/login
           check_path: /admin/login_check
         logout:
           path:       usuarios_logout
-          target:     /admin/login
+          target:     /
           invalidate_session: false
-    
+        switch_user: true   
         remember_me:
            key: jairocris1234
            lifetime: 3600
@@ -44,9 +27,9 @@ security:
  
     access_control:
       - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-    
+        
       - { path: ^/grupo/*, roles: ROLE_SUPER_ADMIN }
-      
+      - { path: ^/usuarios/*, roles: ROLE_SUPER_ADMIN }
       - { path: ^/admin/estrato/*, roles: ROLE_SUPER_ADMIN }
       - { path: ^/admin/estadocolegio/*, roles: ROLE_SUPER_ADMIN }
       - { path: ^/admin/departamento/*, roles: ROLE_SUPER_ADMIN }
@@ -67,14 +50,17 @@ security:
       
 
     providers:
-      Usuarios:
-         entity: { class: Usuarios\UsuariosBundle\Entity\Usuarios, property:username }
-         
-      in_memory: 
-             memory:
-                 users:
-                     arturo   :  { password: 12345, roles: 'ROLE_SUPER_ADMIN' }
-                     alonso   :  { password: 12345, roles: 'ROLE_SUPER_ADMIN' }
+          chain_provider:
+             chain:
+                 providers: [Usuarios,in_memory]
+          Usuarios:
+             entity: { class: Usuarios\UsuariosBundle\Entity\Usuarios, property:username }
+
+          in_memory: 
+                 memory:
+                     users:
+                         arturo   :  { password: 12345, roles: 'ROLE_SUPER_ADMIN' }
+                         alonso   :  { password: 12345, roles: 'ROLE_SUPER_ADMIN' }
          
     encoders:
          Usuarios\UsuariosBundle\Entity\Usuarios: { algorithm: sha512, iterations: 10 }

@@ -52,7 +52,38 @@
   <div class="subnavbar-inner">
     <div class="container">
       <ul class="mainnav">
-        <li class="active"><a href="#"><i class="icon-dashboard"></i><span>Panel</span> </a> </li>
+   {% if is_granted('ROLE_SUPER_ADMIN') %}
+
+
+        
+        <li class="active"><a href="{{ path('usuarios_usuarios_homepage') }}"><i class="icon-dashboard"></i><span>Panel</span> </a> </li>
+        <li><a href="{{ path('usuarios')}}"> <i class="icon-list-alt"></i><span>Usuarios</span> <b class="caret"></b></a>
+          
+        <li><a href="{{ path ('tipousuario') }}"><i class="icon-bar-chart"></i><span>Tipo Usuario</span> </a></li>
+<li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-folder-open"></i><span>Colegio</span> <b class="caret"></b></a>
+         <ul class="dropdown-menu">
+            <li><a href="{{ path('colegio')}}">Crear</a></li>
+            <li><a href="{{ path('tipocolegio')}}">Tipo Colegio</a></li> 
+            <li><a href="{{ path('nivel')}}">Niveles</a></li>   
+            
+                     
+          </ul>
+        
+        <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-folder-open"></i><span>Socio Económico</span> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ path('estrato')}}">Estrato</a></li>
+            <li><a href="{{ path('departamento')}}">Departamento</a></li> 
+            <li><a href="{{ path('localidad')}}">Localidad</a></li>   
+            <li><a href="{{ path('municipio')}}">Municipio</a></li>
+                     
+          </ul>
+        </li>
+       
+        
+        
+        
+   {% else %}
+                <li class="active"><a href="{{ path('colegio_admin_homepage') }}"><i class="icon-dashboard"></i><span>Panel</span> </a> </li>
         <li><a href="{{ path('grupo')}}"> <i class="icon-list-alt"></i><span>Grupos</span> <b class="caret"></b></a>
           
         <li><a href="{{ path ('nota') }}"><i class="icon-bar-chart"></i><span>Calificaciones</span> </a></li>
@@ -64,7 +95,8 @@
         {# <li><a href="#"><i class="icon-code"></i><span>Otros</span> </a> </li> #}
         <li><a href="{{ path ('estudiante') }}"><i class="icon-user"></i><span>Estudiantes</span> </a></li>
         <li><a href="{{ path ('docente') }}"><i class="icon-pencil"></i><span>Docentes</span> </a></li>
-        <li><a href="{{ path ('asignatura') }}"><i class="icon-book"></i><span>Asignaturas</span> </a></li>
+        <li><a href="{{ path ('asignatura') }}"><i class="icon-book"></i><span>Asignaturas</span> </a></li> 
+   {% endif %}
       </ul>
     </div>
     <!-- /container --> 
@@ -79,11 +111,18 @@
 	    <div class="container">
 	
 	      <div class="row">
-                  <div class="span4" style="align:center">
+                  <div class="span8" style="align:center">
 {% for flashMessage in app.session.flashbag.get('notice') %}                  
                   <div class="alert alert-info"><strong>{{ flashMessage }}</strong></div>
 {% endfor %}
                   </div>
+                  <div class="span4">
+                      {% if is_granted('ROLE_PREVIOUS_SUPER_ADMIN') %}
+                         <a href="{{ path('colegio_admin_homepage', { _switch_user: '_exit' }) }}">Finalizar impersonación</a>
+                      {% endif %}
+                      
+                  </div>
+                  
  {% block superarticle %}
                   {# Bloque con un span de 12 #}
                   <div class="{% block span %}
