@@ -23,7 +23,16 @@ class DocenteType extends AbstractType
     {
         $self = $this; 
         $builder
-            ->add('idSede','entity',array(
+                ->add('idColegio','entity',array(
+                'class'=>'ColegioAdminBundle:Colegio',
+                'query_builder'=>function(EntityRepository $er) use($self){
+                        return $er->createQueryBuilder('d')
+                                ->where('d.id = :sede')
+                                ->setParameter('sede',$self->sede);
+                },
+                'label'=>'Colegio',
+                ))
+                ->add('idSede','entity',array(
                 'class' => 'ColegioAdminBundle:Sede',
                 'query_builder' => function(EntityRepository $er) use($self){
                         return $er->createQueryBuilder('u')

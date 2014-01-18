@@ -28,7 +28,13 @@ class Nivel
      */
     private $detalleNivel;
 
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codigoNivel", type="string", length=255)
+     */
+    private $codigoNivel;
+    
     /**
      * Get id
      *
@@ -60,6 +66,29 @@ class Nivel
     public function getDetalleNivel()
     {
         return $this->detalleNivel;
+    }
+    
+    /**
+     * Set codigoNivel
+     *
+     * @param string $codigoNivel
+     * @return Nivel
+     */
+    public function setCodigoNivel($codigoNivel)
+    {
+        $this->codigoNivel = $codigoNivel;
+    
+        return $this;
+    }
+
+    /**
+     * Get codigoNivel
+     *
+     * @return string 
+     */
+    public function getCodigoNivel()
+    {
+        return $this->codigoNivel;
     }
     
     public function __toString()

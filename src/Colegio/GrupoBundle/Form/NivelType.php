@@ -16,6 +16,7 @@ class NivelType extends AbstractType
     {
         $builder
             ->add('detalleNivel')
+            ->add('codigoNivel')
         ;
     }
     

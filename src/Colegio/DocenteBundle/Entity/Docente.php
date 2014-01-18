@@ -3,6 +3,7 @@
 namespace Colegio\DocenteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Docente
@@ -23,42 +24,49 @@ class Docente
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\Sede")
      */
     private $idSede;
 
+     /**
+     * @var string
+     * @Assert\NotBlank()
+     * @ORM\ManyToOne(targetEntity="Colegio\AdminBundle\Entity\Colegio")
+     */
+    private $idColegio;
+    
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\ManyToOne(targetEntity="Colegio\GrupoBundle\Entity\Asignatura")
      */
     private $idMateria;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Nombres", type="string", length=255)
      */
     private $nombres;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="Apellidos", type="string", length=255)
      */
     private $apellidos;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="telefono", type="string", length=255)
      */
     private $telefono;
 
     /**
      * @var string
-     *
+     * @Assert\Email(checkMX=true,message="No es un email válido")
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
@@ -118,6 +126,29 @@ class Docente
         return $this->idSede;
     }
 
+    /**
+     * Set idColegio
+     *
+     * @param string $idColegio
+     * @return Docente
+     */
+    public function setIdColegio(\Colegio\AdminBundle\Entity\Colegio $idColegio)
+    {
+        $this->idColegio = $idColegio;
+    
+        return $this;
+    }
+
+    /**
+     * Get idColegio
+     *
+     * @return string 
+     */
+    public function getIdColegio()
+    {
+        return $this->idColegio;
+    }
+    
     /**
      * Set idMateria
      *
