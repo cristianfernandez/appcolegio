@@ -125,7 +125,9 @@ class GrupoEstudianteController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ColegioEstudianteBundle:GrupoEstudiante')->find($id);
+        $entity = $em->getRepository('ColegioEstudianteBundle:GrupoEstudiante')->findBy(array(
+            'id' => $id
+        ));
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find GrupoEstudiante entity.');
@@ -134,8 +136,9 @@ class GrupoEstudianteController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ColegioEstudianteBundle:GrupoEstudiante:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+            'entities'      => $entity,
+            'notas' => null,
+            'delete_form' => $deleteForm->createView()));
     }
 
     /**
@@ -158,10 +161,40 @@ class GrupoEstudianteController extends Controller
         return $this->render('ColegioEstudianteBundle:GrupoEstudiante:show.html.twig', array(
             'entities'      => $entity,
             'idGrupo' => $id,
+            'notas' => null,
             'idSede' => $sede->getId(),
             'delete_form' => $deleteForm->createView()));
     }
-            
+    
+    /**
+     * Finds and displays a show nota by estudiante entity.
+     *
+     */
+    public function shownotaAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $grupoEstudiante = $em->getRepository('ColegioEstudianteBundle:GrupoEstudiante')->find($id);
+        
+        $estudiante = $em->getRepository('ColegioEstudianteBundle:Estudiante')->find($grupoEstudiante->getIdEstudiante());
+        
+        $grupo = $em->getRepository('ColegioGrupoBundle:Grupo')->find($grupoEstudiante->getIdGrupo());
+        $sede = $em->getRepository('ColegioAdminBundle:Sede')->find($grupo->getIdSede());
+        $entity = $em->getRepository('ColegioEstudianteBundle:GrupoEstudiante')->findBy(array (
+            'idGrupo' => $grupo->getId()
+        ));
+        
+        $nota =  $em->getRepository('ColegioEstudianteBundle:Nota')->findBy(array (
+            'idEstudiante' => $estudiante->getId()
+        ));
+        
+        return $this->render('ColegioEstudianteBundle:GrupoEstudiante:show.html.twig', array(
+            'entities'      => $entity,
+            'idGrupo' => $grupo->getId(),
+            'notas' => $nota,
+            'idSede' => $sede->getId()));
+    }
+    
     /**
      * Displays a form to edit an existing GrupoEstudiante entity.
      *

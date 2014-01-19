@@ -93,4 +93,9 @@ class GrupoEstudiante
     {
         return $this->idGrupo;
     }
+    
+    public function __toString() 
+    {
+        return $this->idEstudiante;
+    }
 }

@@ -60,7 +60,7 @@
         <li><a href="{{ path('usuarios')}}"> <i class="icon-list-alt"></i><span>Usuarios</span> <b class="caret"></b></a>
           
         <li><a href="{{ path ('tipousuario') }}"><i class="icon-bar-chart"></i><span>Tipo Usuario</span> </a></li>
-<li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-folder-open"></i><span>Colegio</span> <b class="caret"></b></a>
+        <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-folder-open"></i><span>Colegio</span> <b class="caret"></b></a>
          <ul class="dropdown-menu">
             <li><a href="{{ path('colegio')}}">Crear</a></li>
             <li><a href="{{ path('tipocolegio')}}">Tipo Colegio</a></li> 
@@ -83,15 +83,9 @@
         
         
    {% else %}
-                <li class="active"><a href="{{ path('colegio_admin_homepage') }}"><i class="icon-dashboard"></i><span>Panel</span> </a> </li>
+        <li class="active"><a href="{{ path('colegio_admin_homepage') }}"><i class="icon-dashboard"></i><span>Panel</span> </a> </li>
         <li><a href="{{ path('grupo')}}"> <i class="icon-list-alt"></i><span>Grupos</span> <b class="caret"></b></a>
-          
-        <li><a href="{{ path ('nota') }}"><i class="icon-bar-chart"></i><span>Calificaciones</span> </a></li>
-        <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-folder-open"></i><span>Informes</span> <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="{{ path('boletin')}}">Boletines</a></li>
-          </ul>
-        </li>
+        <li><a href="{{ path ('boletin') }}"><i class="icon-bar-chart"></i><span>Boletines</span> </a></li>
         {# <li><a href="#"><i class="icon-code"></i><span>Otros</span> </a> </li> #}
         <li><a href="{{ path ('estudiante') }}"><i class="icon-user"></i><span>Estudiantes</span> </a></li>
         <li><a href="{{ path ('docente') }}"><i class="icon-pencil"></i><span>Docentes</span> </a></li>

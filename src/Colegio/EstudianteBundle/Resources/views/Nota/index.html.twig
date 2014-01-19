@@ -19,6 +19,7 @@ span8
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Estudiante</th>
                 <th>Asignatura</th>
                 <th>Calificación</th>
                 <th>Descripción</th>
@@ -30,6 +31,7 @@ span8
         {% for entity in entities %}
             <tr>
                 <td>{{ entity.id }}</td>
+                <td>{{ entity.idEstudiante }}</td>
                 <td>{{ entity.idAsignatura }}</td>
                 <td>{{ entity.calificacion }}</td>
                 <td>{{ entity.descripcion }}</td>

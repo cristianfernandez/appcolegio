@@ -173,8 +173,7 @@ class GrupoController extends Controller
         $em = $this->getDoctrine()->getManager();
         $usuarioActivo = $this->get('security.context')->getToken()->getUser();
         $idColegio = $usuarioActivo->getIdColegio();
-        $sedeactual = $em->getRepository('ColegioAdminBundle:Sede')->findColegio($idColegio);
-        $form = $this->createForm(new GrupoType($sedeactual), $entity, array(
+        $form = $this->createForm(new GrupoType($idColegio), $entity, array(
             'action' => $this->generateUrl('grupo_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
